@@ -60,29 +60,7 @@
     <li> <a href="{{route('backend.company.index')}}"><i class="icon icon-signal"></i> <span>Customer</span></a> </li>
     <li> <a href="#"><i class="icon icon-inbox"></i> <span>Contract</span></a> </li>
     <li><a href="#"><i class="icon icon-th"></i> <span>Contact</span></a></li>
-    <li><a href="grid.html"><i class="icon icon-fullscreen"></i> <span>Meeting</span></a></li>
-    <!--<li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Forms</span> <span class="label label-important">3</span></a>
-      <ul>
-        <li><a href="form-common.html">Basic Form</a></li>
-        <li><a href="form-validation.html">Form with Validation</a></li>
-        <li><a href="form-wizard.html">Form with Wizard</a></li>
-      </ul>
-    </li>
-    
-    <li class="content"> <span>Monthly Bandwidth Transfer</span>
-      <div class="progress progress-mini progress-danger active progress-striped">
-        <div style="width: 77%;" class="bar"></div>
-      </div>
-      <span class="percent">77%</span>
-      <div class="stat">21419.94 / 14000 MB</div>
-    </li>
-    <li class="content"> <span>Disk Space Usage</span>
-      <div class="progress progress-mini active progress-striped">
-        <div style="width: 87%;" class="bar"></div>
-      </div>
-      <span class="percent">87%</span>
-      <div class="stat">604.44 / 4000 MB</div>
-    </li>-->
+    <li><a href="#"><i class="icon icon-fullscreen"></i> <span>Meeting</span></a></li>    
   </ul>
 </div>
 <!--sidebar-menu-->
