@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/fullcalendar.css" />
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/matrix-style.css" />
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/matrix-media.css" />
-<link href="font-awesome/{{ asset('') }}public/backend/css/font-awesome.css" rel="stylesheet" />
+<link href="{{ asset('') }}public/backend/font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/jquery.gritter.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 </head>
