@@ -20,11 +20,5 @@ Auth::routes();
 Route::group(['prefix' => 'manage', 'namespace' => 'Backend'], function () {
 	Route::get('/dashboard', ['as' => 'backend.dashboard.index', 'uses' => 'DashboardController@index']);
 	Route::get('/users', ['as' => 'backend.users.index', 'uses' => 'UsersController@index']);
-	Route::get('/company', ['as' => 'backend.company.index', 'uses' => 'CompanyController@index']);
-	Route::get('/company/regist', ['as' => 'backend.company.regist', 'uses' => 'CompanyController@getRegist']);
-    Route::post('/company/regist', ['as' => 'backend.company.regist', 'uses' => 'CompanyController@postRegist']);
-	Route::get('/company/edit/{id}', ['as' => 'backend.company.edit', 'uses' => 'CompanyController@getEdit']);
-	Route::post('/company/edit/{id}', ['as' => 'backend.company.edit', 'uses' => 'CompanyController@postEdit']);
-	Route::get('/company/delete/{id}', ['as' => 'backend.company.delete', 'uses' => 'CompanyController@getDelete']);
 
 });
