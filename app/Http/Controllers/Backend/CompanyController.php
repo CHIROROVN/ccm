@@ -19,7 +19,7 @@ class CompanyController extends BackendController
 	public function index(){
 		$data =array();
 		$clsCompany          = new CompanyModel();
-        $data['belongs']    = $clsCompany->get_all();               
+        $data['companies']    = $clsCompany->get_all();               
 		return view('backend.company.index',$data);
 	}
 
