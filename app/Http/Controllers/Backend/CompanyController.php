@@ -41,9 +41,9 @@ class CompanyController extends BackendController
         // insert
         $max = $clsCompany->get_max();
         $dataInsert             = array(
-            'company_name'       => Input::get('company_name'),
-            'belong_sort'       => $max + 1,            
-            'belong_code'       => Input::get('belong_code'),
+            'company_name'      => Input::get('company_name'),
+            'company_address'   => Input::get('company_address'),          
+            'company_mst'       => Input::get('company_mst'),
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => INSERT,
             'last_ipadrs'       => CLIENT_IP_ADRS,
@@ -88,8 +88,9 @@ class CompanyController extends BackendController
         }
         // update
         $dataUpdate = array(
-            'company_name'       => Input::get('company_name'),
-            'belong_code'       => Input::get('belong_code'),
+            'company_name'      => Input::get('company_name'),
+            'company_address'   => Input::get('company_address'),          
+            'company_mst'       => Input::get('company_mst'),
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => UPDATE,
             'last_ipadrs'       => $_SERVER['REMOTE_ADDR'],
