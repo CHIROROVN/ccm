@@ -1,5 +1,6 @@
 @extends('backend.layouts.app')
 @section('content')
+<div id="content">
 <div id="content-header">
   <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.company.index') }}">Companies List</a> <a href="#" class="current">New Company</a> </div>
     <!--<h1>New Company</h1>-->
@@ -49,6 +50,7 @@
         </div>  
     </div>
   </div>    
+</div>
 </div>
  <script type="text/javascript">
 $("#btnSubmit").on("click",function() {  

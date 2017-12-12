@@ -3,8 +3,8 @@
 <div id="content">
   <div id="content-header">
     <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Companies</a> </div>
-    <h1>Companies</h1>
-    <span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.company.regist') }}'">新規登録</button></span>
+   <!-- <h1>Companies</h1>-->
+    <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.company.regist') }}'">新規登録</button></span></h1>
   </div>
   <div class="container-fluid">
     <hr>
