@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
+include('config/constants.php');
 
 class BackendController extends Controller
 {
