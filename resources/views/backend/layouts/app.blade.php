@@ -59,6 +59,17 @@
 
 @include('backend.layouts.sidebar')
 
+=======
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+  <ul>
+    <li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+    <li> <a href="{{route('backend.company.index')}}"><i class="icon icon-signal"></i> <span>Customer</span></a> </li>
+    <li> <a href="#"><i class="icon icon-inbox"></i> <span>Contract</span></a> </li>
+    <li><a href="#"><i class="icon icon-th"></i> <span>Contact</span></a></li>
+    <li><a href="#"><i class="icon icon-fullscreen"></i> <span>Meeting</span></a></li>    
+  </ul>
+</div>
+
 <!--sidebar-menu-->
 
 <!--Content-->
