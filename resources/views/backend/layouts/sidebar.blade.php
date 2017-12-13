@@ -4,7 +4,13 @@
     <li class="submenu"><a href="{{route('backend.company.index')}}"><i class="icon icon-home"></i> <span>Company</span> </a>
       <ul>
         <li><a href="{{route('backend.company.index')}}">Company List</a></li>
-        <li><a href="#">Company Regist</a></li>
+        <li><a href="{{route('backend.company.regist')}}">Company Regist</a></li>
+      </ul>
+    </li>
+    <li class="submenu"><a href="{{route('backend.contact.index')}}"><i class="icon icon-home"></i> <span>Contact</span> </a>
+      <ul>
+        <li><a href="{{route('backend.contact.index')}}">Contact List</a></li>
+        <li><a href="{{route('backend.contact.index')}}">Contact Regist</a></li>
       </ul>
     </li>
     <li class="submenu @if(curr_page() == 'contract') active @endif"> <a href="{{route('backend.contract.index')}}"><i class="icon icon-book"></i> <span>Contract</span></a>
