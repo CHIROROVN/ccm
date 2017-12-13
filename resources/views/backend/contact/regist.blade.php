@@ -2,7 +2,7 @@
 @section('content')
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.company.index') }}">Companies List</a> <a href="#" class="current">New Company</a> </div>
+  <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.contact.index') }}">Contacts List</a> <a href="#" class="current">New Contact</a> </div>
     <!--<h1>New Company</h1>-->
 </div>
 <div class="container-fluid"><hr>
@@ -17,27 +17,40 @@
                 <h4 class="alert-heading">Error!</h4>
                 <p id="error_mess">@if ($errors->first('company_name')) ※{!! $errors->first('company_name') !!} @endif</p>               
               </div>
-            {!! Form::open(array('url' => route('backend.company.regist'),'id'=>'frmRegist', 'method' => 'post','class'=>'form-horizontal')) !!}            
+            {!! Form::open(array('url' => route('backend.contact.regist'),'id'=>'frmRegist', 'method' => 'post','class'=>'form-horizontal')) !!}            
               <div id="form-wizard-1" class="step">
+                <div class="control-group">
+                  <label class="control-label">Contact name</label>
+                  <div class="controls">
+                    <input id="contact_name" type="text" name="contact_name" />
+                  </div>
+                </div>
                 <div class="control-group">
                   <label class="control-label">Company name</label>
                   <div class="controls">
-                    <input id="company_name" type="text" name="company_name" />
+                    <select id="company_id" name="company_id">
+                     
+                    </select>
                   </div>
                 </div>
                 <div class="control-group">
-                  <label class="control-label">Company Address</label>
+                  <label class="control-label">Contact email</label>
                   <div class="controls">
-                    <input id="company_address" type="text" name="company_address" />
+                    <input id="contact_email" type="text" name="contact_email" />
                   </div>
                 </div>
                 <div class="control-group">
-                  <label class="control-label">Company MST</label>
+                  <label class="control-label">Contact tel</label>
                   <div class="controls">
-                    <input id="company_mst" type="text" name="company_mst" />
+                    <input id="contact_tel" type="text" name="contact_tel" />
                   </div>
                 </div>
-               
+               <div class="control-group">
+                  <label class="control-label">Contact title</label>
+                  <div class="controls">
+                    <input id="contact_title" type="text" name="contact_title" />
+                  </div>
+                </div>
               </div>
               <div class="form-actions">
                 <input id="back" class="btn btn-primary" type="reset" value="Reset" />

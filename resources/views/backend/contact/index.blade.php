@@ -2,9 +2,9 @@
 @section('content')
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Companies</a> </div>
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Contacts</a> </div>
    <!-- <h1>Companies</h1>-->
-    <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.company.regist') }}'">新規登録</button></span></h1>
+    <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.contact.regist') }}'">新規登録</button></span></h1>
   </div>
   <div class="container-fluid">
     <div class="flash-messages">
@@ -26,31 +26,33 @@
           <div class="widget-title"> <span class="icon">
             <input type="checkbox" id="title-checkbox" name="title-checkbox" />
             </span>
-            <h5>Companies list</h5>
+            <h5>Contacts list</h5>
           </div>
           <div class="widget-content nopadding">
             <table class="table table-bordered table-striped with-check">
               <thead>
                 <tr>
                   <th><i class="icon-resize-vertical"></i></th>
+                  <th>Contact name</th>
                   <th>Company name</th>
-                  <th>Address</th>
-                  <th>MST</th>
+                  <th>Contact email</th>
+                  <th>Contact Tel</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-                @if(empty($companies) || count($companies) < 1)
+                @if(empty($contacts) || count($contacts) < 1)
                 <tr><td colspan="5"><h3 align="center">該当するデータがありません。</h3></td>               
                 </tr>
                 @else  
-                  @foreach($companies as $company) 
+                  @foreach($contacts as $contact) 
                 <tr>
-                  <td><input name="btnDelete" id="btnDelete" value="削除" type="button" class="btn btn-primary btn-xs" onclick="btnDelete('{{$company->company_id}}');"></td>
-                  <td>{{$company->company_name}}</td>
-                  <td>{{$company->company_address}}</td>
-                  <td>{{$company->company_mst}}</td>
-                  <td class="center"> <input onclick="location.href='{{ route('backend.company.edit', $company->company_id) }}'" value="編集" type="button" class="btn btn-primary btn-xs"></td>
+                  <td><input name="btnDelete" id="btnDelete" value="削除" type="button" class="btn btn-primary btn-xs" onclick="btnDelete('{{$contact->contact_id}}');"></td>
+                  <td>{{$contact->contact_name}}</td>
+                  <td>{{$contact->contact_email}}</td>
+                  <td>{{$contact->contact_email}}</td>
+                  <td>{{$contact->contact_tel}}</td>
+                  <td class="center"> <input onclick="location.href='{{ route('backend.contact.edit', $contact->contact_id) }}'" value="編集" type="button" class="btn btn-primary btn-xs"></td>
                 </tr>
                 @endforeach  
                 @endif  
@@ -102,7 +104,7 @@ function btnDelete($id)
 $('#btnDelteYes').click(function () {
     var id = $('#myModal').data('id');   
     
-    location.href='{{ asset('manage/company/delete/') }}'+'/'+ id ;
+    location.href='{{ asset('manage/contact/delete/') }}'+'/'+ id ;
 });
 </script>  
   @endsection

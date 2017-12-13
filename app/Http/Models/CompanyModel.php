@@ -28,6 +28,8 @@ class CompanyModel {
         return DB::table($this->table)->where('last_kind', '<>', DELETE)->orderBy('company_id', 'DESC')->get();
     }
 
+    
+
     public function insert($data)
     {
         return DB::table($this->table)->insert($data);
