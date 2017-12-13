@@ -2,6 +2,7 @@
 <html lang="en">    
 <head>
     <title>Chiroro-Net Viet Co., Ltd</title><meta charset="UTF-8" />
+    <link rel="icon" href="{{ asset('') }}public/favicon/favicon.png" type="image/gif" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="{{ asset('') }}public/backend/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="{{ asset('') }}public/backend/css/bootstrap-responsive.min.css" />
