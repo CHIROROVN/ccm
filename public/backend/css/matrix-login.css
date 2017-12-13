@@ -1,4 +1,4 @@
-html, body {    width: 100%;    height: 100%;}
+html, body {    width: 100%;}
 /*Bootstrap-overlay*/
 
 body {
@@ -39,7 +39,7 @@ hr{ border-top-color:#dadada;}
 .bg_lv{ background:#603bbc;}
 .bg_lh{ background:#b6b3b3;}
 
-body { background-color:#6A727B;    padding: 0;    margin-top:10%;}
+body { background-color:#6A727B;    padding: 0;    margin-top:7%;}
 #logo, #loginbox {    width: 32%;    margin-left: auto;    margin-right: auto;    position: relative;}
 #logo img {  margin: 0 auto;    display: block;}
 #loginbox { overflow: hidden !important;    text-align: left;    position: relative; }
@@ -53,7 +53,7 @@ body { background-color:#6A727B;    padding: 0;    margin-top:10%;}
 #loginbox .main_input_box .add-on{  padding:9px 9px; *line-height:31px; vertical-align:top; color:#fff;  width:30px; display:inline-block;}
 #loginbox .main_input_box input{ height:30px; vertical-align:top; border:0px; display:inline-block; width:75%; line-height:22px;  margin-bottom:3px;}
 #loginbox .controls{ padding:0 20px;}
-#loginbox .control-group{ padding:20px 0; margin-bottom:0px;}
+#loginbox .control-group{ padding:10px 0; margin-bottom:0px;}
 .form-vertical, .form-actions {  margin-bottom: 0; background:none; border-top:1px solid #3f4954; }
 #loginbox .normal_text{ padding:15px 10px; text-align:center; font-size:14px; line-height:20px; background:#5A626B; color:#fff; }
 @media (max-width:800px){
@@ -65,3 +65,94 @@ body { background-color:#6A727B;    padding: 0;    margin-top:10%;}
 #loginbox{ width:90%}
 #loginbox .control-group{ padding:8px 0; margin-bottom:0px;}
 }
+
+/*** chiroro Viet ***/
+.message #close {
+    float: right;
+    color: inherit;
+    text-decoration: none;
+}
+
+#success.message {
+    background-color: #DFF0D8;
+    border-left: 6px #4CAF50 solid;
+    color: #296829;
+    width: 100%;
+}
+
+#error.message {
+    background-color: #F2DEDE;
+    border-left: 6px #D6010E solid;
+    color: #d6010e;
+    width: 94%;
+}
+
+.message{
+    background-size: 40px 40px;
+    background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, 
+    transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+    transparent 75%, transparent);
+    background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, 
+    transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+    transparent 75%, transparent);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, 
+    transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+    transparent 75%, transparent);
+    box-shadow: 0 0 8px rgba(0,0,0,.3);
+    font:16px 'Open Sans';
+    width: 85%;
+    margin: 20px auto;
+    margin-top: 5p;
+    padding:15px;
+    padding-right: 6px;
+    -moz-animation: bg-animate 5s linear infinite;
+    -webkit-animation: bg-animate 5s linear infinite;
+    -ms-animation: bg-animate 5s linear infinite;
+    animation: bg-animate 5s linear infinite;
+    text-align: left;
+}
+
+.width-msg{
+    background-size: 40px 40px;
+    background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, 
+    transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+    transparent 75%, transparent);
+    background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, 
+    transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+    transparent 75%, transparent);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, 
+    transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+    transparent 75%, transparent);
+    box-shadow: 0 0 8px rgba(0,0,0,.3);
+    font:16px 'Open Sans';
+    width: 100%;
+    margin: 20px auto;
+    padding:15px;
+    -moz-animation: bg-animate 5s linear infinite;
+    -webkit-animation: bg-animate 5s linear infinite;
+    -ms-animation: bg-animate 5s linear infinite;
+    animation: bg-animate 5s linear infinite;
+}
+
+.error-text {
+  color: #FF8C00;
+  background-image: url('../img/warning.gif');
+  background-repeat: no-repeat;
+  text-align: left;
+  margin-left: 22px;
+  padding-left: 19px;
+}
+
+span.required {
+    color: #D50000;
+    padding-left: 8px;
+}
+
+.help-block {
+    color: #D50000;
+    background-image: url('../img/warning.gif');
+    background-repeat: no-repeat;
+    padding-left: 20px;
+}
+
+/**************/

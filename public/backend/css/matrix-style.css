@@ -1587,3 +1587,94 @@ div.dataTables_wrapper .ui-widget-header {
 }
 #sidebar .content{ display:none;}
 }
+
+/*** chiroro Viet ***/
+.message #close {
+    float: right;
+    color: inherit;
+    text-decoration: none;
+}
+
+#success.message {
+    background-color: #DFF0D8;
+    border-left: 6px #4CAF50 solid;
+    color: #296829;
+    width: 100%;
+}
+
+#error.message {
+    background-color: #F2DEDE;
+    border-left: 6px #D6010E solid;
+    color: #d6010e;
+    width: 100%;
+}
+
+.message{
+    background-size: 40px 40px;
+    background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, 
+    transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+    transparent 75%, transparent);
+    background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, 
+    transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+    transparent 75%, transparent);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, 
+    transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+    transparent 75%, transparent);
+    box-shadow: 0 0 8px rgba(0,0,0,.3);
+    font:16px 'Open Sans';
+    width: 85%;
+    margin: 20px auto;
+    margin-top: 5p;
+    padding:15px;
+    padding-right: 6px;
+    -moz-animation: bg-animate 5s linear infinite;
+    -webkit-animation: bg-animate 5s linear infinite;
+    -ms-animation: bg-animate 5s linear infinite;
+    animation: bg-animate 5s linear infinite;
+    text-align: left;
+}
+
+.width-msg{
+    background-size: 40px 40px;
+    background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, 
+    transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+    transparent 75%, transparent);
+    background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, 
+    transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+    transparent 75%, transparent);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, 
+    transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+    transparent 75%, transparent);
+    box-shadow: 0 0 8px rgba(0,0,0,.3);
+    font:16px 'Open Sans';
+    width: 100%;
+    margin: 20px auto;
+    padding:15px;
+    -moz-animation: bg-animate 5s linear infinite;
+    -webkit-animation: bg-animate 5s linear infinite;
+    -ms-animation: bg-animate 5s linear infinite;
+    animation: bg-animate 5s linear infinite;
+}
+
+.error-text {
+  color: #D50000;
+  background-image: url('../images/warning.gif');
+  background-repeat: no-repeat;
+  text-align: left;
+  margin-top: -10px;
+  padding-left: 18px;
+}
+
+span.required {
+    color: #D50000;
+    padding-left: 8px;
+}
+
+.help-block {
+    color: #D50000;
+    background-image: url('../images/warning.gif');
+    background-repeat: no-repeat;
+    padding-left: 20px;
+}
+
+/**************/
