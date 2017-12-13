@@ -48,6 +48,10 @@ Route::get('/', function(){
 	return redirect()->route('backend.users.login');
 });
 
+Route::get('/manage', function(){
+	return redirect()->route('backend.users.login');
+});
+
 Route::get('/users/login', function(){
 	return redirect()->route('backend.users.login');
 });
