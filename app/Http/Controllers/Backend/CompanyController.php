@@ -59,7 +59,7 @@ class CompanyController extends BackendController
     public function getEdit($id)
     {
         $clsCompany          = new CompanyModel();
-        $data['belong']     = $clsCompany->get_by_id($id);
+        $data['company']     = $clsCompany->get_by_id($id);
         $data['error']['error_company_name_required']    = trans('validation.error_company_name_required');
        
         return view('backend.company.edit', $data);
@@ -72,15 +72,10 @@ class CompanyController extends BackendController
     {
         $clsCompany      = new CompanyModel();
         $inputs         = Input::all();
-        $validator      = Validator::make($inputs, $clsCompany->Rules(), $clsCompany->Messages());
+        $validator      = Validator::make($inputs, $clsCompany->Rules(), $clsCompany->Messages());        
         if ($validator->fails()) {
             return redirect()->route('backend.company.edit', [$id])->withErrors($validator)->withInput();
-        }
-        $belong = $clsCompany->get_by_belong_code(Input::get('belong_code'));
-        if(isset($belong->belong_id) && $belong->belong_id != $id){
-            $error['belong_code']      = trans('validation.error_belong_code_unique');  
-            return redirect()->route('backend.company.edit', [$id])->withErrors($error)->withInput();
-        }
+        }       
         // update
         $dataUpdate = array(
             'company_name'      => Input::get('company_name'),
@@ -89,7 +84,7 @@ class CompanyController extends BackendController
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => UPDATE,
             'last_ipadrs'       => $_SERVER['REMOTE_ADDR'],
-            'last_user'         => Auth::user()->u_id 
+            'last_user'         => 1//Auth::user()->u_id 
         );
 
         if ( $clsCompany->update($id, $dataUpdate) ) {
@@ -110,9 +105,9 @@ class CompanyController extends BackendController
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => DELETE,
             'last_ipadrs'       => $_SERVER['REMOTE_ADDR'],
-            'last_user'         => Auth::user()->u_id 
+            'last_user'         => 1//Auth::user()->u_id 
         );
-        if ( $clsCompany->delete($id, $dataUpdate) ) {
+        if ( $clsCompany->update($id, $dataUpdate) ) {
             Session::flash('success', trans('common.msg_delete_success'));
         } else {
             Session::flash('danger', trans('common.msg_delete_danger'));

@@ -1,80 +1,64 @@
 @extends('backend.layouts.app')
 @section('content')
-<!-- breadcrumbs -->
-  <div class="w3l_agileits_breadcrumbs">
-    <div class="w3l_agileits_breadcrumbs_inner">
-      <ul>
-        <li>データ管理<span>＞</span></li>
-        <li>部課の管理<span>＞</span></li>
-        <li>部の新規登録</li>
-      </ul>
-    </div>
-  </div>
-  {!! Form::open(array('url' => 'division/edit/'. $belong->belong_id,'id'=>'frmEdit', 'method' => 'post')) !!}
-        <!-- //breadcrumbs -->
-        <div class="inner_content_w3_agile_info two_in">
-          <p class="intro">部を新規登録します。</p>
-          <!--/forms-->
-          <div class="forms-main_agileits">
-            <header class="panel-heading">
-              部の新規登録
-            </header>
-            <div class="graph-form agile_info_shadow">
-              <div class="form-body">
-                <form> 
-                  <table class="table table-bordered mar-bottom15">
-                    <tr>
-                      <td class="col-title col-md-3"><label for="">部の名称<span class="f_caution">(*)</span></label></td>
-                      <td class="col-md-9">
-                        <div class="col-md-6">
-                          <input type="text" class="form-control" id="belong_name" name="belong_name" value="{{ $belong->belong_name }}">
-                          <span class="help-block" id="error-belong-name">@if ($errors->first('belong_name')) ※{!! $errors->first('belong_name') !!} @endif</span>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="col-title col-md-3"><label for="">部のコード<span class="f_caution">(*)</span></label></td>
-                      <td class="col-md-9">
-                        <div class="col-md-6">
-                          <input type="text" class="form-control" id="belong_code" name="belong_code" value="{{ $belong->belong_code }}">
-                          <span class="help-block" id="error-belong_code">@if ($errors->first('belong_code')) ※{!! $errors->first('belong_code') !!} @endif</span>
-                        </div>
-                      </td>
-                    </tr>
-                  </table>
-                  <div class="row mar-bottom15">
-                    <div class="col-md-12 text-center">
-                      <input name="btnSubmit" id="btnSubmit" value="登録する" type="button" class="btn btn-primary btn-sm">
-                      <input name="button" value="クリア" type="reset" class="btn btn-primary btn-sm mar-left15">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 text-center">
-                      <input onclick="location.href='{{route('backend.division.index')}}'" value="登録済み部の一覧に戻る" type="button" class="btn btn-primary btn-sm">
-                    </div>
-                  </div>
-                  </form> 
-                </div>
+<div id="content">
+<div id="content-header">
+  <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.company.index') }}">Companies List</a> <a href="#" class="current">Edit Company</a> </div>
+    <!--<h1>New Company</h1>-->
+</div>
+<div class="container-fluid"><hr>
+  <div class="row-fluid">
+    <div class="span12">
+       <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
+            <h5>Edit Company</h5>
+          </div>
+           <div class="widget-content nopadding">
+              <div class="alert alert-error alert-block" @if ($errors->first('company_name')) style="display:block" @else style="display:none" @endif id="div_error"> <a class="close" data-dismiss="alert" href="#">×</a>
+                <h4 class="alert-heading">Error!</h4>
+                <p id="error_mess">@if ($errors->first('company_name')) ※{!! $errors->first('company_name') !!} @endif</p>               
               </div>
-            </div>
+            {!! Form::open(array('url' => route('backend.company.edit',$company->company_id),'id'=>'frmEdit', 'method' => 'post','class'=>'form-horizontal')) !!}            
+              <div id="form-wizard-1" class="step">
+                <div class="control-group">
+                  <label class="control-label">Company name</label>
+                  <div class="controls">
+                    <input id="company_name" type="text" name="company_name" value="{{$company->company_name}}" />
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">Company Address</label>
+                  <div class="controls">
+                    <input id="company_address" type="text" name="company_address" value="{{$company->company_address}}"/>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">Company MST</label>
+                  <div class="controls">
+                    <input id="company_mst" type="text" name="company_mst" value="{{$company->company_mst}}"/>
+                  </div>
+                </div>
+               
+              </div>
+              <div class="form-actions">
+                <input id="back" class="btn btn-primary" type="reset" value="Reset" />
+                <input  class="btn btn-primary" type="button" value="Save" id="btnSubmit" />
+                <div id="status"></div>
+              </div>                
+              <div id="submitted"></div>
+              {!! Form::close() !!}           
           </div>  
-  {!! Form::close() !!}   
-<script type="text/javascript">
-$("#btnSubmit").on("click",function() {  
+        </div>  
+    </div>
+  </div>    
+</div>
+</div>
+ <script type="text/javascript">
+$("#btnSubmit").on("click",function() { 
   var flag = true;
-  if (!$("#belong_name").val().replace(/ /g, "")) {  
-    $("#error-belong-name").html('<?php echo $error['error_belong_name_required'];?>');             
-    $("#error-belong-name").css('display','block');   
-    $('#belong_name').focus();
-    flag = false;    
-  } 
-  if (!$("#belong_code").val().replace(/ /g, "")) {  
-    $("#error-belong_code").html('<?php echo $error['error_belong_code_required'];?>');             
-    $("#error-belong_code").css('display','block');   
-    $('#belong_code').focus();
-    flag = false; 
+  if (!$("#company_name").val().replace(/ /g, "")) {
+      flag = false;
   }  
   if(flag) $( "#frmEdit" ).submit(); 
-});
-</script>    
+}); 
+</script>   
 @endsection

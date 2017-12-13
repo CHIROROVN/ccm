@@ -7,7 +7,19 @@
     <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.company.regist') }}'">新規登録</button></span></h1>
   </div>
   <div class="container-fluid">
-    <hr>
+    <div class="flash-messages">
+      @if($message = Session::get('danger'))
+        <div id="error" class="message">
+          <a id="close" title="Message"  href="#" onClick="document.getElementById('error').setAttribute('style','display: none;');">&times;</a>
+            <span>{{$message}}</span>
+        </div>
+        @elseif($message = Session::get('success'))
+        <div id="success" class="message">
+          <a id="close" title="Message"  href="javascript::void(0);" onClick="document.getElementById('success').setAttribute('style','display: none;');">&times;</a>
+            <span>{{$message}}</span>
+        </div>
+        @endif  
+    </div> 
     <div class="row-fluid">
       <div class="span12">
         <div class="widget-box">
@@ -51,4 +63,46 @@
     </div>
   </div>
 </div>
+<!-- start: Delete Coupon Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                    aria-hidden="true">&times;</button>
+                <h3 class="modal-title" id="myModalLabel">Warning!</h3>
+            </div>
+            <div class="modal-body">
+                <h4>Are you sure you want to DELETE?</h4>
+
+            </div>
+            <!--/modal-body-collapse -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnDelteYes" href="#">Yes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            </div>
+            <!--/modal-footer-collapse -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<script type="text/javascript">
+  $('#btnDelete').on('click', function (e) {    
+    var id = $(this).closest('tr').data('id');
+    $('#myModal').data('id', id).modal('show');
+});
+function btnDelete($id)
+ {
+      var id = $id;
+    $('#myModal').data('id', id).modal('show');
+ } 
+$('#btnDelteYes').click(function () {
+    var id = $('#myModal').data('id');   
+    
+    location.href='{{ asset('manage/company/delete/') }}'+'/'+ id ;
+});
+</script>  
   @endsection
