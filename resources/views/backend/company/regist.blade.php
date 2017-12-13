@@ -54,7 +54,6 @@
 </div>
  <script type="text/javascript">
 $("#btnSubmit").on("click",function() { 
-alert('vao day'); 
   var flag = true;
   if (!$("#company_name").val().replace(/ /g, "")) {
       flag = false;

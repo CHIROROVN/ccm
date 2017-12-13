@@ -3,18 +3,13 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Backend\BackendController;
 use Auth;
 use App\Http\Models\CompanyModel;
-
+use Validator;
+use Input;
 use Session;
 use Config;
 
 class CompanyController extends BackendController
-{
-	
-	public function __construct()
-    {
-      /*  parent::__construct();
-        $this->middleware('auth');*/
-    }
+{	
 	
 	public function index(){
 		$data =array();
@@ -38,8 +33,7 @@ class CompanyController extends BackendController
         if ($validator->fails()) {
             return redirect()->route('backend.company.regist')->withErrors($validator)->withInput();
         }       
-        // insert
-        $max = $clsCompany->get_max();
+        // insert        
         $dataInsert             = array(
             'company_name'      => Input::get('company_name'),
             'company_address'   => Input::get('company_address'),          
@@ -47,7 +41,8 @@ class CompanyController extends BackendController
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => INSERT,
             'last_ipadrs'       => CLIENT_IP_ADRS,
-            'last_user'         => Auth::user()->u_id            
+            //'last_user'         => Auth::user()->u_id            
+            'last_user'         => 1            
         );
         
         if ( $clsCompany->insert($dataInsert) ) {
