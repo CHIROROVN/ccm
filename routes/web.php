@@ -23,6 +23,7 @@ Route::group(['prefix' => 'manage', 'namespace' => 'Backend'], function () {
 	Route::get('/users', ['as' => 'backend.users.index', 'uses' => 'UsersController@index']);
 	Route::get('/users/login', ['as' => 'backend.users.login', 'uses' => 'UsersController@login']);
 	Route::post('/users/login', ['as' => 'backend.users.login', 'uses' => 'UsersController@postLogin']);
+	Route::get('/users/logout', ['as' => 'backend.users.logout', 'uses' => 'UsersController@logout']);
 	
 	Route::get('/company', ['as' => 'backend.company.index', 'uses' => 'CompanyController@index']);
 	Route::get('/company/regist', ['as' => 'backend.company.regist', 'uses' => 'CompanyController@getRegist']);
@@ -42,3 +43,19 @@ Route::group(['prefix' => 'manage', 'namespace' => 'Backend'], function () {
 	Route::get('/contract', ['as' => 'backend.contract.index', 'uses' => 'ContractController@index']);
 
 });
+
+Route::get('/', function(){
+	return redirect()->route('backend.users.login');
+});
+
+Route::get('/users/login', function(){
+	return redirect()->route('backend.users.login');
+});
+
+if(Auth::check()){
+	return redirect()->route('backend.dashboard.index');
+}else{
+	return redirect()->route('backend.users.login');
+}
+
+Auth::routes();

@@ -12,21 +12,47 @@
 
 </head>
     <body>
-        <div id="loginbox">            
-            <form id="loginform" class="form-vertical" action="index.html">
+
+        <div id="loginbox">
+            <div class="flash-messages">
+                @if($message = Session::get('danger'))
+
+                    <div id="error" class="message">
+                        <a id="close" title="Message"  href="#" onClick="document.getElementById('error').setAttribute('style','display: none;');">&times;</a>
+                        <span>{{$message}}</span>
+                    </div>
+
+                @elseif($message = Session::get('success'))
+
+                    <div id="success" class="message">
+                        <a id="close" title="Message"  href="javascript:void(0);" onClick="document.getElementById('success').setAttribute('style','display: none;');">&times;</a>
+                        <span>{{$message}}</span>
+                    </div>
+
+                @endif  
+            </div>
+
+            {!! Form::open(array('route' => ['backend.users.login'], 'class' => 'form-vertical', 'method' => 'post', 'enctype'=>'multipart/form-data', 'accept-charset'=>'utf-8')) !!}
 				 <div class="control-group normal_text"> <h3>
-                    <img src="{{ asset('') }}public/backend/img/logo.png" alt="CMS Admin Login" /></h3></div>
+                    <img src="{{ asset('') }}public/backend/img/logo.png" alt="" /></h3></div>
+
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="text" placeholder="Username" />
+                            <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="text" name="u_login" placeholder="Username" />
+                            @if ($errors->first('u_login'))
+                              <div class="error-text">{{$errors->first('u_login')}}</div>
+                            @endif
                         </div>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" placeholder="Password" />
+                            <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" name="u_passwd" placeholder="Password" />
+                            @if ($errors->first('u_passwd'))
+                              <div class="error-text">{{$errors->first('u_passwd')}}</div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -34,26 +60,10 @@
                     <div class="controls">
                     <div class="control-group normal_text">
                         <button type="submit" class="btn btn-success btn-md">&nbsp;&nbsp;&nbsp;&nbsp; Login &nbsp;&nbsp;&nbsp;&nbsp;</button>
-
                     </div>
                 </div>
                 </div>
-            </form>
-
-            <form id="recoverform" action="#" class="form-vertical">
-				<p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a password.</p>
-				
-                    <div class="controls">
-                        <div class="main_input_box">
-                            <span class="add-on bg_lo"><i class="icon-envelope"></i></span><input type="text" placeholder="E-mail address" />
-                        </div>
-                    </div>
-               
-                <div class="form-actions">
-                    <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; Back to login</a></span>
-                    <span class="pull-right"><a class="btn btn-info"/>Reecover</a></span>
-                </div>
-            </form>
+            {!! Form::close() !!}
 
         </div>
         

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'previous' => '&laquo; Previous',
-    'next' => 'Next &raquo;',
+    'previous' => '前の'.LIMIT_PAGE.'件を表示',
+    'next' => '次の'.LIMIT_PAGE.'件を表示',
 
 ];

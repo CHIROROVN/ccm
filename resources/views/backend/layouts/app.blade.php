@@ -32,7 +32,7 @@
       <ul class="dropdown-menu">
         <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
         <li class="divider"></li>
-        <li><a href="{{route('backend.users.login')}}"><i class="icon-key"></i> Log Out</a></li>
+        <li><a href="{{route('backend.users.logout')}}"><i class="icon-key"></i> Log Out</a></li>
       </ul>
     </li>
 
