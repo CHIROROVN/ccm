@@ -2,9 +2,8 @@
 namespace App\Http\Models;
 use DB;
 use Validator;
-use Illuminate\Database\Eloquent\Model;
 
-class CompanyModel extends Model{   
+class CompanyModel {   
 
     protected $table = 'm_company';
     protected $primaryKey   = 'company_id';
@@ -29,7 +28,7 @@ class CompanyModel extends Model{
         return DB::table($this->table)->where('last_kind', '<>', DELETE)->orderBy('company_id', 'DESC')->get();
     }
 
-   /* public function insert($data)
+    public function insert($data)
     {
         return DB::table($this->table)->insert($data);
     }
@@ -42,6 +41,6 @@ class CompanyModel extends Model{
     public function get_by_id($id)
     {
         return DB::table($this->table)->where('company_id', $id)->first();
-    }*/
+    }
 
 }

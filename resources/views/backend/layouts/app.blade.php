@@ -12,6 +12,7 @@
 <link href="{{ asset('') }}public/backend/font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/jquery.gritter.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+<script src="{{ asset('') }}public/backend/js/jquery.min.js"></script> 
 </head>
 <body>
 
@@ -83,7 +84,7 @@
 <!--end-Footer-part-->
 
 <script src="{{ asset('') }}public/backend/js/excanvas.min.js"></script> 
-<script src="{{ asset('') }}public/backend/js/jquery.min.js"></script> 
+
 <script src="{{ asset('') }}public/backend/js/jquery.ui.custom.js"></script> 
 <script src="{{ asset('') }}public/backend/js/bootstrap.min.js"></script> 
 <script src="{{ asset('') }}public/backend/js/jquery.flot.min.js"></script> 

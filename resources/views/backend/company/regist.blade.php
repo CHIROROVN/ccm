@@ -43,9 +43,9 @@
                 <input id="back" class="btn btn-primary" type="reset" value="Reset" />
                 <input  class="btn btn-primary" type="button" value="Save" id="btnSubmit" />
                 <div id="status"></div>
-              </div>
-               {!! Form::close() !!} 
-              <div id="submitted"></div>           
+              </div>                
+              <div id="submitted"></div>
+              {!! Form::close() !!}           
           </div>  
         </div>  
     </div>
@@ -53,7 +53,8 @@
 </div>
 </div>
  <script type="text/javascript">
-$("#btnSubmit").on("click",function() {  
+$("#btnSubmit").on("click",function() { 
+alert('vao day'); 
   var flag = true;
   if (!$("#company_name").val().replace(/ /g, "")) {
       flag = false;
