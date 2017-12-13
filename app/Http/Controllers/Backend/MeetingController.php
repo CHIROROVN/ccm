@@ -2,9 +2,9 @@
 use App\Http\Controllers\Backend\BackendController;
 
 
-class ContractController extends BackendController
+class MeetingController extends BackendController
 {
 	public function index(){
-		return view('backend.contract.index');
+		return view('backend.meeting.index');
 	}
 }
