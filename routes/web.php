@@ -21,6 +21,8 @@ Route::group(['prefix' => 'manage', 'namespace' => 'Backend'], function () {
 	Route::get('/dashboard', ['as' => 'backend.dashboard.index', 'uses' => 'DashboardController@index']);
 	
 	Route::get('/users', ['as' => 'backend.users.index', 'uses' => 'UsersController@index']);
+	Route::get('/users/login', ['as' => 'backend.users.login', 'uses' => 'UsersController@login']);
+	Route::post('/users/login', ['as' => 'backend.users.login', 'uses' => 'UsersController@postLogin']);
 	
 	Route::get('/company', ['as' => 'backend.company.index', 'uses' => 'CompanyController@index']);
 	Route::get('/company/regist', ['as' => 'backend.company.regist', 'uses' => 'CompanyController@getRegist']);

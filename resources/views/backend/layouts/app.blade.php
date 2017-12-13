@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Chiroro Net</title>
+<title>Chiroro-Net Viet Co., Ltd</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="{{ asset('') }}public/favicon/favicon.png" type="image/gif" >
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/bootstrap.min.css" />
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/bootstrap-responsive.min.css" />
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/fullcalendar.css" />
@@ -11,6 +12,7 @@
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/matrix-media.css" />
 <link href="{{ asset('') }}public/backend/font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/jquery.gritter.css" />
+<link rel="stylesheet" href="{{ asset('') }}public/backend/css/uniform.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 <script src="{{ asset('') }}public/backend/js/jquery.min.js"></script> 
 </head>
@@ -18,7 +20,7 @@
 
 <!--Header-part-->
 <div id="header">
-  <h1><a href="">Chiroro</a></h1>
+  <h1><a href="{{route('backend.dashboard.index')}}">Chiroro</a></h1>
 </div>
 <!--close-Header-part--> 
 
@@ -30,7 +32,7 @@
       <ul class="dropdown-menu">
         <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
         <li class="divider"></li>
-        <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+        <li><a href="{{route('backend.users.login')}}"><i class="icon-key"></i> Log Out</a></li>
       </ul>
     </li>
 

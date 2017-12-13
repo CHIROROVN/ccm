@@ -16,4 +16,13 @@ class UsersController extends BackendController
 	public function index(){
 		return view('backend.users.index');
 	}
+
+	public function login(){
+		return view('backend.users.login');
+	}
+
+	public function postLogin(){
+		
+	}
+
 }
