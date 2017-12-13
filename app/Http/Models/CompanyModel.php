@@ -9,7 +9,7 @@ class CompanyModel extends Model{
     protected $table = 'm_company';
     protected $primaryKey   = 'company_id';
 
-  /*  public function Rules()
+   public function Rules()
     {
         return array(
             'company_name'                      => 'required|regex:/^[^\\p{Zs}]+$/u',
@@ -22,7 +22,7 @@ class CompanyModel extends Model{
             'company_name.required'             => trans('validation.error_company_name_required'),
             'company_name.regex'                => trans('validation.error_company_name_regex'),
         );
-    }*/
+    }
 
     public function get_all()
     {
