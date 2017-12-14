@@ -17,5 +17,6 @@ return [
     'error_u_passwd_required'             => 'Please enter password.',
     'error_company_name_required'         => 'Please enter company name.',
     'error_contact_name_required'         => 'Please enter name.',
+    'error_contact_email_required'        => 'Please enter email.',
     
 ];

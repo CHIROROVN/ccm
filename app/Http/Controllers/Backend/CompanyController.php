@@ -60,8 +60,7 @@ class CompanyController extends BackendController
     {
         $clsCompany          = new CompanyModel();
         $data['company']     = $clsCompany->get_by_id($id);
-        $data['error']['error_company_name_required']    = trans('validation.error_company_name_required');
-       
+        $data['error']['error_company_name_required']    = trans('validation.error_company_name_required');       
         return view('backend.company.edit', $data);
     }
 

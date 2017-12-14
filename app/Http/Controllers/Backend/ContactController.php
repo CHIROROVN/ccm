@@ -41,7 +41,7 @@ class ContactController extends BackendController
             'contact_name'      => Input::get('contact_name'),
             'contact_email'     => Input::get('contact_email'),           
             'contact_tel'       => Input::get('contact_tel'),
-            'contact_title'       => Input::get('contact_title'),
+            'contact_title'     => Input::get('contact_title'),
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => INSERT,
             'last_ipadrs'       => CLIENT_IP_ADRS,
