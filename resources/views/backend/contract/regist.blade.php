@@ -2,7 +2,7 @@
 @section('content')
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.contact.index') }}">Contacts List</a> <a href="#" class="current">New Contact</a> </div>
+  <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.contract.index') }}">Contracts List</a> <a href="#" class="current">New Contract</a> </div>
     <!--<h1>New Company</h1>-->
 </div>
 <div class="container-fluid"><hr>
@@ -15,14 +15,14 @@
            <div class="widget-content nopadding">
               <div class="alert alert-error alert-block" style="display:none" id="div_erro"> <a class="close" data-dismiss="alert" href="#">×</a>
                 <h4 class="alert-heading">Error!</h4>
-                <p id="error_mess">@if ($errors->first('contact_name')) ※{!! $errors->first('contact_name') !!} @endif</p>               
+                <p id="error_mess">@if ($errors->first('contract_no')) ※{!! $errors->first('contract_no') !!} @endif</p>               
               </div>
-            {!! Form::open(array('url' => route('backend.contact.regist'),'id'=>'frmRegist', 'method' => 'post','class'=>'form-horizontal')) !!}            
+            {!! Form::open(array('url' => route('backend.contract.regist'),'id'=>'frmRegist', 'method' => 'post','class'=>'form-horizontal')) !!}            
               <div id="form-wizard-1" class="step">
                 <div class="control-group">
-                  <label class="control-label">Contact name</label>
+                  <label class="control-label">Contract NO</label>
                   <div class="controls">
-                    <input id="contact_name" type="text" name="contact_name" value="{{old('contact_name')}}"/>
+                    <input id="contract_no" type="text" name="contract_no" value="{{old('contract_no')}}"/>
                   </div>
                 </div>
                 <div class="control-group">
@@ -36,21 +36,63 @@
                   </div>
                 </div>
                 <div class="control-group">
-                  <label class="control-label">Contact email</label>
+                  <label class="control-label">Contract Term</label>
                   <div class="controls">
-                    <input id="contact_email" type="text" name="contact_email" value="{{old('contact_email')}}" />
+                    <div  data-date="12-02-2012" class="input-append date datepicker">
+                    <input type="text" value="12-02-2012"  data-date-format="mm-dd-yyyy" class="span11" >
+                    <span class="add-on"><i class="icon-th"></i></span> </div> ~ 
+                    <div  data-date="12-02-2012" class="input-append date datepicker">
+                    <input type="text" value="12-02-2012"  data-date-format="mm-dd-yyyy" class="span11" >
+                    <span class="add-on"><i class="icon-th"></i></span> </div>
+                    
                   </div>
                 </div>
                 <div class="control-group">
-                  <label class="control-label">Contact tel</label>
+                  <label class="control-label">Contract detail 1</label>
                   <div class="controls">
-                    <input id="contact_tel" type="text" name="contact_tel" value="{{old('contact_tel')}}"/>
+                    <input id="contract_detail_real" type="file" name="contract_detail_real" />
                   </div>
                 </div>
                <div class="control-group">
-                  <label class="control-label">Contact title</label>
+                  <label class="control-label">Contract detail 2 </label>
                   <div class="controls">
-                    <input id="contact_title" type="text" name="contact_title" value="{{old('contact_title')}}"/>
+                    <input id="contract_detail" type="file" name="contract_detail" />
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">Contract Price</label>
+                  <div class="controls">
+                    <input id="contract_price" type="text" name="contract_price" value="{{old('contract_price')}}"/>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">Contract VAT</label>
+                  <div class="controls">
+                    <input id="contract_vat" type="text" name="contract_vat" value="{{old('contract_vat')}}"/>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">Bill received date</label>
+                  <div class="controls">
+                    <div  data-date="{{old('bill_received_date')}}" class="input-append date datepicker">
+                    <input type="text" value="{{old('bill_received_date')}}"  data-date-format="mm-dd-yyyy" class="span11" name="bill_received_date">
+                    <span class="add-on"><i class="icon-th"></i></span> </div>                     
+                    
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">Bill date</label>
+                  <div class="controls">
+                    <div  data-date="{{old('bill_date')}}" class="input-append date datepicker">
+                    <input type="text" value="{{old('bill_date')}}"  data-date-format="mm-dd-yyyy" class="span11"  name="bill_date">
+                    <span class="add-on"><i class="icon-th"></i></span> </div>                     
+                    
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">Bill NO</label>
+                  <div class="controls">
+                    <input id="bill_no" type="text" name="bill_no" value="{{old('bill_no')}}"/>
                   </div>
                 </div>
               </div>

@@ -4,7 +4,7 @@
   <div id="content-header">
     <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Contacts</a> </div>
    <!-- <h1>Companies</h1>-->
-    <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.contact.regist') }}'">新規登録</button></span></h1>
+    <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.contract.regist') }}'">新規登録</button></span></h1>
   </div>
   <div class="container-fluid">
     <div class="flash-messages">
@@ -41,20 +41,20 @@
                 </tr>
               </thead>
               <tbody>
-                @if(empty($contacts) || count($contacts) < 1)
+                @if(empty($contracts) || count($contracts) < 1)
                 <tr><td colspan="5"><h3 align="center">該当するデータがありません。</h3></td>               
                 </tr>
                 @else  
                   @foreach($contacts as $contact) 
                 <tr>
-                  <td><input name="btnDelete" id="btnDelete" value="削除" type="button" class="btn btn-primary btn-xs" onclick="btnDelete('{{$contact->contact_id}}');"></td>
-                  <td>{{$contact->contact_name}}</td>
-                  <td>{{$contact->company_name}}</td>
-                  <td>{{$contact->contact_email}}</td>
-                  <td>{{$contact->contact_tel}}</td>
-                  <td class="center"> <input onclick="location.href='{{ route('backend.contact.edit', $contact->contact_id) }}'" value="編集" type="button" class="btn btn-primary btn-xs"></td>
+                  <td><input name="btnDelete" id="btnDelete" value="削除" type="button" class="btn btn-primary btn-xs" onclick="btnDelete('{{$contract->contract_id}}');"></td>
+                  <td>{{$contract->contract_no}}</td>
+                  <td>{{$contract->company_name}}</td>
+                  <td>{{$contract->contract_price}}</td>
+                  <td>{{$contract->contract_vat}}</td>
+                  <td class="center"> <input onclick="location.href='{{ route('backend.contract.edit', $contract->contract_id) }}'" value="編集" type="button" class="btn btn-primary btn-xs"></td>
                 </tr>
-                @endforeach  
+                 @endforeach  
                 @endif  
               </tbody>
             </table>
@@ -104,7 +104,7 @@ function btnDelete($id)
 $('#btnDelteYes').click(function () {
     var id = $('#myModal').data('id');   
     
-    location.href='{{ asset('manage/contact/delete/') }}'+'/'+ id ;
+    location.href='{{ asset('manage/contract/delete/') }}'+'/'+ id ;
 });
 </script>  
   @endsection
