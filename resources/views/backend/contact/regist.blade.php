@@ -10,12 +10,12 @@
     <div class="span12">
        <div class="widget-box">
           <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
-            <h5>New Company</h5>
+            <h5>New Contact</h5>
           </div>
            <div class="widget-content nopadding">
               <div class="alert alert-error alert-block" style="display:none" id="div_erro"> <a class="close" data-dismiss="alert" href="#">×</a>
                 <h4 class="alert-heading">Error!</h4>
-                <p id="error_mess">@if ($errors->first('company_name')) ※{!! $errors->first('company_name') !!} @endif</p>               
+                <p id="error_mess">@if ($errors->first('contact_name')) ※{!! $errors->first('contact_name') !!} @endif</p>               
               </div>
             {!! Form::open(array('url' => route('backend.contact.regist'),'id'=>'frmRegist', 'method' => 'post','class'=>'form-horizontal')) !!}            
               <div id="form-wizard-1" class="step">

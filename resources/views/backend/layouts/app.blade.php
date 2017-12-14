@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/jquery.gritter.css" />
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/uniform.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+<script src="{{ asset('') }}public/backend/js/excanvas.min.js"></script> 
 <script src="{{ asset('') }}public/backend/js/jquery.min.js"></script> 
 <script src="{{ asset('') }}public/backend/js/jquery.gritter.min.js"></script>
 <script src="{{ asset('') }}public/backend/js/matrix.dashboard.js"></script> 
@@ -88,7 +89,7 @@
 
 <!--end-Footer-part-->
 
-<script src="{{ asset('') }}public/backend/js/excanvas.min.js"></script> 
+
 
 <script src="{{ asset('') }}public/backend/js/jquery.ui.custom.js"></script> 
 <script src="{{ asset('') }}public/backend/js/bootstrap.min.js"></script> 
