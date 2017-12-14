@@ -10,19 +10,19 @@
     <div class="span12">
        <div class="widget-box">
           <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
-            <h5>New Company</h5>
+            <h5>New Contact</h5>
           </div>
            <div class="widget-content nopadding">
               <div class="alert alert-error alert-block" style="display:none" id="div_erro"> <a class="close" data-dismiss="alert" href="#">×</a>
                 <h4 class="alert-heading">Error!</h4>
-                <p id="error_mess">@if ($errors->first('company_name')) ※{!! $errors->first('company_name') !!} @endif</p>               
+                <p id="error_mess">@if ($errors->first('contact_name')) ※{!! $errors->first('contact_name') !!} @endif</p>               
               </div>
             {!! Form::open(array('url' => route('backend.contact.regist'),'id'=>'frmRegist', 'method' => 'post','class'=>'form-horizontal')) !!}            
               <div id="form-wizard-1" class="step">
                 <div class="control-group">
                   <label class="control-label">Contact name</label>
                   <div class="controls">
-                    <input id="contact_name" type="text" name="contact_name" />
+                    <input id="contact_name" type="text" name="contact_name" value="{{old('contact_name')}}"/>
                   </div>
                 </div>
                 <div class="control-group">
@@ -36,19 +36,19 @@
                 <div class="control-group">
                   <label class="control-label">Contact email</label>
                   <div class="controls">
-                    <input id="contact_email" type="text" name="contact_email" />
+                    <input id="contact_email" type="text" name="contact_email" value="{{old('contact_email')}}" />
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label">Contact tel</label>
                   <div class="controls">
-                    <input id="contact_tel" type="text" name="contact_tel" />
+                    <input id="contact_tel" type="text" name="contact_tel" value="{{old('contact_tel')}}"/>
                   </div>
                 </div>
                <div class="control-group">
                   <label class="control-label">Contact title</label>
                   <div class="controls">
-                    <input id="contact_title" type="text" name="contact_title" />
+                    <input id="contact_title" type="text" name="contact_title" value="{{old('contact_title')}}"/>
                   </div>
                 </div>
               </div>
@@ -69,6 +69,7 @@
 $("#btnSubmit").on("click",function() { 
   var flag = true;
   if (!$("#company_name").val().replace(/ /g, "")) {
+    
       flag = false;
   }  
   if(flag) $( "#frmRegist" ).submit(); 

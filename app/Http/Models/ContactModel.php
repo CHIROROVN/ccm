@@ -12,13 +12,15 @@ class ContactModel {
     {
         return array(
             'contact_name'                      => 'required',
+            'contact_email'                      => 'required',
         );
     }
 
     public function Messages()
     {
         return array(
-            'contact_name.required'             => trans('validation.error_contact_name_required'),
+           'contact_name.required'             => trans('validation.error_contact_name_required'),
+           'contact_email.required'             => trans('validation.error_contact_email_required'),
            
         );
     }
