@@ -10,13 +10,13 @@
     <li class="submenu"><a href="{{route('backend.contact.index')}}"><i class="icon icon-home"></i> <span>Contact</span> </a>
       <ul>
         <li><a href="{{route('backend.contact.index')}}">Contact List</a></li>
-        <li><a href="{{route('backend.contact.index')}}">Contact Regist</a></li>
+        <li><a href="{{route('backend.contact.regist')}}">Contact Regist</a></li>
       </ul>
     </li>
     <li class="submenu @if(curr_page() == 'contract') active @endif"> <a href="{{route('backend.contract.index')}}"><i class="icon icon-book"></i> <span>Contract</span></a>
       <ul>
         <li><a href="{{route('backend.contract.index')}}">Contracts List</a></li>
-        <li><a href="#">Contract Regist</a></li>
+        <li><a href="{{route('backend.contract.regist')}}">Contract Regist</a></li>
       </ul>
     </li>
     <li class="submenu @if(curr_page() == 'meeting') active @endif"> <a href="{{route('backend.meeting.index')}}"><i class="icon icon-group"></i> <span>Meeting</span></a>
