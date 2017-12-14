@@ -11,7 +11,7 @@ class CompanyModel {
    public function Rules()
     {
         return array(
-            'company_name'                      => 'required|regex:/^[^\\p{Zs}]+$/u',
+            'company_name'                      => 'required',
         );
     }
 
@@ -19,7 +19,7 @@ class CompanyModel {
     {
         return array(
             'company_name.required'             => trans('validation.error_company_name_required'),
-            'company_name.regex'                => trans('validation.error_company_name_regex'),
+           
         );
     }
 

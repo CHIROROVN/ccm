@@ -13,31 +13,24 @@
             <h5>New Company</h5>
           </div>
            <div class="widget-content nopadding">
-              <div class="alert alert-error alert-block" style="display:none" id="div_erro"> <a class="close" data-dismiss="alert" href="#">×</a>
+              <div class="alert alert-error alert-block" @if ($errors->first('company_name')) style="display:block" @else style="display:none" @endif id="div_erro"> <a class="close" data-dismiss="alert" href="#">×</a>
                 <h4 class="alert-heading">Error!</h4>
                 <p id="error_mess">@if ($errors->first('company_name')) ※{!! $errors->first('company_name') !!} @endif</p>               
               </div>
-            {!! Form::open(array('url' => route('backend.company.regist'),'id'=>'frmRegist', 'method' => 'post','class'=>'form-horizontal')) !!}            
+              {!! Form::open(array('url' => route('backend.company.regist'),'id'=>'frmRegist', 'method' => 'post','class'=>'form-horizontal')) !!}            
               <div id="form-wizard-1" class="step">
                 <div class="control-group">
                   <label class="control-label">Company name</label>
-                  <div class="controls">
-                    <input id="company_name" type="text" name="company_name" />
-                  </div>
+                  <div class="controls"><input id="company_name" type="text" name="company_name" value="{{old('company_name')}}" /></div>
                 </div>
                 <div class="control-group">
                   <label class="control-label">Company Address</label>
-                  <div class="controls">
-                    <input id="company_address" type="text" name="company_address" />
-                  </div>
+                  <div class="controls"><input id="company_address" type="text" name="company_address" value="{{old('company_address')}}"/></div>
                 </div>
                 <div class="control-group">
                   <label class="control-label">Company MST</label>
-                  <div class="controls">
-                    <input id="company_mst" type="text" name="company_mst" />
-                  </div>
-                </div>
-               
+                  <div class="controls"><input id="company_mst" type="text" name="company_mst" value="{{old('company_mst')}}"/></div>
+                </div>               
               </div>
               <div class="form-actions">
                 <input id="back" class="btn btn-primary" type="reset" value="Reset" />
@@ -45,7 +38,7 @@
                 <div id="status"></div>
               </div>                
               <div id="submitted"></div>
-              {!! Form::close() !!}           
+             {!! Form::close() !!}           
           </div>  
         </div>  
     </div>

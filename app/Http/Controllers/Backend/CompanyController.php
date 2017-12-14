@@ -41,8 +41,8 @@ class CompanyController extends BackendController
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => INSERT,
             'last_ipadrs'       => CLIENT_IP_ADRS,
-            //'last_user'         => Auth::user()->u_id            
-            'last_user'         => 1            
+            'last_user'         => Auth::user()->u_id            
+                       
         );
         
         if ( $clsCompany->insert($dataInsert) ) {
@@ -84,7 +84,7 @@ class CompanyController extends BackendController
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => UPDATE,
             'last_ipadrs'       => $_SERVER['REMOTE_ADDR'],
-            'last_user'         => 1//Auth::user()->u_id 
+            'last_user'         => Auth::user()->u_id 
         );
 
         if ( $clsCompany->update($id, $dataUpdate) ) {
@@ -105,7 +105,7 @@ class CompanyController extends BackendController
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => DELETE,
             'last_ipadrs'       => $_SERVER['REMOTE_ADDR'],
-            'last_user'         => 1//Auth::user()->u_id 
+            'last_user'         => Auth::user()->u_id 
         );
         if ( $clsCompany->update($id, $dataUpdate) ) {
             Session::flash('success', trans('common.msg_delete_success'));
