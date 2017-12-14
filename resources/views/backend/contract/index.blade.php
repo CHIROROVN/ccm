@@ -33,10 +33,10 @@
               <thead>
                 <tr>
                   <th><i class="icon-resize-vertical"></i></th>
-                  <th>Contact name</th>
+                  <th>Contract No</th>
                   <th>Company name</th>
-                  <th>Contact email</th>
-                  <th>Contact Tel</th>
+                  <th>Contract Price</th>
+                  <th>Contract VAT</th>
                   <th></th>
                 </tr>
               </thead>

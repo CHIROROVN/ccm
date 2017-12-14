@@ -13,14 +13,14 @@ class ContractController extends BackendController
 {
 	public function index(){
 		$data =array();
-		$clsContact          = new ContractModel();
-        $data['contacts']    = $clsContact->get_all();               
+		$clsContract          = new ContractModel();
+        $data['contracts']    = $clsContract->get_all();               
 		return view('backend.contract.index',$data);
 	}
 
 	public function getRegist(){
         $data =array();        
-        $data['error']['error_contact_name_required']    = trans('validation.error_contact_name_required');        
+        $data['error']['error_contract_no_required']    = trans('validation.error_contract_no_required');        
         $clsCompany      = new CompanyModel();
         $data['companies'] = $clsCompany->get_all();
 		return view('backend.contract.regist',$data);
@@ -28,20 +28,20 @@ class ContractController extends BackendController
 
 	public function postRegist()
     {
-        $clsContact      = new ContractModel();
+        $clsContract      = new ContractModel();
         $inputs         = Input::all();
-        $validator      = Validator::make($inputs, $clsContact->Rules(), $clsContact->Messages());
+        $validator      = Validator::make($inputs, $clsContract->Rules(), $clsContract->Messages());
 
         if ($validator->fails()) {
             return redirect()->route('backend.contract.regist')->withErrors($validator)->withInput();
         }       
         // insert        
         $dataInsert             = array(
-            'contact_name'      => Input::get('contact_name'),
+            'contract_no'      => Input::get('contract_no'),
             'company_id'        => Input::get('company_id'),
-            'contact_email'     => Input::get('contact_email'),           
-            'contact_tel'       => Input::get('contact_tel'),
-            'contact_title'     => Input::get('contact_title'),
+            'contract_term'     => Input::get('contract_term'),           
+            'contract_detail_real'       => Input::get('contract_detail_real'),
+            'contract_detail'     => Input::get('contract_detail'),
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => INSERT,
             'last_ipadrs'       => CLIENT_IP_ADRS,
@@ -49,7 +49,7 @@ class ContractController extends BackendController
                         
         );
         
-        if ( $clsContact->insert($dataInsert) ) {
+        if ( $clsContract->insert($dataInsert) ) {
             Session::flash('success', trans('common.msg_regist_success'));
         } else {
             Session::flash('danger', trans('common.msg_regist_danger'));
@@ -62,11 +62,11 @@ class ContractController extends BackendController
      */
     public function getEdit($id)
     {
-        $clsContact          = new ContractModel();
+        $clsContract          = new ContractModel();
         $clsCompany      = new CompanyModel();
         $data['companies'] = $clsCompany->get_all();
-        $data['contact']     = $clsContact->get_by_id($id);
-        $data['error']['error_contact_name_required']    = trans('validation.error_contact_name_required');       
+        $data['contact']     = $clsContract->get_by_id($id);
+        $data['error']['error_contract_no_required']    = trans('validation.error_contract_no_required');       
         return view('backend.contract.edit', $data);
     }
 
@@ -75,26 +75,26 @@ class ContractController extends BackendController
      */
     public function postEdit($id)
     {
-        $clsContact      = new ContractModel();
+        $clsContract      = new ContractModel();
         $inputs         = Input::all();
-        $validator      = Validator::make($inputs, $clsContact->Rules(), $clsContact->Messages());        
+        $validator      = Validator::make($inputs, $clsContract->Rules(), $clsContract->Messages());        
         if ($validator->fails()) {
             return redirect()->route('backend.contract.edit', [$id])->withErrors($validator)->withInput();
         }       
         // update
         $dataUpdate = array(
-            'contact_name'      => Input::get('contact_name'),
+            'contract_no'      => Input::get('contract_no'),
             'company_id'        => Input::get('company_id'),
-            'contact_email'     => Input::get('contact_email'),           
-            'contact_tel'       => Input::get('contact_tel'),
-            'contact_title'       => Input::get('contact_title'),
+            'contract_term'     => Input::get('contract_term'),           
+            'contract_detail_real'       => Input::get('contract_detail_real'),
+            'contract_detail'     => Input::get('contract_detail'),
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => UPDATE,
             'last_ipadrs'       => $_SERVER['REMOTE_ADDR'],
             'last_user'         => Auth::user()->u_id 
         );
 
-        if ( $clsContact->update($id, $dataUpdate) ) {
+        if ( $clsContract->update($id, $dataUpdate) ) {
             Session::flash('success', trans('common.msg_edit_success'));
         } else {
             Session::flash('danger', trans('common.msg_edit_danger'));
@@ -107,14 +107,14 @@ class ContractController extends BackendController
      */
     public function getDelete($id)
     {
-        $clsContact              = new ContractModel();
+        $clsContract              = new ContractModel();
         $dataUpdate             = array(
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => DELETE,
             'last_ipadrs'       => $_SERVER['REMOTE_ADDR'],
             'last_user'         => Auth::user()->u_id 
         );
-        if ( $clsContact->update($id, $dataUpdate) ) {
+        if ( $clsContract->update($id, $dataUpdate) ) {
             Session::flash('success', trans('common.msg_delete_success'));
         } else {
             Session::flash('danger', trans('common.msg_delete_danger'));
