@@ -45,8 +45,8 @@ class ContactController extends BackendController
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => INSERT,
             'last_ipadrs'       => CLIENT_IP_ADRS,
-            //'last_user'         => Auth::user()->u_id            
-            'last_user'         => 1            
+            'last_user'         => Auth::user()->u_id            
+                        
         );
         
         if ( $clsContact->insert($dataInsert) ) {
@@ -64,8 +64,7 @@ class ContactController extends BackendController
     {
         $clsContact          = new ContactModel();
         $data['contact']     = $clsContact->get_by_id($id);
-        $data['error']['error_contact_name_required']    = trans('validation.error_contact_name_required');
-       
+        $data['error']['error_contact_name_required']    = trans('validation.error_contact_name_required');       
         return view('backend.contact.edit', $data);
     }
 
@@ -89,7 +88,7 @@ class ContactController extends BackendController
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => UPDATE,
             'last_ipadrs'       => $_SERVER['REMOTE_ADDR'],
-            'last_user'         => 1//Auth::user()->u_id 
+            'last_user'         => Auth::user()->u_id 
         );
 
         if ( $clsContact->update($id, $dataUpdate) ) {
@@ -110,7 +109,7 @@ class ContactController extends BackendController
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => DELETE,
             'last_ipadrs'       => $_SERVER['REMOTE_ADDR'],
-            'last_user'         => 1//Auth::user()->u_id 
+            'last_user'         => Auth::user()->u_id 
         );
         if ( $clsContact->update($id, $dataUpdate) ) {
             Session::flash('success', trans('common.msg_delete_success'));

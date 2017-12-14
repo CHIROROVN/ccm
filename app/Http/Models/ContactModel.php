@@ -11,7 +11,7 @@ class ContactModel {
    public function Rules()
     {
         return array(
-            'contact_name'                      => 'required|regex:/^[^\\p{Zs}]+$/u',
+            'contact_name'                      => 'required',
         );
     }
 
@@ -19,7 +19,7 @@ class ContactModel {
     {
         return array(
             'contact_name.required'             => trans('validation.error_contact_name_required'),
-            'contact_name.regex'                => trans('validation.error_contact_name_regex'),
+           
         );
     }
 
