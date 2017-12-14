@@ -45,7 +45,7 @@
                 <tr><td colspan="5"><h3 align="center">該当するデータがありません。</h3></td>               
                 </tr>
                 @else  
-                  @foreach($contacts as $contact) 
+                  @foreach($contracts as $contract) 
                 <tr>
                   <td><input name="btnDelete" id="btnDelete" value="削除" type="button" class="btn btn-primary btn-xs" onclick="btnDelete('{{$contract->contract_id}}');"></td>
                   <td>{{$contract->contract_no}}</td>

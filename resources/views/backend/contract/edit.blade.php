@@ -2,7 +2,7 @@
 @section('content')
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.contact.index') }}">Companies List</a> <a href="#" class="current">Edit contact</a> </div>
+  <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.contract.index') }}">Contracts List</a> <a href="#" class="current">Edit contact</a> </div>
     <!--<h1>New contact</h1>-->
 </div>
 <div class="container-fluid"><hr>
@@ -13,7 +13,7 @@
             <h5>Edit contact</h5>
           </div>
            <div class="widget-content nopadding">
-              <div class="alert alert-error alert-block" @if ($errors->first('contact_name')) style="display:block" @else style="display:none" @endif id="div_error"> <a class="close" data-dismiss="alert" href="#">×</a>
+              <div class="alert alert-error alert-block" @if ($errors->first('contract_no')) style="display:block" @else style="display:none" @endif id="div_error"> <a class="close" data-dismiss="alert" href="#">×</a>
                 <h4 class="alert-heading">Error!</h4>
                 <p id="error_mess">@if ($errors->first('contract_no')) ※{!! $errors->first('contract_no') !!} @endif</p>               
               </div>

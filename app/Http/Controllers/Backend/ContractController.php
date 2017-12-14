@@ -65,7 +65,7 @@ class ContractController extends BackendController
         $clsContract          = new ContractModel();
         $clsCompany      = new CompanyModel();
         $data['companies'] = $clsCompany->get_all();
-        $data['contact']     = $clsContract->get_by_id($id);
+        $data['contract']     = $clsContract->get_by_id($id);
         $data['error']['error_contract_no_required']    = trans('validation.error_contract_no_required');       
         return view('backend.contract.edit', $data);
     }

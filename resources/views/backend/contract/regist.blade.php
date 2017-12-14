@@ -112,7 +112,7 @@
  <script type="text/javascript">
 $("#btnSubmit").on("click",function() { 
   var flag = true;
-  if (!$("#contact_name").val().replace(/ /g, "")) {
+  if (!$("#contract_no").val().replace(/ /g, "")) {
 
       flag = false;
   }  
