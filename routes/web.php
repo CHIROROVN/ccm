@@ -39,8 +39,16 @@ Route::group(['prefix' => 'manage', 'namespace' => 'Backend'], function () {
 	Route::post('/contact/edit/{id}', ['as' => 'backend.contact.edit', 'uses' => 'ContactController@postEdit']);
 	Route::get('/contact/delete/{id}', ['as' => 'backend.contact.delete', 'uses' => 'ContactController@getDelete']);
 
-	Route::get('/meeting', ['as' => 'backend.meeting.index', 'uses' => 'MeetingController@index']);
 	Route::get('/contract', ['as' => 'backend.contract.index', 'uses' => 'ContractController@index']);
+	Route::get('/contract/regist', ['as' => 'backend.contract.regist', 'uses' => 'ContractController@getRegist']);
+    Route::post('/contract/regist', ['as' => 'backend.contract.regist', 'uses' => 'ContractController@postRegist']);
+	Route::get('/contract/edit/{id}', ['as' => 'backend.contract.edit', 'uses' => 'ContractController@getEdit']);
+	Route::post('/contract/edit/{id}', ['as' => 'backend.contract.edit', 'uses' => 'ContractController@postEdit']);
+	Route::get('/contract/delete/{id}', ['as' => 'backend.contract.delete', 'uses' => 'ContractController@getDelete']);
+
+
+	Route::get('/meeting', ['as' => 'backend.meeting.index', 'uses' => 'MeetingController@index']);
+	
 
 });
 
