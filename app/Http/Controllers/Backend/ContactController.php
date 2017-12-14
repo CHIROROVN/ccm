@@ -39,6 +39,7 @@ class ContactController extends BackendController
         // insert        
         $dataInsert             = array(
             'contact_name'      => Input::get('contact_name'),
+            'company_id'        => Input::get('company_id'),
             'contact_email'     => Input::get('contact_email'),           
             'contact_tel'       => Input::get('contact_tel'),
             'contact_title'     => Input::get('contact_title'),
@@ -63,6 +64,8 @@ class ContactController extends BackendController
     public function getEdit($id)
     {
         $clsContact          = new ContactModel();
+        $clsCompany      = new CompanyModel();
+        $data['companies'] = $clsCompany->get_all();
         $data['contact']     = $clsContact->get_by_id($id);
         $data['error']['error_contact_name_required']    = trans('validation.error_contact_name_required');       
         return view('backend.contact.edit', $data);
@@ -82,6 +85,7 @@ class ContactController extends BackendController
         // update
         $dataUpdate = array(
             'contact_name'      => Input::get('contact_name'),
+            'company_id'        => Input::get('company_id'),
             'contact_email'     => Input::get('contact_email'),           
             'contact_tel'       => Input::get('contact_tel'),
             'contact_title'       => Input::get('contact_title'),

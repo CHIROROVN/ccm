@@ -49,7 +49,7 @@
                 <tr>
                   <td><input name="btnDelete" id="btnDelete" value="削除" type="button" class="btn btn-primary btn-xs" onclick="btnDelete('{{$contact->contact_id}}');"></td>
                   <td>{{$contact->contact_name}}</td>
-                  <td>{{$contact->contact_email}}</td>
+                  <td>{{$contact->company_name}}</td>
                   <td>{{$contact->contact_email}}</td>
                   <td>{{$contact->contact_tel}}</td>
                   <td class="center"> <input onclick="location.href='{{ route('backend.contact.edit', $contact->contact_id) }}'" value="編集" type="button" class="btn btn-primary btn-xs"></td>

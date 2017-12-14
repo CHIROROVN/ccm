@@ -29,7 +29,9 @@
                   <label class="control-label">Company name</label>
                   <div class="controls">
                     <select id="company_id" name="company_id">
-                     
+                     @foreach($companies as $key=>$company)
+                    <option value="{{$company->company_id}}">{{$company->company_name}}</option>
+                    @endforeach
                     </select>
                   </div>
                 </div>
@@ -68,8 +70,8 @@
  <script type="text/javascript">
 $("#btnSubmit").on("click",function() { 
   var flag = true;
-  if (!$("#company_name").val().replace(/ /g, "")) {
-    
+  if (!$("#contact_name").val().replace(/ /g, "")) {
+
       flag = false;
   }  
   if(flag) $( "#frmRegist" ).submit(); 
