@@ -28,7 +28,7 @@
     <li class="submenu @if(curr_page() == 'users') active @endif"> <a href="{{route('backend.users.index')}}"><i class="icon icon-user"></i> <span>Users</span> </a>
       <ul>
         <li><a href="{{route('backend.users.index')}}">User List</a></li>
-        <li><a href="#">User Regist</a></li>
+        <li><a href="{{route('backend.users.regist')}}">User Regist</a></li>
       </ul>
     </li>
     <!-- <li class="content"></li>  -->   

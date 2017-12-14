@@ -47,7 +47,7 @@ class UserModel
 
   //Manage All Users
     public function getAllUser(){
-        return DB::table($this->table)->where('last_kind', '<>', DELETE)->orderBy('u_name', 'ASC')->orderBy('last_date', 'DESC')->simplePaginate(LIMIT_PAGE);
+        return DB::table($this->table)->where('last_kind', '<>', DELETE)->orderBy('u_name', 'ASC')->orderBy('last_date', 'DESC')->get()->toArray();
     }
 
     //users insert

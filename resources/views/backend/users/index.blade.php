@@ -4,7 +4,12 @@
 <div id="content">
   <div id="content-header">
     <div id="breadcrumb"> <a href="{{route('backend.dashboard.index')}}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <span class="current">&nbsp;&nbsp;Users </span> </div>
-    <h1>Users List</h1>
+    <h1>
+      Users List
+      <div class="pull-right btn-right">
+        <button type="button" class="btn btn-success" onclick="location.href='{{route('backend.users.regist')}}'"><i class="icon-plus"></i> Add New User</button>
+      </div>
+    </h1>
   </div>
   <div class="container-fluid">
     <hr>
@@ -29,52 +34,54 @@
         </div>
        <div class="widget-box">
           <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
-            <h5>Static table</h5>
+            <h5>Users</h5>
           </div>
           <div class="widget-content nopadding">
             <table class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
+                  <th>Delete</th>
+                  <th>Name</th>
+                  <th>Username</th>
+                  <th>Permission</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="odd gradeX">
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0</td>
-                  <td>Win 95+</td>
-                  <td class="center"> 4</td>
-                  <td class="center">X</td>
-                </tr>
-                <tr class="even gradeC">
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 5.0</td>
-                  <td>Win 95+</td>
-                  <td class="center">5</td>
-                  <td class="center">C</td>
-                </tr>
-                <tr class="odd gradeA">
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 5.5</td>
-                  <td>Win 95+</td>
-                  <td class="center">5.5</td>
-                  <td class="center">A</td>
-                </tr>
-                <tr class="even gradeA">
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 6</td>
-                  <td>Win 98+</td>
-                  <td class="center">6</td>
-                  <td class="center">A</td>
-                </tr>
+                @if(count($users)>0)
+                  @foreach($users as $user)
+                    <tr>
+                      <td class="text-center text-middle">
+                        <button type="button" class="btn btn-mini btn-danger" onclick="location.href='{{route('backend.users.edit')}}'"><i class="icon-trash"></i> Delete</button>
+                      </td>
+                      <td class="text-center">{{$user->u_name}}</td>
+                      <td class="text-center">{{$user->u_login}}</td>
+                      <td class="text-center">
+                        @if($user->u_power01 == 1) Power01 <br> @endif
+                        @if($user->u_power02 == 1) Power02 <br> @endif
+                        @if($user->u_power02 == 1) Power03 <br> @endif
+                        @if($user->u_power02 == 1) Power04 <br> @endif
+                        @if($user->u_power02 == 1) Power05 <br> @endif
+                      </td>
+                      <td class="text-center">
+                        @if($user->u_dspl_flag == 1)
+                        <span class="badge badge-success">Active</span>
+                        @else
+                        <span class="badge badge-important">Inactive</span>
+                        @endif
+                      </td>
+                      <td class="text-center">{{$user->last_date}}</td>
+                      <td  class="text-center text-middle" colspan="2">
+                        <button type="button" class="btn btn-mini btn-info" onclick="location.href='{{route('backend.users.detail', $user->u_id)}}'"><i class="icon-eye-open"></i> View</button>
+                        <button type="button" class="btn btn-mini btn-warning" onclick="location.href='{{route('backend.users.edit', $user->u_id)}}'"><i class="icon-pencil"></i> Edit</button>
+                      </td>
+                    </tr>
+                  @endforeach
+                @else
+                <td colspan="8" style="text-align: center;">No Data</td>
+                @endif
               </tbody>
             </table> 
 

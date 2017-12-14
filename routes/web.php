@@ -24,6 +24,13 @@ Route::group(['prefix' => 'manage', 'namespace' => 'Backend'], function () {
 	Route::get('/users/login', ['as' => 'backend.users.login', 'uses' => 'UsersController@login']);
 	Route::post('/users/login', ['as' => 'backend.users.login', 'uses' => 'UsersController@postLogin']);
 	Route::get('/users/logout', ['as' => 'backend.users.logout', 'uses' => 'UsersController@logout']);
+
+	Route::get('/users/regist', ['as' => 'backend.users.regist', 'uses' => 'UsersController@regist']);
+	Route::post('/users/regist', ['as' => 'backend.users.regist', 'uses' => 'UsersController@postRegist']);
+	Route::get('/users/edit', ['as' => 'backend.users.edit', 'uses' => 'UsersController@edit']);
+	Route::post('/users/edit', ['as' => 'backend.users.edit', 'uses' => 'UsersController@postEdit']);
+	Route::get('/users/delete', ['as' => 'backend.users.delete', 'uses' => 'UsersController@delete']);
+	Route::get('/users/detail/{id}', ['as' => 'backend.users.detail', 'uses' => 'UsersController@detail']);
 	
 	Route::get('/company', ['as' => 'backend.company.index', 'uses' => 'CompanyController@index']);
 	Route::get('/company/regist', ['as' => 'backend.company.regist', 'uses' => 'CompanyController@getRegist']);
