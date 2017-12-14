@@ -215,6 +215,7 @@ hr{ border-top-color:#dadada;}
 	float: none;
 	text-shadow: 0 1px 0 #ffffff;
 	margin-left: 20px;
+	margin-bottom: 0px;
 	position: relative;
 }
 #content-header .btn-group {
@@ -223,7 +224,8 @@ hr{ border-top-color:#dadada;}
 	position: absolute;
 }
 #content-header h1, #content-header .btn-group {
-	margin-top: 20px;
+	margin-top: 10px;
+	//margin-bottom: 0px;
 }
 #content-header .btn-group .btn {
 	padding: 11px 14px 9px;
@@ -1606,7 +1608,8 @@ div.dataTables_wrapper .ui-widget-header {
     background-color: #F2DEDE;
     border-left: 6px #D6010E solid;
     color: #d6010e;
-    width: 100%;
+    width: 97%;
+    margin-top: 0px;
 }
 
 .message{
