@@ -6,10 +6,7 @@ class BackendController extends Controller
 {
     public function __construct(){
 
-        //$this->middleware('auth', ['except' => ['postLogin', 'login','logout']]);
-
-
-         //get IP address from user
+        //get IP address from user
         if (isset($_SERVER['HTTP_CLIENT_IP']))
             $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
         else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
@@ -26,6 +23,8 @@ class BackendController extends Controller
             $ipaddress = '';
 
         define('CLIENT_IP_ADRS', $ipaddress);
+
+        $this->middleware('auth', ['except' => ['postLogin', 'login','logout']]);
     }
 
 }
