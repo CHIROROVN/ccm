@@ -3,7 +3,7 @@
 
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Users</a> </div>
+    <div id="breadcrumb"> <a href="{{route('backend.dashboard.index')}}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <span class="current">&nbsp;&nbsp;Users </span> </div>
     <h1>Users List</h1>
   </div>
   <div class="container-fluid">
