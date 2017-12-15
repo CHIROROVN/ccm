@@ -22,6 +22,8 @@ class ContactController extends BackendController
 	public function getRegist(){
         $data =array();        
         $data['error']['error_contact_name_required']    = trans('validation.error_contact_name_required');        
+        $data['error']['error_contact_email_required']   = trans('validation.error_contact_email_required'); 
+        $data['error']['error_contact_email_invalid']   = trans('validation.error_contact_email_invalid');
         $clsCompany      = new CompanyModel();
         $data['companies'] = $clsCompany->get_all();
 		return view('backend.contact.regist',$data);

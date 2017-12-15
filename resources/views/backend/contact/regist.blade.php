@@ -13,20 +13,20 @@
             <h5>New Contact</h5>
           </div>
            <div class="widget-content nopadding">
-              <div class="alert alert-error alert-block" style="display:none" id="div_erro"> <a class="close" data-dismiss="alert" href="#">×</a>
+              <div class="alert alert-error alert-block" @if ($errors->first('contact_name')) @else style="display:none" @endifid="div_erro"> <a class="close" data-dismiss="alert" href="#">×</a>
                 <h4 class="alert-heading">Error!</h4>
                 <p id="error_mess">@if ($errors->first('contact_name')) ※{!! $errors->first('contact_name') !!} @endif</p>               
               </div>
             {!! Form::open(array('url' => route('backend.contact.regist'),'id'=>'frmRegist', 'method' => 'post','class'=>'form-horizontal')) !!}            
               <div id="form-wizard-1" class="step">
                 <div class="control-group">
-                  <label class="control-label">Contact name</label>
+                  <label class="control-label">Contact name <span class="required">※</span></label>
                   <div class="controls">
                     <input id="contact_name" type="text" name="contact_name" value="{{old('contact_name')}}"/>
                   </div>
                 </div>
                 <div class="control-group">
-                  <label class="control-label">Company name</label>
+                  <label class="control-label">Company name <span class="required">※</span></label>
                   <div class="controls">
                     <select id="company_id" name="company_id">
                      @foreach($companies as $key=>$company)
@@ -36,7 +36,7 @@
                   </div>
                 </div>
                 <div class="control-group">
-                  <label class="control-label">Contact email</label>
+                  <label class="control-label">Contact email <span class="required">※</span></label>
                   <div class="controls">
                     <input id="contact_email" type="text" name="contact_email" value="{{old('contact_email')}}" />
                   </div>
@@ -71,9 +71,17 @@
 $("#btnSubmit").on("click",function() { 
   var flag = true;
   if (!$("#contact_name").val().replace(/ /g, "")) {
-
-      flag = false;
+    $("#error_mess").html('<?php echo $error['error_contact_name_required'];?>');                     
+    $("#div_error").css('display','block');   
+    $('#contact_name').focus();
+    flag = false;
   }  
+  if (!$("#contact_email").val().replace(/ /g, "")) {
+    $("#error_mess").html('<?php echo $error['error_contact_name_required'];?>');                     
+    $("#div_error").css('display','block');   
+    $('#contact_email').focus();
+    flag = false;
+  } 
   if(flag) $( "#frmRegist" ).submit(); 
 }); 
 </script>   

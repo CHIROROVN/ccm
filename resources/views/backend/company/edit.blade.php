@@ -20,7 +20,7 @@
             {!! Form::open(array('url' => route('backend.company.edit',$company->company_id),'id'=>'frmEdit', 'method' => 'post','class'=>'form-horizontal')) !!}            
               <div id="form-wizard-1" class="step">
                 <div class="control-group">
-                  <label class="control-label">Company name</label>
+                  <label class="control-label">Company name <span class="required">※</span></label>
                   <div class="controls">
                     <input id="company_name" type="text" name="company_name" value="{{$company->company_name}}" />
                   </div>
@@ -56,6 +56,9 @@
 $("#btnSubmit").on("click",function() { 
   var flag = true;
   if (!$("#company_name").val().replace(/ /g, "")) {
+    $("#error_mess").html('<?php echo $error['error_company_name_required'];?>');                     
+    $("#div_error").css('display','block');   
+    $('#company_name').focus();
       flag = false;
   }  
   if(flag) $( "#frmEdit" ).submit(); 
