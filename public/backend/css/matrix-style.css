@@ -1688,9 +1688,45 @@ span.required {
 	text-align: center !important;
 }
 
+.text-left {
+	text-align: left !important;
+}
+
+.text-right {
+	text-align: right !important;
+}
+
 .text-middle {
-	display: table-cell;
 	vertical-align : middle;
 }
+
+.width-col0 {
+	width: 40px;
+}
+
+.width-col1 {
+	width: 60px;
+}
+
+.width-col2 {
+	width: 80px;
+}
+
+.width-col3 {
+	width: 100px;
+}
+
+.width-col4 {
+	width: 120px;
+}
+
+.width-col5 {
+	width: 140px;
+}
+
+.width-col6 {
+	width: 160px;
+}
+
 
 /**************/

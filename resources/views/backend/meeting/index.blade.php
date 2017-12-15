@@ -40,13 +40,13 @@
             <table class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th>Delete</th>
+                  <th class="width-col1">Delete</th>
                   <th>Meeting Title</th>
                   <th>Meeting Detail</th>
                   <th>Company Name</th>
                   <th>Contract No</th>
-                  <th>Meeting Date</th>
-                  <th>Actions</th>
+                  <th class="width-col4">Meeting Date</th>
+                  <th class="width-col3">Actions</th>
                 </tr>
               </thead>
               <tbody>

@@ -40,13 +40,13 @@
             <table class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th>Delete</th>
+                  <th class="width-col1">Delete</th>
                   <th>Name</th>
                   <th>Username</th>
-                  <th>Permission</th>
-                  <th>Status</th>
-                  <th>Date</th>
-                  <th>Actions</th>
+                  <th class="width-col4">Permission</th>
+                  <th class="width-col1">Status</th>
+                  <th class="width-col4">Date</th>
+                  <th class="width-col3">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -58,12 +58,12 @@
                       </td>
                       <td class="text-center">{{$user->u_name}}</td>
                       <td class="text-center">{{$user->u_login}}</td>
-                      <td class="text-center">
-                        @if($user->u_power01 == 1) Power01 <br> @endif
-                        @if($user->u_power02 == 1) Power02 <br> @endif
-                        @if($user->u_power02 == 1) Power03 <br> @endif
-                        @if($user->u_power02 == 1) Power04 <br> @endif
-                        @if($user->u_power02 == 1) Power05 <br> @endif
+                      <td class="text-left">
+                        @if($user->u_power01 == 1) Power01 &nbsp; @endif
+                        @if($user->u_power02 == 1) Power02 &nbsp; @endif
+                        @if($user->u_power02 == 1) Power03 &nbsp; @endif
+                        @if($user->u_power02 == 1) Power04 &nbsp; @endif
+                        @if($user->u_power02 == 1) Power05 &nbsp; @endif
                       </td>
                       <td class="text-center">
                         @if($user->u_dspl_flag == 1)
