@@ -69,7 +69,9 @@ class ContactController extends BackendController
         $clsCompany             = new CompanyModel();
         $data['companies']      = $clsCompany->get_all();
         $data['contact']        = $clsContact->get_by_id($id);
-        $data['error']['error_contact_name_required']    = trans('validation.error_contact_name_required');       
+        $data['error']['error_contact_name_required']    = trans('validation.error_contact_name_required');        
+        $data['error']['error_contact_email_required']   = trans('validation.error_contact_email_required'); 
+        $data['error']['error_contact_email_invalid']   = trans('validation.error_contact_email_invalid');      
         return view('backend.contact.edit', $data);
     }
 

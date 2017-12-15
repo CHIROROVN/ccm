@@ -17,7 +17,7 @@
                 <h4 class="alert-heading">Error!</h4>
                 <p id="error_mess">@if ($errors->first('contract_no')) ※{!! $errors->first('contract_no') !!} @endif</p>               
               </div>
-            {!! Form::open(array('url' => route('backend.contract.edit',$contract->contract_id),'id'=>'frmEdit', 'method' => 'post','class'=>'form-horizontal')) !!}            
+            {!! Form::open(array('url' => route('backend.contract.edit',$contract->contract_id),'id'=>'frmEdit', 'method' => 'post','class'=>'form-horizontal','enctype'=>'multipart/form-data', 'accept-charset'=>'utf-8')) !!}            
               <div id="form-wizard-1" class="step">
                 <div class="control-group">
                   <label class="control-label">Contract No</label>
