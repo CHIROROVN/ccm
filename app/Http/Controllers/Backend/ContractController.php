@@ -31,7 +31,24 @@ class ContractController extends BackendController
         $clsContract      = new ContractModel();
         $inputs         = Input::all();
         $validator      = Validator::make($inputs, $clsContract->Rules(), $clsContract->Messages());
-
+        if(!Input::hasFile('contract_detail_real')){
+            unset($rules['contract_detail_real']);                        
+        }else{
+            $upload_file = Input::file('contract_detail_real');
+            $extFile  = $upload_file->getClientOriginalExtension();
+            if($extFile == 'pdf' || $extFile == 'doc'){
+                unset($rules['contract_detail_real']);
+            }
+        } 
+        if(!Input::hasFile('contract_detail')){
+            unset($rules['contract_detail']);                        
+        }else{
+            $upload_file = Input::file('contract_detail_real');
+            $extFile  = $upload_file->getClientOriginalExtension();
+            if($extFile == 'pdf' || $extFile == 'doc'){
+                unset($rules['contract_detail']);
+            }
+        } 
         if ($validator->fails()) {
             return redirect()->route('backend.contract.regist')->withErrors($validator)->withInput();
         }       
@@ -40,7 +57,7 @@ class ContractController extends BackendController
             'contract_no'      => Input::get('contract_no'),
             'company_id'        => Input::get('company_id'),
             'contract_term'     => Input::get('contract_term'),           
-            'contract_detail_real'       => Input::get('contract_detail_real'),
+            'contract_detail_real' => Input::get('contract_detail_real'),
             'contract_detail'     => Input::get('contract_detail'),
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => INSERT,

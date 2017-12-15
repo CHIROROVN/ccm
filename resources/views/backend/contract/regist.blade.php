@@ -38,11 +38,11 @@
                 <div class="control-group">
                   <label class="control-label">Contract Term</label>
                   <div class="controls">
-                    <div  data-date="12-02-2012" class="input-append date datepicker">
-                    <input type="text" value="12-02-2012"  data-date-format="mm-dd-yyyy" class="span11" >
+                    <div  data-date="{{old('contract_term_from')}}" class="input-append date datepicker">
+                    <input type="text" value="{{old('contract_term_from')}}"  data-date-format="mm-dd-yyyy" class="span11" name="contract_term_from">
                     <span class="add-on"><i class="icon-th"></i></span> </div> ~ 
-                    <div  data-date="12-02-2012" class="input-append date datepicker">
-                    <input type="text" value="12-02-2012"  data-date-format="mm-dd-yyyy" class="span11" >
+                    <div  data-date="{{old('contract_term_to')}}" class="input-append date datepicker">
+                    <input type="text" value="{{old('contract_term_to')}}"  data-date-format="mm-dd-yyyy" class="span11" name="contract_term_to">
                     <span class="add-on"><i class="icon-th"></i></span> </div>
                     
                   </div>
@@ -85,7 +85,7 @@
                   <div class="controls">
                     <div  data-date="{{old('bill_date')}}" class="input-append date datepicker">
                     <input type="text" value="{{old('bill_date')}}"  data-date-format="mm-dd-yyyy" class="span11"  name="bill_date">
-                    <span class="add-on"><i class="icon-th"></i></span> </div>                     
+                    <span class="add-on"><i class="icon-th"></i></span> </div>            
                     
                   </div>
                 </div>
@@ -113,8 +113,10 @@
 $("#btnSubmit").on("click",function() { 
   var flag = true;
   if (!$("#contract_no").val().replace(/ /g, "")) {
-
-      flag = false;
+    $("#error_mess").html('<?php echo $error['error_contract_no_required'];?>');
+    $("#div_error").css('display','block');   
+    $('#contact_name').focus();
+    flag = false;
   }  
   if(flag) $( "#frmRegist" ).submit(); 
 }); 
