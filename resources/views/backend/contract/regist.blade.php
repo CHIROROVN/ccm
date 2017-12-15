@@ -113,7 +113,7 @@
 $("#btnSubmit").on("click",function() { 
   var flag = true;
   if (!$("#contract_no").val().replace(/ /g, "")) {
-    $("#error_mess").html('<?php echo $error['error_contract_no_required'];?>');
+    $("#error_mess").html('<?php echo $error['error_contact_no_required'];?>');
     $("#div_error").css('display','block');   
     $('#contact_name').focus();
     flag = false;
