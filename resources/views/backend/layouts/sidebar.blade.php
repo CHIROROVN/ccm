@@ -22,7 +22,7 @@
     <li class="submenu @if(curr_page() == 'meeting') active @endif"> <a href="{{route('backend.meeting.index')}}"><i class="icon icon-group"></i> <span>Meeting</span></a>
       <ul>
         <li><a href="{{route('backend.meeting.index')}}">Meeting List</a></li>
-        <li><a href="#">Meeting Regist</a></li>
+        <li><a href="{{route('backend.meeting.regist')}}">Meeting Regist</a></li>
       </ul>
     </li>
     <li class="submenu @if(curr_page() == 'users') active @endif"> <a href="{{route('backend.users.index')}}"><i class="icon icon-user"></i> <span>Users</span> </a>

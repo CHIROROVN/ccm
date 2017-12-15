@@ -19,7 +19,7 @@
         <div class="widget-content nopadding">
           {!! Form::open(array('route' => ['backend.users.regist'], 'class' => 'form-horizontal', 'method' => 'post', 'enctype'=>'multipart/form-data', 'accept-charset'=>'utf-8')) !!}
             <div class="control-group">
-              <label class="control-label">Full Name : <span class="required">必須</span></label>
+              <label class="control-label">Full Name : <span class="required">※</span></label>
               <div class="controls">
                 <input type="text" class="span8" placeholder="Full Name" name="u_name" value="{{old('u_name')}}" />
                 @if ($errors->has('u_name'))
@@ -30,7 +30,7 @@
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label">Username : <span class="required">必須</span></label>
+              <label class="control-label">Username : <span class="required">※</span></label>
               <div class="controls">
                 <input type="text" class="span8" placeholder="Username" name="u_login" value="{{old('u_login')}}"/>
                 @if ($errors->has('u_login'))
@@ -41,7 +41,7 @@
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label">Password : <span class="required">必須</span></label>
+              <label class="control-label">Password : <span class="required">※</span></label>
               <div class="controls">
                 <input type="password" class="span8" placeholder="Enter Password" name="u_passwd" value="" />
                 @if ($errors->has('u_passwd'))
