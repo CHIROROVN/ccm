@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Backend\BackendController;
 use App\Http\Models\MeetingModel;
+use App\Http\Models\CompanyModel;
+
 
 class MeetingController extends BackendController
 {
@@ -11,7 +13,9 @@ class MeetingController extends BackendController
 	}
 
 	public function regist(){
-		return view('backend.meeting.regist');
+		$clsCompany = new CompanyModel();
+		$company = $clsCompany->get_list();
+		return view('backend.meeting.regist', compact('company'));
 	}
 
 	public function postRegist(){

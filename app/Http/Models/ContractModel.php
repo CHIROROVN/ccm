@@ -31,6 +31,16 @@ class ContractModel {
                                      ->where('m_contract.last_kind', '<>', DELETE)->orderBy('contract_id', 'DESC')->get();
     }
 
+    public function contract_by_company($company_id=null)
+    {
+        return DB::table($this->table)
+            ->where('last_kind', '<>', DELETE)
+            ->where('company_id', '=', $company_id)
+            ->orderBy('contract_no', 'ASC')
+            ->pluck('contract_no', 'contract_id')
+            ->toArray();
+    }
+
     public function insert($data)
     {
         return DB::table($this->table)->insert($data);
