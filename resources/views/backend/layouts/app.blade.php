@@ -12,11 +12,11 @@
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/select2.css" />
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/matrix-style.css" />
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/matrix-media.css" />
-<link rel="stylesheet" href="{{ asset('') }}public/backend/css/bootstrap-wysihtml5.css" />
+
 <link href="{{ asset('') }}public/backend/font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 <link rel="icon" href="{{ asset('') }}public/favicon/favicon.png" type="image/gif" >
-<script src="{{ asset('') }}public/backend/js/jquery.min.js"></script> 
+ 
 </head>
 <body>
 
@@ -30,7 +30,7 @@
 <!--top-Header-menu-->
 <div id="user-nav" class="navbar navbar-inverse">
   <ul class="nav">
-    <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Welcome User</span><b class="caret"></b></a>
+    <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Welcome: {{@Auth::user()->u_name}}</span><b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
         <li class="divider"></li>
@@ -76,13 +76,15 @@
   <div id="footer" class="span12"> 2017 &copy; Chiroro-Net Viet Co., Ltd. All Rights Reserved.</div>
 </div>
 <!--end-Footer-part-->
-
+<script src="{{ asset('') }}public/backend/js/jquery.min.js"></script> 
 <script src="{{ asset('') }}public/backend/js/jquery.ui.custom.js"></script> 
 <script src="{{ asset('') }}public/backend/js/bootstrap.min.js"></script> 
+<script src="{{ asset('') }}public/backend/js/bootstrap-colorpicker.js"></script> 
 <script src="{{ asset('') }}public/backend/js/bootstrap-datepicker.js"></script> 
 <script src="{{ asset('') }}public/backend/js/jquery.toggle.buttons.js"></script> 
 <script src="{{ asset('') }}public/backend/js/masked.js"></script> 
-<script src="{{ asset('') }}public/backend/js/jquery.uniform.js"></script>  
+<script src="{{ asset('') }}public/backend/js/jquery.uniform.js"></script> 
+<script src="{{ asset('') }}public/backend/js/select2.min.js"></script> 
 <script src="{{ asset('') }}public/backend/js/matrix.js"></script> 
 <script src="{{ asset('') }}public/backend/js/matrix.form_common.js"></script> 
 
