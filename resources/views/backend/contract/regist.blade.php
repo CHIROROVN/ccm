@@ -15,7 +15,9 @@
            <div class="widget-content nopadding">
               <div class="alert alert-error alert-block" @if ($errors->first('contract_no')) style="display:block" @else style="display:none" @endif id="div_error"> <a class="close" data-dismiss="alert" href="#">×</a>
                 <h4 class="alert-heading">Error!</h4>
-                <p id="error_mess">@if ($errors->first('contract_no')) ※{!! $errors->first('contract_no') !!} @endif</p>               
+                <p id="error_mess">@if ($errors->first('contract_no')) ※{!! $errors->first('contract_no') !!} @endif
+                                   @if ($errors->first('contract_no')) ※{!! $errors->first('contract_no') !!} @endif 
+                </p>               
               </div>
             {!! Form::open(array('url' => route('backend.contract.regist'),'id'=>'frmRegist', 'method' => 'post','class'=>'form-horizontal' ,'enctype'=>'multipart/form-data', 'accept-charset'=>'utf-8')) !!}            
               <div id="form-wizard-1" class="step">

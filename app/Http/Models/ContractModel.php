@@ -12,7 +12,8 @@ class ContractModel {
     {
         return array(
             'contract_no'                      => 'required',
-            //'contact_email'                      => 'required',
+            'contract_detail_real'             => 'mimes:pdf,doc', 
+            'contract_detail'                  => 'mimes:pdf,doc',
         );
     }
 
@@ -20,7 +21,8 @@ class ContractModel {
     {
         return array(
            'contract_no.required'             => trans('validation.error_contract_no_required'),
-           //'contact_email.required'             => trans('validation.error_contact_email_required'),
+           'contract_detail_real.mimes'       => trans('validation.error_contract_detail_real_mimes'),
+           'contract_detail_real.mimes'       => trans('validation.error_contract_detail_mimes'),
            
         );
     }

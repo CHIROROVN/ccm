@@ -20,5 +20,7 @@ return [
     'error_contact_email_required'        => 'Please enter email.',
     'error_contact_email_invalid'         => 'Email is invalid.',
     'error_contact_no_required'           => 'Please enter contract no.',
+    'error_contract_detail_real_mimes'    => 'File upload is invalid (doc, pdf).',
+    'error_contract_detail_mimes'         => 'File upload is invalid (doc, pdf).',
     
 ];
