@@ -16,7 +16,7 @@
 <link href="{{ asset('') }}public/backend/font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 <link rel="icon" href="{{ asset('') }}public/favicon/favicon.png" type="image/gif" >
- 
+ <script src="{{ asset('') }}public/backend/js/jquery.min.js"></script> 
 </head>
 <body>
 
@@ -76,7 +76,7 @@
   <div id="footer" class="span12"> 2017 &copy; Chiroro-Net Viet Co., Ltd. All Rights Reserved.</div>
 </div>
 <!--end-Footer-part-->
-<script src="{{ asset('') }}public/backend/js/jquery.min.js"></script> 
+
 <script src="{{ asset('') }}public/backend/js/jquery.ui.custom.js"></script> 
 <script src="{{ asset('') }}public/backend/js/bootstrap.min.js"></script> 
 <script src="{{ asset('') }}public/backend/js/bootstrap-colorpicker.js"></script> 

@@ -71,6 +71,7 @@
 </div>
 <script type="text/javascript">
 $("#btnSubmit").on("click",function() { 
+ alert('vao day');
   var flag = true;
   $error ='';
   if (!$("#contact_name").val().replace(/ /g, "")) {
@@ -80,8 +81,8 @@ $("#btnSubmit").on("click",function() {
     $('#contact_name').focus();
     flag = false;
   }  
-  if (!$("#contact_email").val().replace(/ /g, "")) {
-    $error = $error + '<br><?php echo $error['error_contact_name_required'];?>';
+  /*if (!$("#contact_email").val().replace(/ /g, "")) {
+    $error = $error + '<br><?php //echo $error['error_contact_name_required'];?>';
    // $("#error_mess").html('<?php //echo $error['error_contact_email_required'];?>');                     
     $("#div_error").css('display','block');   
     $('#contact_email').focus();
@@ -89,17 +90,19 @@ $("#btnSubmit").on("click",function() {
   }else{
       var sEmail = $('#contact_email').val();
       if (!validateEmail(sEmail)) {
-        $error = $error + '<br><?php echo $error['error_contact_email_invalid'];?>'; 
+        $error = $error + '<br><?php //echo $error['error_contact_email_invalid'];?>'; 
                             
         $("#div_error").css('display','block');   
         $('#contact_email').focus();
         flag = false;
       }
-  } 
+  } */
   if(flag) $( "#frmRegist" ).submit();
-  else   $("#error_mess").html($error);
+  else   
+    $("#error_mess").html($error);
 
 }); 
+/*
 function validateEmail(sEmail) {
     var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
     if (filter.test(sEmail)) {
@@ -108,6 +111,6 @@ function validateEmail(sEmail) {
     else {
         return false;
     }
-}​
+}​*/
 </script>   
 @endsection
