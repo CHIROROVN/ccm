@@ -13,9 +13,11 @@
             <h5>New Contact</h5>
           </div>
            <div class="widget-content nopadding">
-              <div class="alert alert-error alert-block" @if ($errors->first('contact_name')) @else style="display:none" @endifid="div_erro"> <a class="close" data-dismiss="alert" href="#">×</a>
+              <div class="alert alert-error alert-block" @if ($errors->first('contact_name')) @else style="display:none" @endif id="div_error"> <a class="close" data-dismiss="alert" href="#">×</a>
                 <h4 class="alert-heading">Error!</h4>
-                <p id="error_mess">@if ($errors->first('contact_name')) ※{!! $errors->first('contact_name') !!} @endif</p>               
+                <p id="error_mess">@if ($errors->first('contact_name')) ※{!! $errors->first('contact_name') !!} @endif 
+                                   @if ($errors->first('contact_email')) ※{!! $errors->first('contact_email') !!} @endif
+                </p>               
               </div>
             {!! Form::open(array('url' => route('backend.contact.regist'),'id'=>'frmRegist', 'method' => 'post','class'=>'form-horizontal')) !!}            
               <div id="form-wizard-1" class="step">
@@ -30,8 +32,8 @@
                   <div class="controls">
                     <select id="company_id" name="company_id">
                      @foreach($companies as $key=>$company)
-                    <option value="{{$company->company_id}}">{{$company->company_name}}</option>
-                    @endforeach
+                     <option value="{{$company->company_id}}">{{$company->company_name}}</option>
+                     @endforeach
                     </select>
                   </div>
                 </div>
@@ -67,22 +69,45 @@
   </div>    
 </div>
 </div>
- <script type="text/javascript">
+<script type="text/javascript">
 $("#btnSubmit").on("click",function() { 
   var flag = true;
+  $error ='';
   if (!$("#contact_name").val().replace(/ /g, "")) {
-    $("#error_mess").html('<?php echo $error['error_contact_name_required'];?>');                     
+    $error = '<?php echo $error['error_contact_name_required'];?>';
+   // $("#error_mess").html('<?php //echo $error['error_contact_name_required'];?>');                     
     $("#div_error").css('display','block');   
     $('#contact_name').focus();
     flag = false;
   }  
   if (!$("#contact_email").val().replace(/ /g, "")) {
-    $("#error_mess").html('<?php echo $error['error_contact_name_required'];?>');                     
+    $error = $error + '<br><?php echo $error['error_contact_name_required'];?>';
+   // $("#error_mess").html('<?php //echo $error['error_contact_email_required'];?>');                     
     $("#div_error").css('display','block');   
     $('#contact_email').focus();
     flag = false;
+  }else{
+      var sEmail = $('#contact_email').val();
+      if (!validateEmail(sEmail)) {
+        $error = $error + '<br><?php echo $error['error_contact_email_invalid'];?>'; 
+                            
+        $("#div_error").css('display','block');   
+        $('#contact_email').focus();
+        flag = false;
+      }
   } 
-  if(flag) $( "#frmRegist" ).submit(); 
+  if(flag) $( "#frmRegist" ).submit();
+  else   $("#error_mess").html($error);
+
 }); 
+function validateEmail(sEmail) {
+    var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    if (filter.test(sEmail)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}​
 </script>   
 @endsection

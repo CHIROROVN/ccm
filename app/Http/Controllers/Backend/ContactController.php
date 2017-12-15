@@ -24,8 +24,8 @@ class ContactController extends BackendController
         $data['error']['error_contact_name_required']    = trans('validation.error_contact_name_required');        
         $data['error']['error_contact_email_required']   = trans('validation.error_contact_email_required'); 
         $data['error']['error_contact_email_invalid']   = trans('validation.error_contact_email_invalid');
-        $clsCompany      = new CompanyModel();
-        $data['companies'] = $clsCompany->get_all();
+        $clsCompany         = new CompanyModel();
+        $data['companies']  = $clsCompany->get_all();
 		return view('backend.contact.regist',$data);
 	}
 
@@ -65,10 +65,10 @@ class ContactController extends BackendController
      */
     public function getEdit($id)
     {
-        $clsContact          = new ContactModel();
-        $clsCompany      = new CompanyModel();
-        $data['companies'] = $clsCompany->get_all();
-        $data['contact']     = $clsContact->get_by_id($id);
+        $clsContact             = new ContactModel();
+        $clsCompany             = new CompanyModel();
+        $data['companies']      = $clsCompany->get_all();
+        $data['contact']        = $clsContact->get_by_id($id);
         $data['error']['error_contact_name_required']    = trans('validation.error_contact_name_required');       
         return view('backend.contact.edit', $data);
     }
@@ -90,7 +90,7 @@ class ContactController extends BackendController
             'company_id'        => Input::get('company_id'),
             'contact_email'     => Input::get('contact_email'),           
             'contact_tel'       => Input::get('contact_tel'),
-            'contact_title'       => Input::get('contact_title'),
+            'contact_title'     => Input::get('contact_title'),
             'last_date'         => date('Y-m-d H:i:s'),
             'last_kind'         => UPDATE,
             'last_ipadrs'       => $_SERVER['REMOTE_ADDR'],
