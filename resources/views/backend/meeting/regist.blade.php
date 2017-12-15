@@ -20,30 +20,20 @@
             <div class="control-group">
               <label class="control-label">Company Name: <span class="required">※</span></label>
               <div class="controls">
-                <select class="span6">
-                  <option>First option</option>
-                  <option>Second option</option>
-                  <option>Third option</option>
-                  <option>Fourth option</option>
-                  <option>Fifth option</option>
-                  <option>Sixth option</option>
-                  <option>Seventh option</option>
-                  <option>Eighth option</option>
+                <select class="span6" id="company_id" name="company_id">
+					@if(!empty($company))
+						@foreach($company as $key => $com)
+							<option value="{{$key}}">{{$com}}</option>
+						@endforeach
+					@endif                  
                 </select>
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label">Contract Name: <span class="required">※</span></label>
+              <label class="control-label">Contract No: <span class="required">※</span></label>
               <div class="controls">
-                <select class="span6">
-                  <option>First option</option>
-                  <option>Second option</option>
-                  <option>Third option</option>
-                  <option>Fourth option</option>
-                  <option>Fifth option</option>
-                  <option>Sixth option</option>
-                  <option>Seventh option</option>
-                  <option>Eighth option</option>
+                <select class="span6" id="contract_id" name="contract_id">
+                                    
                 </select>
               </div>
             </div>
@@ -70,31 +60,39 @@
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label">Metting Date</label>
+              <label class="control-label">Metting Date: <span class="required">※</span></label>
               <div class="controls">
-                <div data-date="12-02-2012" class="input-append date datepicker">
-                  <input value="12-02-2012" data-date-format="mm-dd-yyyy" class="span11" type="text">
-                  <span class="add-on"><i class="icon-th"></i></span> </div>
+                <div data-date="{{date('m/d/Y')}}" class="input-append date datepicker">
+                	<input value="{{date('m/d/Y')}}" data-date-format="mm-dd-yyyy" class="span11" type="text">
+                	<span class="add-on"><i class="icon-th"></i></span> </div>
+					@if ($errors->has('meeting_date'))
+					<span class="help-block">
+					    <strong>{{ $errors->first('meeting_date') }}</strong>
+					</span>
+					@endif
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Meeting File 1: </label>
+              <div class="controls">
+                <input type="file" name="meeting_file_1" />
+                @if ($errors->has('meeting_file_1'))
+				<span class="help-block">
+				    <strong>{{ $errors->first('meeting_file_1') }}</strong>
+				</span>
+				@endif
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label">Checkboxes</label>
+              <label class="control-label">Meeting File 2: </label>
               <div class="controls">
-                <label>
-                  <input type="checkbox" name="radios" />
-                  First One</label>
-                <label>
-                  <input type="checkbox" name="radios" />
-                  Second One</label>
-                <label>
-                  <input type="checkbox" name="radios" />
-                  Third One</label>
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">File upload input</label>
-              <div class="controls">
-                <input type="file" />
+                <input type="file" name="meeting_file_1" />
+                @if ($errors->has('meeting_file_2'))
+				<span class="help-block">
+				    <strong>{{ $errors->first('meeting_file_2') }}</strong>
+				</span>
+				@endif
               </div>
             </div>
 
@@ -118,7 +116,10 @@
 
 <script>
 $( document ).ready(function() {
-    
+    $('#company_id').on('change', function (e) {
+    	var company_id = $(this).val();
+    	alert(company_id);
+    });
 });
 </script>
 @endsection

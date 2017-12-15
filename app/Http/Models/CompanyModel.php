@@ -28,7 +28,10 @@ class CompanyModel {
         return DB::table($this->table)->where('last_kind', '<>', DELETE)->orderBy('company_id', 'DESC')->get();
     }
 
-    
+    public function get_list()
+    {
+        return DB::table($this->table)->where('last_kind', '<>', DELETE)->orderBy('company_id', 'ASC')->pluck('company_name', 'company_id')->toArray();
+    }
 
     public function insert($data)
     {
