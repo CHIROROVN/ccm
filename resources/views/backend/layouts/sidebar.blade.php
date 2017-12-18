@@ -41,6 +41,7 @@
       </ul>
     </li>
     @endif
+    <li><a href="{{route('backend.users.logout')}}"><i class="icon icon-signout"></i> <span>Logout</span></a> </li>
     <!-- <li class="content"></li>  -->   
   </ul>
 </div>
