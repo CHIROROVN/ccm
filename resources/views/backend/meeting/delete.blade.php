@@ -77,7 +77,7 @@
 
             <div class="control-group">
               <div class="controls">
-                  <button type="button" class="btn btn-danger" onclick="location.href='{{route('backend.meeting.delete', $meeting->meeting_id)}}'"><i class="icon-trash"></i> Delete</button>
+                  <button type="button" class="btn btn-danger" onclick="location.href='{{route('backend.meeting.save_delete', $meeting->meeting_id)}}'"><i class="icon-trash"></i> Delete</button>
                   <button type="button" class="btn btn-default" onclick="location.href='{{route('backend.meeting.detail', $meeting->meeting_id)}}'"><i class="icon-arrow-left"></i>&nbsp;Back&nbsp;</button>
               </div>
               <div class="controls">

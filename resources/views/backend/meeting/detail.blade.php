@@ -62,7 +62,7 @@
               <label class="control-label">Meeting File 1: </label>
               <div class="controls">
                 @if(!empty($meeting->meeting_file_1))
-                <a href="{{ asset('public') }}{{$meeting->meeting_file_1}}" target="_blank" title="">View file</a>
+                <a href="{{ asset('public') }}{{$meeting->meeting_file_1}}" target="_blank" title="View file">View</a>
                 @endif   
               </div>
             </div>
@@ -70,7 +70,7 @@
               <label class="control-label">Meeting File 2: </label>
               <div class="controls">
                 @if(!empty($meeting->meeting_file_2))
-                <a href="{{ asset('public') }}{{$meeting->meeting_file_2}}" target="_blank" title="">View file</a>
+                <a href="{{ asset('public') }}{{$meeting->meeting_file_2}}" target="_blank" title="View file">View</a>
                 @endif
               </div>
             </div>

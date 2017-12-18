@@ -112,32 +112,40 @@ class MeetingController extends BackendController
 		$data['meeting_detail']         = Input::get('meeting_detail');
 		$data['meeting_date']           = Input::get('meeting_date');
 
-		if (Input::hasFile('meeting_file_1')) {
-			$mf1 = Input::file('meeting_file_1');
-			$mf1_path_name= $mf1->getPathName();
-			$_mf1_ext = $mf1->extension();
-			$name_mf1 = $mf1->getClientOriginalName();
-			$arr_mf1 = explode('.', $name_mf1);
-			$mf1_txt_name = $arr_mf1[0];			
-			$meeting_file_1 = $mf1_txt_name . '_' . rand(time(), '9999') . '.' . $_mf1_ext;
+		if(!empty(Input::get('radio_meeting_file_1')) && Input::get('radio_meeting_file_1') == 2){
+			if (Input::hasFile('meeting_file_1')) {
+				$mf1 = Input::file('meeting_file_1');
+				$mf1_path_name= $mf1->getPathName();
+				$_mf1_ext = $mf1->extension();
+				$name_mf1 = $mf1->getClientOriginalName();
+				$arr_mf1 = explode('.', $name_mf1);
+				$mf1_txt_name = $arr_mf1[0];			
+				$meeting_file_1 = $mf1_txt_name . '_' . rand(time(), '9999') . '.' . $_mf1_ext;
 
-			move_uploaded_file($mf1_path_name, base_path() . '/public/uploads/meeting/file1/' . $meeting_file_1);
+				move_uploaded_file($mf1_path_name, base_path() . '/public/uploads/meeting/file1/' . $meeting_file_1);
 
-			$data['meeting_file_1'] = '/uploads/meeting/file1/' . $meeting_file_1;
+				$data['meeting_file_1'] = '/uploads/meeting/file1/' . $meeting_file_1;
+			}
+		}elseif(!empty(Input::get('radio_meeting_file_1')) && Input::get('radio_meeting_file_1') == 3){
+			$data['meeting_file_1'] = NULL;
 		}
 
-		if (Input::hasFile('meeting_file_2')) {
-			$mf2 = Input::file('meeting_file_2');
-			$mf2_path_name= $mf2->getPathName();
-			$_mf2_ext = $mf2->extension();
-			$name_mf2 = $mf2->getClientOriginalName();
-			$arr_mf2 = explode('.', $name_mf2);
-			$mf2_txt_name = $arr_mf2[0];			
-			$meeting_file_2 = $mf2_txt_name . '_' . rand(time(), '8888') . '.' . $_mf2_ext;
+		if(!empty(Input::get('radio_meeting_file_2')) && Input::get('radio_meeting_file_2') == 2){
+			if (Input::hasFile('meeting_file_2')) {
+				$mf2 = Input::file('meeting_file_2');
+				$mf2_path_name= $mf2->getPathName();
+				$_mf2_ext = $mf2->extension();
+				$name_mf2 = $mf2->getClientOriginalName();
+				$arr_mf2 = explode('.', $name_mf2);
+				$mf2_txt_name = $arr_mf2[0];			
+				$meeting_file_2 = $mf2_txt_name . '_' . rand(time(), '8888') . '.' . $_mf2_ext;
 
-			move_uploaded_file($mf2_path_name, base_path() . '/public/uploads/meeting/file2/' . $meeting_file_2);
+				move_uploaded_file($mf2_path_name, base_path() . '/public/uploads/meeting/file2/' . $meeting_file_2);
 
-			$data['meeting_file_2'] = '/uploads/meeting/file2/' . $meeting_file_2;
+				$data['meeting_file_2'] = '/uploads/meeting/file2/' . $meeting_file_2;
+			}
+		}elseif(!empty(Input::get('radio_meeting_file_2')) && Input::get('radio_meeting_file_2') == 3){
+			$data['meeting_file_2'] = NULL;
 		}
 
 		$data['last_ipadrs']            = CLIENT_IP_ADRS;
@@ -164,5 +172,21 @@ class MeetingController extends BackendController
 		$clsMeeting = new MeetingModel();
 		$meeting = $clsMeeting->get_by_id($id);
 		return view('backend.meeting.delete', compact('id', 'meeting'));
+	}
+
+	public function save_delete($id){
+		$clsMeeting = new MeetingModel();
+		$data['last_ipadrs']            = CLIENT_IP_ADRS;
+		$data['last_date']              = date('Y-m-d H:i:s');
+		$data['last_user']              = Auth::user()->u_id;
+		$data['last_kind']              = DELETE;
+
+		if ( $clsMeeting->update($id, $data) ) {
+			Session::flash('success', trans('common.msg_delete_success'));
+			return redirect()->route('backend.meeting.index');
+		} else {
+			Session::flash('danger', trans('common.msg_delete_danger'));
+			return redirect()->route('backend.meeting.delete',$id)->withInput(Input::all());
+		}
 	}
 }

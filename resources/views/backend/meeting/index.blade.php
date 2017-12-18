@@ -54,7 +54,7 @@
                   @foreach($meetings as $meeting)
                     <tr>
                       <td class="text-center text-middle">
-                        <button type="button" class="btn btn-mini btn-danger" onclick="location.href='{{route('backend.meeting.edit', $meeting->meeting_id)}}'"><i class="icon-trash"></i> Delete</button>
+                        <button type="button" class="btn btn-mini btn-danger" onclick="location.href='{{route('backend.meeting.delete', $meeting->meeting_id)}}'"><i class="icon-trash"></i> Delete</button>
                       </td>
                       <td>{{ $meeting->meeting_title }}</td>
                       <td>{{ $meeting->meeting_detail }}</td>
