@@ -54,7 +54,7 @@
                   @foreach($users as $user)
                     <tr>
                       <td class="text-center text-middle">
-                        <button type="button" class="btn btn-mini btn-danger" onclick="location.href='{{route('backend.users.edit')}}'"><i class="icon-trash"></i> Delete</button>
+                        <button type="button" class="btn btn-mini btn-danger" onclick="location.href='{{route('backend.users.delete', $user->u_id)}}'"><i class="icon-trash"></i> Delete</button>
                       </td>
                       <td class="text-center">{{$user->u_name}}</td>
                       <td class="text-center">{{$user->u_login}}</td>

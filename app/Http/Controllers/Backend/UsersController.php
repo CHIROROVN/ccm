@@ -134,6 +134,22 @@ class UsersController extends BackendController
 		return view('backend.users.delete', compact('user', 'id'));
 	}
 
+	public function save_delete($id){
+		$clsUser                		= new UserModel();
+		$data['last_ipadrs']            = CLIENT_IP_ADRS;
+		$data['last_date']              = date('Y-m-d H:i:s');
+		$data['last_user']              = Auth::user()->u_id;
+		$data['last_kind']              = DELETE;
+
+		if ( $clsUser->update($id, $data) ) {
+			Session::flash('success', trans('common.msg_delete_success'));
+			return redirect()->route('backend.users.index');
+		} else {
+			Session::flash('danger', trans('common.msg_delete_danger'));
+			return redirect()->route('backend.users.delete', $id)->withInput(Input::all());
+		}
+	}
+
 
 	public function logout()
 	{
