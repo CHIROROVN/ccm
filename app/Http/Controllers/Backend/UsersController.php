@@ -102,6 +102,12 @@ class UsersController extends BackendController
 			$data['u_power05'] = NULL;
 		}
 
+		if(!empty(Input::get('u_dspl_flag'))){
+			$data['u_dspl_flag']           = Input::get('u_dspl_flag');
+		}else{
+			$data['u_dspl_flag'] = NULL;
+		}
+
 		$data['last_ipadrs']            = CLIENT_IP_ADRS;
 		$data['last_date']              = date('Y-m-d H:i:s');
 		$data['last_user']              = Auth::user()->u_id;
@@ -171,6 +177,12 @@ class UsersController extends BackendController
 			$data['u_power05']           = Input::get('u_power05');
 		}else{
 			$data['u_power05'] = NULL;
+		}
+
+		if(!empty(Input::get('u_dspl_flag'))){
+			$data['u_dspl_flag']           = Input::get('u_dspl_flag');
+		}else{
+			$data['u_dspl_flag'] = NULL;
 		}
 
 		$data['last_ipadrs']            = CLIENT_IP_ADRS;
