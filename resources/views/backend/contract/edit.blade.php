@@ -50,19 +50,27 @@
                 <div class="control-group">
                   <label class="control-label">Contract detail 1</label>
                   <div class="controls">
+                    <input type="radio" name="file_radio1"  value="1" {if $file_radio1 ==1} checked{/if} >
                      <input type="file" name="contract_detail_realImageName" id="contract_detail_realImageName"/>              
-                    <input type="button" id="info2_file_del" class="btn-reset" value="X" title="リセット" onclick="deletePhoto('prmT2ImageName')" ><br>
-                    <input type="radio" name="file_radio2"  value="2" {if $file_radio2 ==2} checked{/if} >
-                      すでにアップロード済みのファイルを使う&nbsp;{if $contract->contract_detail_real!=''}<a href="#" target="_blank"> 画像を参照</a>する {else}（画像なし） {/if} <br>
-                    <input type="radio" name="file_radio2"  value="3" >
+                    <input type="button" id="info1_file_del" class="btn-reset" value="X" title="リセット" onclick="deletePhoto('contract_detail_realImageName')" ><br>
+                    <input type="radio" name="file_radio1"  value="2" {if $file_radio1 ==2} checked{/if} >
+                      すでにアップロード済みのファイルを使う&nbsp; @if ($contract->contract_detail_real!='') <a href="{{$contract->contract_detail_real}}" target="_blank"> 画像を参照</a>する @else （画像なし） @endif <br>
+                    <input type="radio" name="file_radio1"  value="3" >
                       アップロード済みファイルを削除する               
-                    <input id="contract_detail_real" type="file" name="contract_detail_real" />
+                    
                   </div>
                 </div>
                <div class="control-group">
                   <label class="control-label">Contract detail 2 </label>
                   <div class="controls">
-                    <input id="contract_detail" type="file" name="contract_detail" />
+                    <input type="radio" name="file_radio2"  value="1" {if $file_radio2 ==1} checked{/if} >
+                     <input type="file" name="ontract_detailImageName" id="contract_detailImageName"/>              
+                    <input type="button" id="info2_file_del" class="btn-reset" value="X" title="リセット" onclick="deletePhoto('contract_detailImageName')" ><br>
+                    <input type="radio" name="file_radio2"  value="2" {if $file_radio2 ==2} checked{/if} >
+                      すでにアップロード済みのファイルを使う&nbsp; @if ($contract->contract_detail !='') <a href="{{$contract->contract_detail}}" target="_blank"> 画像を参照</a>する @else （画像なし） @endif <br>
+                    <input type="radio" name="file_radio2"  value="3" >
+                      アップロード済みファイルを削除する 
+                    <!--<input id="contract_detail" type="file" name="contract_detail" />-->
                   </div>
                 </div>
                 <div class="control-group">
