@@ -1,5 +1,27 @@
 @extends('backend.layouts.app')
 @section('content')
+<script>
+  $( function() {
+    $( "#datepicker" ).datetimepicker({
+      format: 'Y-m-d'
+    });
+  } );
+  $( function() {
+    $( "#datepicker1" ).datetimepicker({
+      format: 'Y-m-d'
+    });
+  } );
+  $( function() {
+    $( "#bill_received_date" ).datetimepicker({
+      format: 'Y-m-d'
+    });
+  } );
+  $( function() {
+    $( "#bill_date" ).datetimepicker({
+      format: 'Y-m-d'
+    });
+  } );
+  </script>
 <div id="content">
 <div id="content-header">
   <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.contract.index') }}">Contracts List</a> <a href="#" class="current">New Contract</a> </div>
@@ -41,12 +63,18 @@
                 <div class="control-group">
                   <label class="control-label">Contract Term</label>
                   <div class="controls">
-                    <div  data-date="{{old('contract_term_from')}}" class="input-append date datepicker">
-                    <input type="text" value="{{old('contract_term_from')}}"  data-date-format="mm-dd-yyyy" class="span11" name="contract_term_from">
-                    <span class="add-on"><i class="icon-th"></i></span> </div> ~ 
-                    <div  data-date="{{old('contract_term_to')}}" class="input-append date datepicker">
-                    <input type="text" value="{{old('contract_term_to')}}"  data-date-format="mm-dd-yyyy" class="span11" name="contract_term_to">
-                    <span class="add-on"><i class="icon-th"></i></span> </div>
+                    <div data-date="{{old('contract_term_from')}}" class="input-append date datepicker">
+                  <input type="text" id="datepicker" name="contract_term_from" class="span11"><span class="add-on"><i class="icon-th"></i></span>
+                  </div>
+                  <div data-date="{{old('contract_term_to')}}" class="input-append date datepicker">
+                  <input type="text" id="datepicker1" name="contract_term_to" class="span11"><span class="add-on"><i class="icon-th"></i></span>
+                  </div>
+                  @if ($errors->has('meeting_date'))
+                  <span class="help-block">
+                      <strong>{{ $errors->first('meeting_date') }}</strong>
+                  </span>
+                  @endif
+                  </div>               
                     
                   </div>
                 </div>
@@ -78,7 +106,7 @@
                   <label class="control-label">Bill received date</label>
                   <div class="controls">
                     <div  data-date="{{old('bill_received_date')}}" class="input-append date datepicker">
-                    <input type="text" value="{{old('bill_received_date')}}"  data-date-format="mm-dd-yyyy" class="span11" name="bill_received_date">
+                    <input type="text" value="{{old('bill_received_date')}}"  data-date-format="mm-dd-yyyy" class="span11" name="bill_received_date" id="bill_received_date">
                     <span class="add-on"><i class="icon-th"></i></span> </div>                     
                     
                   </div>
@@ -87,7 +115,7 @@
                   <label class="control-label">Bill date</label>
                   <div class="controls">
                     <div  data-date="{{old('bill_date')}}" class="input-append date datepicker">
-                    <input type="text" value="{{old('bill_date')}}"  data-date-format="mm-dd-yyyy" class="span11"  name="bill_date">
+                    <input type="text" value="{{old('bill_date')}}"  data-date-format="mm-dd-yyyy" class="span11"  name="bill_date" id="bill_date">
                     <span class="add-on"><i class="icon-th"></i></span> </div>            
                     
                   </div>
