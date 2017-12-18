@@ -108,6 +108,8 @@ class ContractController extends BackendController
         $clsContract        = new ContractModel();
         $inputs             = Input::all();
         $path           ='/uploads/contracts/'; 
+        $rules                  = $clsContract->Rules();
+        
         if(!Input::hasFile('contract_detail_real')){
             unset($rules['contract_detail_real']);                        
         }else{
