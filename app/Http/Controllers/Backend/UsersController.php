@@ -116,6 +116,12 @@ class UsersController extends BackendController
 		}
 	}
 
+	public function edit($id){
+		$clsUser                = new UserModel();
+		$user = $clsUser->get_by_id($id);
+		return view('backend.users.edit', compact('user', 'id'));
+	}
+
 	public function detail($id){
 		$clsUser                = new UserModel();
 		$user = $clsUser->get_by_id($id);

@@ -11,8 +11,8 @@
 
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="{{route('backend.dashboard.index')}}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{route('backend.users.index')}}" class="tip-bottom">Meeting</a> <span class="current">&nbsp;&nbsp; Add New Meeting </span> </div>
-  <h1>Add New Meeting</h1>
+  <div id="breadcrumb"> <a href="{{route('backend.dashboard.index')}}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{route('backend.meeting.index')}}" class="tip-bottom">Meeting</a> <span class="current">&nbsp;&nbsp; edit </span> </div>
+  <h1>Edit Meeting</h1>
 </div>
 <div class="container-fluid">
   <hr>
@@ -25,7 +25,7 @@
         </div>
 
         <div class="widget-content nopadding">
-          {!! Form::open(array('route' => ['backend.meeting.regist'], 'class' => 'form-horizontal', 'method' => 'post', 'enctype'=>'multipart/form-data', 'accept-charset'=>'utf-8')) !!}
+          {!! Form::open(array('route' => ['backend.meeting.edit', $id], 'class' => 'form-horizontal', 'method' => 'post', 'enctype'=>'multipart/form-data', 'accept-charset'=>'utf-8')) !!}
             <div class="control-group">
               <label class="control-label">Company Name: <span class="required">※</span></label>
               <div class="controls">

@@ -37,9 +37,9 @@ class MeetingModel {
     {
         return DB::table($this->table)
             ->leftJoin('m_company', 'm_meeting.company_id', '=', 'm_company.company_id')
-            ->leftJoin('m_contract', 'm_meeting.contact_id', '=', 'm_contract.contract_id')
+            ->leftJoin('m_contact', 'm_meeting.contact_id', '=', 'm_contact.contact_id')
             ->where('m_meeting.last_kind', '<>', DELETE)
-            ->select('m_meeting.*', 'm_company.company_name', 'm_contract.contract_no')
+            ->select('m_meeting.*', 'm_company.company_name', 'm_contact.contact_name')
             ->orderBy('meeting_id', 'DESC')->get();
     }
 
@@ -55,7 +55,12 @@ class MeetingModel {
 
     public function get_by_id($id)
     {
-        return DB::table($this->table)->where('meeting_id', $id)->first();
+        return DB::table($this->table)
+            ->leftJoin('m_company', 'm_meeting.company_id', '=', 'm_company.company_id')
+            ->leftJoin('m_contact', 'm_meeting.contact_id', '=', 'm_contact.contact_id')
+            ->where('meeting_id', $id)
+            ->select('m_meeting.*', 'm_company.company_name', 'm_contact.contact_name')
+            ->first();
     }
 
 }

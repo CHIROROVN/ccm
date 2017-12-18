@@ -31,6 +31,16 @@ class ContactModel {
                                      ->where('m_contact.last_kind', '<>', DELETE)->orderBy('contact_id', 'DESC')->get();
     }
 
+    public function contact_by_company($company_id=null)
+    {
+        return DB::table($this->table)
+            ->where('last_kind', '<>', DELETE)
+            ->where('company_id', '=', $company_id)
+            ->select('contact_id', 'contact_name')
+            ->orderBy('contact_name', 'ASC')
+            ->get()->toArray();
+    }
+
     public function insert($data)
     {
         return DB::table($this->table)->insert($data);

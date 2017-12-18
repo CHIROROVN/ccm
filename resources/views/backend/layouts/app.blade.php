@@ -12,11 +12,13 @@
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/select2.css" />
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/matrix-style.css" />
 <link rel="stylesheet" href="{{ asset('') }}public/backend/css/matrix-media.css" />
+<link rel="stylesheet" href="{{ asset('') }}public/backend/css/jquery.datetimepicker.css" />
 
 <link href="{{ asset('') }}public/backend/font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 <link rel="icon" href="{{ asset('') }}public/favicon/favicon.png" type="image/gif" >
  <script src="{{ asset('') }}public/backend/js/jquery.min.js"></script> 
+ <script src="{{ asset('') }}public/backend/js/jquery.datetimepicker.full.js"></script>
 </head>
 <body>
 
@@ -71,7 +73,7 @@
 <script src="{{ asset('') }}public/backend/js/jquery.toggle.buttons.js"></script> 
 <script src="{{ asset('') }}public/backend/js/masked.js"></script> 
 <script src="{{ asset('') }}public/backend/js/jquery.uniform.js"></script> 
-<script src="{{ asset('') }}public/backend/js/select2.min.js"></script> 
+<!-- <script src="{{ asset('') }}public/backend/js/select2.min.js"></script>  -->
 <script src="{{ asset('') }}public/backend/js/matrix.js"></script> 
 <script src="{{ asset('') }}public/backend/js/matrix.form_common.js"></script> 
 

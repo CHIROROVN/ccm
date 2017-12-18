@@ -1135,7 +1135,7 @@ form {
 	border-bottom: 0;
 }
 .form-horizontal .control-label {
-	padding-top: 15px;
+	padding-top: 12px;
 	width: 180px;
 }
 .form-horizontal .controls {
@@ -1678,6 +1678,7 @@ span.required {
     background-image: url('../img/warning.gif');
     background-repeat: no-repeat;
     padding-left: 20px;
+    margin-top: 5px !important;
 }
 
 .btn-right {

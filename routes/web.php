@@ -27,9 +27,9 @@ Route::group(['prefix' => 'manage', 'namespace' => 'Backend'], function () {
 
 	Route::get('/users/regist', ['as' => 'backend.users.regist', 'uses' => 'UsersController@regist']);
 	Route::post('/users/regist', ['as' => 'backend.users.regist', 'uses' => 'UsersController@postRegist']);
-	Route::get('/users/edit', ['as' => 'backend.users.edit', 'uses' => 'UsersController@edit']);
-	Route::post('/users/edit', ['as' => 'backend.users.edit', 'uses' => 'UsersController@postEdit']);
-	Route::get('/users/delete', ['as' => 'backend.users.delete', 'uses' => 'UsersController@delete']);
+	Route::get('/users/edit/{id}', ['as' => 'backend.users.edit', 'uses' => 'UsersController@edit']);
+	Route::post('/users/edit/{id}', ['as' => 'backend.users.edit', 'uses' => 'UsersController@postEdit']);
+	Route::get('/users/delete/{id}', ['as' => 'backend.users.delete', 'uses' => 'UsersController@delete']);
 	Route::get('/users/detail/{id}', ['as' => 'backend.users.detail', 'uses' => 'UsersController@detail']);
 	
 	Route::get('/company', ['as' => 'backend.company.index', 'uses' => 'CompanyController@index']);
@@ -56,10 +56,11 @@ Route::group(['prefix' => 'manage', 'namespace' => 'Backend'], function () {
 	Route::get('/meeting', ['as' => 'backend.meeting.index', 'uses' => 'MeetingController@index']);
 	Route::get('/meeting/regist', ['as' => 'backend.meeting.regist', 'uses' => 'MeetingController@regist']);
 	Route::post('/meeting/regist', ['as' => 'backend.meeting.regist', 'uses' => 'MeetingController@postRegist']);
-	Route::get('/meeting/edit', ['as' => 'backend.meeting.edit', 'uses' => 'MeetingController@edit']);
-	Route::post('/meeting/edit', ['as' => 'backend.meeting.edit', 'uses' => 'MeetingController@postEdit']);
-	Route::get('/meeting/detail', ['as' => 'backend.meeting.detail', 'uses' => 'MeetingController@detail']);
-	Route::get('/meeting/delete', ['as' => 'backend.meeting.delete', 'uses' => 'MeetingController@delete']);
+	Route::get('/meeting/edit/{id}', ['as' => 'backend.meeting.edit', 'uses' => 'MeetingController@edit']);
+	Route::post('/meeting/edit/{id}', ['as' => 'backend.meeting.edit', 'uses' => 'MeetingController@postEdit']);
+	Route::get('/meeting/detail/{id}', ['as' => 'backend.meeting.detail', 'uses' => 'MeetingController@detail']);
+	Route::get('/meeting/delete/{id}', ['as' => 'backend.meeting.delete', 'uses' => 'MeetingController@delete']);
+	Route::get('/meetings/contact_ajax', ['as' => 'backend.meeting.contact_ajax', 'uses' => 'MeetingController@contact_ajax']);
 	
 
 });

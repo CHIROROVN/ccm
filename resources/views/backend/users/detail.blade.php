@@ -3,8 +3,8 @@
 
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="{{route('backend.dashboard.index')}}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{route('backend.users.index')}}" class="tip-bottom">Users</a> <span class="current">&nbsp;&nbsp; Add New User </span> </div>
-  <h1>Add New User</h1>
+  <div id="breadcrumb"> <a href="{{route('backend.dashboard.index')}}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{route('backend.users.index')}}" class="tip-bottom">Users</a> <span class="current">&nbsp;&nbsp; detail </span> </div>
+  <h1>User Detail</h1>
 </div>
 <div class="container-fluid">
   <hr>
@@ -62,7 +62,7 @@
 
             <div class="control-group">
             	<div class="controls">
-              		<button type="button" class="btn btn-warning"><i class="icon-pencil" onclick="location.href='{{route('backend.users.edit', $id)}}'"></i> Edit</button>
+              		<button type="button" class="btn btn-warning"><i class="icon-pencil" onclick="location.href='{{route('backend.users.edit', $id)}}'"></i>&nbsp;Edit&nbsp;</button>
               		<button type="button" class="btn btn-danger"><i class="icon-trash" onclick="location.href='{{route('backend.users.delete', $id)}}'"></i> Delete</button>
           		</div>
               <div class="controls">
