@@ -12,7 +12,7 @@
     <div class="quick-actions_homepage">
       <ul class="quick-actions">
         
-        <li class="bg_lb span2"> <a href="index.html"> <i class="icon-dashboard"></i>
+        <li class="bg_lb span2"> <a href="{{route('backend.dashboard.index')}}"> <i class="icon-dashboard"></i>
           <!-- <span class="label label-important">20</span> --> Dashboard </a> </li>
        
         @if(Auth::user()->u_power01 == 1)
