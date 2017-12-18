@@ -14,8 +14,8 @@ class MeetingModel {
             'contact_id'                        => 'required',
             'meeting_title'                     => 'required',
             'meeting_detail'                    => 'required',
-            'meeting_file_1'                    => 'nullable|mimes:csv,xls,xlsx,pdf,doc,docx|max:10000',
-            'meeting_file_2'                    => 'nullable|mimes:csv,xls,xlsx,pdf,doc,docx:max:1000',
+            'meeting_file_1'                    => 'mimes:csv,xls,xlsx,pdf,doc,docx|max:10000|nullable',
+            'meeting_file_2'                    => 'mimes:csv,xls,xlsx,pdf,doc,docx:max:1000|nullable',
             'meeting_date'                      => 'required'
         );
     }
