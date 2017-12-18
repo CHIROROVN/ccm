@@ -7,7 +7,7 @@
         <li><a href="{{route('backend.company.regist')}}">Company Regist</a></li>
       </ul>
     </li>
-    <li class="submenu"><a href="{{route('backend.contact.index')}}"><i class="icon icon-home"></i> <span>Contact</span> </a>
+    <li class="submenu"><a href="{{route('backend.contact.index')}}"><i class="icon icon-phone"></i> <span>Contact</span> </a>
       <ul>
         <li><a href="{{route('backend.contact.index')}}">Contact List</a></li>
         <li><a href="{{route('backend.contact.regist')}}">Contact Regist</a></li>

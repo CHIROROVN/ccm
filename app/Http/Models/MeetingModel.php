@@ -14,8 +14,8 @@ class MeetingModel {
             'contact_id'                        => 'required',
             'meeting_title'                     => 'required',
             'meeting_detail'                    => 'required',
-            'meeting_file_1'                    => 'nullable|mimes:csv,xls,xlsx,pdf,doc,docx,txt',
-            'meeting_file_2'                    => 'nullable|mimes:csv,xls,xlsx,pdf,doc,docx,txt',
+            'meeting_file_1'                    => 'nullable|mimes:csv,xls,xlsx,pdf,doc,docx|max:10000',
+            'meeting_file_2'                    => 'nullable|mimes:csv,xls,xlsx,pdf,doc,docx:max:1000',
             'meeting_date'                      => 'required'
         );
     }
@@ -27,8 +27,10 @@ class MeetingModel {
            'contact_id.required'                => trans('validation.error_contact_required'),
            'meeting_title.required'             => trans('validation.error_meeting_title_required'),
            'meeting_detail.required'            => trans('validation.error_meeting_detail_required'),
-           'meeting_file_1.required'            => trans('validation.error_meeting_file_1_mimes'),
-           'meeting_file_2.required'            => trans('validation.error_meeting_file_2_mimes'),
+           'meeting_file_1.mimes'               => trans('validation.error_meeting_file_1_mimes'),
+           'meeting_file_1.max'                 => trans('validation.error_meeting_file_1_max'),
+           'meeting_file_2.mimes'               => trans('validation.error_meeting_file_2_mimes'),
+           'meeting_file_2.max'                 => trans('validation.error_meeting_file_2_max'),
            'meeting_date.required'              => trans('validation.error_meeting_date_required')           
         );
     }
