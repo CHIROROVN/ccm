@@ -122,6 +122,71 @@ class UsersController extends BackendController
 		return view('backend.users.edit', compact('user', 'id'));
 	}
 
+	public function postEdit($id){
+		$clsUser            = new UserModel();
+		$Rules = $clsUser->Rules();
+		if(!empty(Input::get('u_passwd'))){
+			$data['u_passwd']           = Hash::make(Input::get('u_passwd'));
+		}else{
+			unset($Rules['u_passwd']);
+		}
+
+		$validator = Validator::make(Input::all(), $Rules, $clsUser->Messages());
+
+		if ($validator->fails()) {
+			return redirect()->route('backend.users.edit',$id)->withErrors($validator)->withInput();
+		}
+
+		$data['u_name']                 = Input::get('u_name');
+		$data['u_login']                = Input::get('u_login');
+		if(!empty(Input::get('u_passwd'))){
+			$data['u_passwd']           = Hash::make(Input::get('u_passwd'));
+		}
+
+		if(!empty(Input::get('u_power01'))){
+			$data['u_power01']           = Input::get('u_power01');
+		}else{
+			$data['u_power01'] = NULL;
+		}
+
+		if(!empty(Input::get('u_power02'))){
+			$data['u_power02']           = Input::get('u_power02');
+		}else{
+			$data['u_power02'] = NULL;
+		}
+
+		if(!empty(Input::get('u_power03'))){
+			$data['u_power03']           = Input::get('u_power03');
+		}else{
+			$data['u_power03'] = NULL;
+		}
+
+		if(!empty(Input::get('u_power04'))){
+			$data['u_power04']           = Input::get('u_power04');
+		}else{
+			$data['u_power04'] = NULL;
+		}
+
+		if(!empty(Input::get('u_power05'))){
+			$data['u_power05']           = Input::get('u_power05');
+		}else{
+			$data['u_power05'] = NULL;
+		}
+
+		$data['last_ipadrs']            = CLIENT_IP_ADRS;
+		$data['last_date']              = date('Y-m-d H:i:s');
+		$data['last_user']              = Auth::user()->u_id;
+		$data['last_kind']              = UPDATE;
+
+		if ( $clsUser->update($id, $data) ) {
+			Session::flash('success', trans('common.msg_edit_success'));
+			return redirect()->route('backend.users.index');
+		} else {
+			Session::flash('danger', trans('common.msg_edit_danger'));
+			return redirect()->route('backend.users.edit', $id)->withInput(Input::all());
+		}
+	}
+
 	public function detail($id){
 		$clsUser                = new UserModel();
 		$user = $clsUser->get_by_id($id);

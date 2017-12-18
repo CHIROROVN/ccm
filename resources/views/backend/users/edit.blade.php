@@ -21,7 +21,7 @@
             <div class="control-group">
               <label class="control-label">Full Name : <span class="required">※</span></label>
               <div class="controls">
-                <input type="text" class="span8" placeholder="Full Name" name="u_name" value="{{old('u_name')}}" />
+                <input type="text" class="span8" placeholder="Full Name" name="u_name" value="@if(old('u_name')){{old('u_name')}}@else{{$user->u_name}}@endif" />
                 @if ($errors->has('u_name'))
                     <span class="help-block">
                         <strong>{{ $errors->first('u_name') }}</strong>
@@ -32,7 +32,7 @@
             <div class="control-group">
               <label class="control-label">Username : <span class="required">※</span></label>
               <div class="controls">
-                <input type="text" class="span8" placeholder="Username" name="u_login" value="{{old('u_login')}}"/>
+                <input type="text" class="span8" placeholder="Username" name="u_login" value="@if(old('u_login')){{old('u_login')}}@else{{$user->u_login}}@endif"/>
                 @if ($errors->has('u_login'))
                     <span class="help-block">
                         <strong>{{ $errors->first('u_login') }}</strong>
@@ -55,19 +55,19 @@
               <label class="control-label">Permission :</label>
               <div class="controls">
                 <label>
-                  <input type="checkbox" name="u_power01" value="1" @if(old('u_power01') == 1) checked @endif />&nbsp;
+                  <input type="checkbox" name="u_power01" value="1" @if(old('u_power01') == 1) checked @elseif($user->u_power01 == 1) checked @endif />&nbsp;
                    Power01</label>
                 <label>
-                  <input type="checkbox" name="u_power02" value="1" @if(old('u_power02') == 1) checked @endif />&nbsp;
+                  <input type="checkbox" name="u_power02" value="1" @if(old('u_power02') == 1) checked @elseif($user->u_power02 == 1) checked @endif />&nbsp;
                    Power02</label>
                 <label>
-                  <input type="checkbox" name="u_power03" value="1" @if(old('u_power03') == 1) checked @endif />&nbsp;
+                  <input type="checkbox" name="u_power03" value="1" @if(old('u_power03') == 1) checked @elseif($user->u_power03 == 1) checked @endif />&nbsp;
                    Power03</label>
                   <label>
-                  <input type="checkbox" name="u_power04" value="1" @if(old('u_power04') == 1) checked @endif/>&nbsp;
+                  <input type="checkbox" name="u_power04" value="1" @if(old('u_power04') == 1) checked @elseif($user->u_power04 == 1) checked @endif/>&nbsp;
                    Power04</label>
                   <label>
-                  <input type="checkbox" name="u_power05"  value="1" @if(old('u_power05') == 1) checked @endif/>&nbsp;
+                  <input type="checkbox" name="u_power05"  value="1" @if(old('u_power05') == 1) checked @elseif($user->u_power05 == 1) checked @endif/>&nbsp;
                    Power05</label>
               </div>
             </div>
@@ -75,7 +75,7 @@
               <label class="control-label">Status :</label>
               <div class="controls">
                 <label>
-                  <input type="checkbox" name="u_dspl_flag" value="1" @if(old('u_dspl_flag') == 1) checked @endif/>&nbsp;
+                  <input type="checkbox" name="u_dspl_flag" value="1" @if(old('u_dspl_flag') == 1) checked @elseif($user->u_dspl_flag == 1) checked @endif/>&nbsp;
                    <span style="color: green;">Active</span>/<span style="color: red;">Inactive</span></label>
               </div>
             </div>

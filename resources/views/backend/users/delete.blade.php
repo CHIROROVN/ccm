@@ -66,7 +66,7 @@
                   <button type="button" class="btn btn-default" onclick="location.href='{{route('backend.users.detail', $id)}}'"><i class="icon-arrow-left"></i>&nbsp;Back&nbsp;</button>
           		</div>
               <div class="controls">
-                  <button type="button" class="btn btn-default" onclick="location.href='{{route('backend.users.index')}}'"><i class="icon-th-list"></i> Go back User List</button>
+                  <button type="button" class="btn btn-default" onclick="location.href='{{route('backend.users.index')}}'">&nbsp;<i class="icon-th-list"></i> Go back User List</button>
                 </div>
             </div>
 

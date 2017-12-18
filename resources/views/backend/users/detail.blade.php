@@ -62,8 +62,8 @@
 
             <div class="control-group">
             	<div class="controls">
-              		<button type="button" class="btn btn-warning"><i class="icon-pencil" onclick="location.href='{{route('backend.users.edit', $id)}}'"></i>&nbsp;Edit&nbsp;</button>
-              		<button type="button" class="btn btn-danger"><i class="icon-trash" onclick="location.href='{{route('backend.users.delete', $id)}}'"></i> Delete</button>
+              		<button type="button" class="btn btn-warning" onclick="location.href='{{route('backend.users.edit', $id)}}'"><i class="icon-pencil"></i>&nbsp;Edit&nbsp;</button>
+              		<button type="button" class="btn btn-danger" onclick="location.href='{{route('backend.users.delete', $id)}}'"><i class="icon-trash"></i> Delete</button>
           		</div>
               <div class="controls">
                   <button type="button" class="btn btn-default" onclick="location.href='{{route('backend.users.index')}}'"><i class="icon-th-list"></i> Go back User List</button>
