@@ -1135,7 +1135,7 @@ form {
 	border-bottom: 0;
 }
 .form-horizontal .control-label {
-	padding-top: 15px;
+	padding-top: 12px;
 	width: 180px;
 }
 .form-horizontal .controls {
@@ -1601,7 +1601,7 @@ div.dataTables_wrapper .ui-widget-header {
     background-color: #DFF0D8;
     border-left: 6px #4CAF50 solid;
     color: #296829;
-    width: 100%;
+    width: 97%;
 }
 
 #error.message {
@@ -1678,6 +1678,7 @@ span.required {
     background-image: url('../img/warning.gif');
     background-repeat: no-repeat;
     padding-left: 20px;
+    margin-top: 5px !important;
 }
 
 .btn-right {
@@ -1726,6 +1727,19 @@ span.required {
 
 .width-col6 {
 	width: 160px;
+}
+
+.btn-reset {
+	color: #D6010E;
+}
+
+.btn-hide {
+    display: none !important;
+}
+
+a.disabled {
+   pointer-events: none;
+   cursor: default;
 }
 
 

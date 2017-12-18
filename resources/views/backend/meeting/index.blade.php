@@ -54,12 +54,12 @@
                   @foreach($meetings as $meeting)
                     <tr>
                       <td class="text-center text-middle">
-                        <button type="button" class="btn btn-mini btn-danger" onclick="location.href='{{route('backend.meeting.edit', $meeting->meeting_id)}}'"><i class="icon-trash"></i> Delete</button>
+                        <button type="button" class="btn btn-mini btn-danger" onclick="location.href='{{route('backend.meeting.delete', $meeting->meeting_id)}}'"><i class="icon-trash"></i> Delete</button>
                       </td>
                       <td>{{ $meeting->meeting_title }}</td>
                       <td>{{ $meeting->meeting_detail }}</td>
                       <td>{{ $meeting->company_name }}</td>
-                      <td>{{ $meeting->contract_no }}</td>
+                      <td>{{ $meeting->contact_name }}</td>
                       <td class="text-center">{{$meeting->meeting_date}}</td>
                       <td  class="text-center text-middle">
                         <button type="button" class="btn btn-mini btn-info" onclick="location.href='{{route('backend.meeting.detail', $meeting->meeting_id)}}'"><i class="icon-eye-open"></i> View</button>

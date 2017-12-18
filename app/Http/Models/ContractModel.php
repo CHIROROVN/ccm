@@ -38,9 +38,9 @@ class ContractModel {
         return DB::table($this->table)
             ->where('last_kind', '<>', DELETE)
             ->where('company_id', '=', $company_id)
+            ->select('contract_id', 'contract_no')
             ->orderBy('contract_no', 'ASC')
-            ->pluck('contract_no', 'contract_id')
-            ->toArray();
+            ->get()->toArray();
     }
 
     public function insert($data)
