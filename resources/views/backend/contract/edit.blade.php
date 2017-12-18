@@ -50,6 +50,12 @@
                 <div class="control-group">
                   <label class="control-label">Contract detail 1</label>
                   <div class="controls">
+                     <input type="file" name="contract_detail_realImageName" id="contract_detail_realImageName"/>              
+                    <input type="button" id="info2_file_del" class="btn-reset" value="X" title="リセット" onclick="deletePhoto('prmT2ImageName')" ><br>
+                    <input type="radio" name="file_radio2"  value="2" {if $file_radio2 ==2} checked{/if} >
+                      すでにアップロード済みのファイルを使う&nbsp;{if $contract->contract_detail_real!=''}<a href="#" target="_blank"> 画像を参照</a>する {else}（画像なし） {/if} <br>
+                    <input type="radio" name="file_radio2"  value="3" >
+                      アップロード済みファイルを削除する               
                     <input id="contract_detail_real" type="file" name="contract_detail_real" />
                   </div>
                 </div>
@@ -118,5 +124,9 @@ $("#btnSubmit").on("click",function() {
   }  
   if(flag) $( "#frmEdit" ).submit(); 
 }); 
+function deletePhoto(divId)
+ {
+     document.getElementById(divId).value ='';
+ }
 </script>   
 @endsection

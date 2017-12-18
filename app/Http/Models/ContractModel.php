@@ -22,7 +22,7 @@ class ContractModel {
         return array(
            'contract_no.required'             => trans('validation.error_contract_no_required'),
            'contract_detail_real.mimes'       => trans('validation.error_contract_detail_real_mimes'),
-           'contract_detail_real.mimes'       => trans('validation.error_contract_detail_mimes'),
+           'contract_detail.mimes'            => trans('validation.error_contract_detail_mimes'),
            
         );
     }

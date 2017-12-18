@@ -13,10 +13,11 @@
             <h5>New Contact</h5>
           </div>
            <div class="widget-content nopadding">
-              <div class="alert alert-error alert-block" @if ($errors->first('contract_no')) style="display:block" @else style="display:none" @endif id="div_error"> <a class="close" data-dismiss="alert" href="#">×</a>
+              <div class="alert alert-error alert-block" @if ($errors->first('contract_no') || $errors->first('contract_detail_real') || $errors->first('contract_detail')) style="display:block" @else style="display:none" @endif id="div_error"> <a class="close" data-dismiss="alert" href="#">×</a>
                 <h4 class="alert-heading">Error!</h4>
                 <p id="error_mess">@if ($errors->first('contract_no')) ※{!! $errors->first('contract_no') !!} @endif
-                                   @if ($errors->first('contract_no')) ※{!! $errors->first('contract_no') !!} @endif 
+                                   @if ($errors->first('contract_detail_real')) <br>※{!! $errors->first('contract_detail_real') !!} @endif 
+                                   @if ($errors->first('contract_detail')) <br>※{!! $errors->first('contract_detail') !!} @endif 
                 </p>               
               </div>
             {!! Form::open(array('url' => route('backend.contract.regist'),'id'=>'frmRegist', 'method' => 'post','class'=>'form-horizontal' ,'enctype'=>'multipart/form-data', 'accept-charset'=>'utf-8')) !!}            
@@ -112,7 +113,7 @@
 </div>
 </div>
  <script type="text/javascript">
-$("#btnSubmit").on("click",function() { 
+$("#btnSubmit").on("click",function() {   
   var flag = true;
   if (!$("#contract_no").val().replace(/ /g, "")) {
     $("#error_mess").html('<?php echo $error['error_contact_no_required'];?>');

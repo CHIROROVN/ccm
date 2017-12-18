@@ -2,7 +2,7 @@
 @section('content')
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Contacts</a> </div>
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Contracts</a> </div>
    <!-- <h1>Companies</h1>-->
     <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.contract.regist') }}'">新規登録</button></span></h1>
   </div>
@@ -26,7 +26,7 @@
           <div class="widget-title"> <span class="icon">
             <input type="checkbox" id="title-checkbox" name="title-checkbox" />
             </span>
-            <h5>Contacts list</h5>
+            <h5>Contracts list</h5>
           </div>
           <div class="widget-content nopadding">
             <table class="table table-bordered table-striped with-check">
