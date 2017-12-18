@@ -30,11 +30,11 @@
               <label class="control-label">Company Name: <span class="required">※</span></label>
               <div class="controls">
                 <select class="span6" id="company_id" name="company_id">
-					@if(!empty($company))
-						@foreach($company as $key => $com)
-							<option value="{{$key}}" @if(old('company_id') == $key) selected @elseif($meeting->company_id == $key) selected @endif >{{$com}}</option>
-						@endforeach
-					@endif
+      					@if(!empty($company))
+      						@foreach($company as $key => $com)
+      							<option value="{{$key}}" @if(old('company_id') == $key) selected @elseif($meeting->company_id == $key) selected @endif >{{$com}}</option>
+      						@endforeach
+      					@endif
                 </select>
                 @if ($errors->has('company_id'))
                 <span class="help-block">
@@ -164,6 +164,7 @@ $( document ).ready(function() {
   }else{
     selected = contact_id_new;
   }
+
 	var company_id = $('#company_id').val();    	
 	$.ajax({
         type: "GET",
@@ -175,6 +176,7 @@ $( document ).ready(function() {
               if(selected == contact.contact_id){
                 selected = "selected";
               }
+            console.log(selected);
 		        option_contact += '<option value="'+contact.contact_id+'" '+selected+' >'+contact.contact_name+'</option>';
 		    });
             console.log(option_contact);
