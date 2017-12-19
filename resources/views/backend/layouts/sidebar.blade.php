@@ -1,4 +1,4 @@
-<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Company</a>
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-reorder"></i> </a>
   <ul>
     <li class="@if(curr_page() == 'dashboard') active @endif" ><a href="{{route('backend.dashboard.index')}}"><i class="icon icon-dashboard"></i> <span>Dashboard</span></a> </li>
     @if(Auth::user()->u_power01 == 1)
@@ -41,6 +41,7 @@
       </ul>
     </li>
     @endif
+    <li><a href="{{route('backend.users.logout')}}"><i class="icon icon-signout"></i> <span>Logout</span></a> </li>
     <!-- <li class="content"></li>  -->   
   </ul>
 </div>

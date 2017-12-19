@@ -33,7 +33,7 @@ class UserModel
     {
         return array(
             'u_login'                      => 'required',
-            'u_passwd'                     => 'required',
+            'u_passwd'                     => 'required|min:6',
         );
     }
 
@@ -42,6 +42,7 @@ class UserModel
         return array(
             'u_login.required'             => trans('validation.error_u_login_required'),
             'u_passwd.required'            => trans('validation.error_u_passwd_required'),
+            'u_passwd.min'                 => trans('validation.error_u_passwd_min'),
         );
     }
 
