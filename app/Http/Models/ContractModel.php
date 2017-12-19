@@ -55,7 +55,7 @@ class ContractModel {
 
     public function get_by_id($id)
     {
-        return DB::table($this->table)->where('contract_id', $id)->first();
+        return DB::table($this->table)->leftJoin('m_company', 'm_company.company_id', '=', 'm_contract.company_id')->where('contract_id', $id)->first();
     }
 
 }

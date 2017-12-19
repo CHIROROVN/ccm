@@ -18,21 +18,32 @@
         <div class="widget-content nopadding">
           {!! Form::open(array('route' => ['backend.contact.detail', $contact->contact_id], 'class' => 'form-horizontal', 'method' => 'post', 'enctype'=>'multipart/form-data', 'accept-charset'=>'utf-8')) !!}
             <div class="control-group">
-              <label class="control-label">contact Name: <span class="required">※</span></label>
+              <label class="control-label">Contact name: <span class="required">※</span></label>
               <div class="controls">
                 {{$contact->contact_name}}
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label">contact Address: </label>
-              <div class="controls">
-                {{$contact->contact_address}}
+              <label class="control-label">Company name: </label>
+              <div class="controls"><a href="{{route('backend.company.detail', $contact->company_id)}}" >{{$contact->company_name}}</a>
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label">contact MST : </label>
+              <label class="control-label">Contact Email : </label>
               <div class="controls">
-                {{$contact->contact_mst}}
+                {{$contact->contact_email}}
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Contact Tel : </label>
+              <div class="controls">
+                {{$contact->contact_tel}}
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Contact Title : </label>
+              <div class="controls">
+                {{$contact->contact_title}}
               </div>
             </div>         
 

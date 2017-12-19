@@ -18,23 +18,67 @@
         <div class="widget-content nopadding">
           {!! Form::open(array('route' => ['backend.contract.detail', $contract->contract_id], 'class' => 'form-horizontal', 'method' => 'post', 'enctype'=>'multipart/form-data', 'accept-charset'=>'utf-8')) !!}
             <div class="control-group">
-              <label class="control-label">Company Name: <span class="required">※</span></label>
+              <label class="control-label">Contract No: <span class="required">※</span></label>
               <div class="controls">
-                {{$contract->company_name}}
+                {{$contract->contract_no}}
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label">Company Address: </label>
-              <div class="controls">
-                {{$contract->company_address}}
+              <label class="control-label">Company: </label>
+              <div class="controls"><a href="{{route('backend.company.detail', $contract->company_id)}}" >
+                {{$contract->company_name}}</a>
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label">Company MST : </label>
+              <label class="control-label">Contract Term : </label>
               <div class="controls">
-                {{$contract->company_mst}}
+                {{$contract->contract_term_from}} ~ {{$contract->contract_term_to}}
               </div>
-            </div>         
+            </div> 
+
+             <div class="control-group">
+              <label class="control-label">Contract File 1: </label>
+              <div class="controls">
+                {{$contract->contract_detail_real}}
+              </div>
+            </div>  
+            <div class="control-group">
+              <label class="control-label">Contract File 2: </label>
+              <div class="controls">
+                {{$contract->contract_detail}}
+              </div>
+            </div>   
+            <div class="control-group">
+              <label class="control-label">Contract price: </label>
+              <div class="controls">
+                {{$contract->contract_price}}
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Contract VAT: </label>
+              <div class="controls">
+                {{$contract->contract_vat}}
+              </div>
+            </div> 
+            <div class="control-group">
+              <label class="control-label">Bill No: </label>
+              <div class="controls">
+                {{$contract->bill_no}}
+              </div>
+            </div> 
+            <div class="control-group">
+              <label class="control-label">Bill received date: </label>
+              <div class="controls">
+                {{$contract->bill_received_date}}
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Bill date: </label>
+              <div class="controls">
+                {{$contract->bill_date}}
+              </div>
+            </div>   
+               
 
             <div class="control-group">
             	<div class="controls">
@@ -42,7 +86,7 @@
               		<button type="button" class="btn btn-danger" onclick="location.href='{{route('backend.contract.delete', $contract->contract_id)}}'"><i class="icon-trash"></i> Delete</button>
           		</div>
               <div class="controls">
-                  <button type="button" class="btn btn-default" onclick="location.href='{{route('backend.contract.index')}}'"><i class="icon-list"></i> Back companies List</button>
+                  <button type="button" class="btn btn-default" onclick="location.href='{{route('backend.contract.index')}}'"><i class="icon-list"></i> Back contracts List</button>
               </div>
             </div>
           {!! Form::close() !!}

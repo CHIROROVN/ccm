@@ -52,7 +52,10 @@
                   <td>{{$contract->company_name}}</td>
                   <td>{{$contract->contract_price}}</td>
                   <td>{{$contract->contract_vat}}</td>
-                  <td class="center"> <input onclick="location.href='{{ route('backend.contract.edit', $contract->contract_id) }}'" value="編集" type="button" class="btn btn-primary btn-xs"></td>
+                  <td class="center"> 
+                      <button type="button" class="btn btn-mini btn-info" onclick="location.href='{{route('backend.contract.detail', $contract->contract_id)}}'"><i class="icon-eye-open"></i> View</button>
+                    <button type="button" class="btn btn-mini btn-warning" onclick="location.href='{{ route('backend.contract.edit', $contract->contract_id) }}'"><i class="icon-pencil"></i> Edit</button>
+                  </td>
                 </tr>
                  @endforeach  
                 @endif  

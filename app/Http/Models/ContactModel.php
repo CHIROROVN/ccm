@@ -53,7 +53,7 @@ class ContactModel {
 
     public function get_by_id($id)
     {
-        return DB::table($this->table)->where('contact_id', $id)->first();
+        return DB::table($this->table)->leftJoin('m_company', 'm_company.company_id', '=', 'm_contact.company_id')->where('contact_id', $id)->first();
     }
 
 }

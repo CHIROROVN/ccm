@@ -22,7 +22,7 @@
             {!! Form::open(array('url' => route('backend.contact.edit',$contact->contact_id),'id'=>'frmEdit', 'method' => 'post','class'=>'form-horizontal')) !!}            
               <div id="form-wizard-1" class="step">
                 <div class="control-group">
-                  <label class="control-label">contact name</label>
+                  <label class="control-label">Contact name</label>
                   <div class="controls">
                     <input id="contact_name" type="text" name="contact_name" value="{{$contact->contact_name}}" />
                   </div>
