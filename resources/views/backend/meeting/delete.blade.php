@@ -81,7 +81,7 @@
                   <button type="button" class="btn btn-default" onclick="location.href='{{route('backend.meeting.detail', $meeting->meeting_id)}}'"><i class="icon-arrow-left"></i>&nbsp;Back&nbsp;</button>
               </div>
               <div class="controls">
-                  <button type="button" class="btn btn-default" onclick="location.href='{{route('backend.meeting.index')}}'"><i class="icon-list"></i> Back Meeting List</button>
+                  <button type="button" class="btn btn-default" onclick="location.href='{{route('backend.meeting.index')}}'">&nbsp;<i class="icon-list"></i> Back Meeting List&nbsp;</button>
               </div>
             </div>
           {!! Form::close() !!}
