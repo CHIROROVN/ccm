@@ -1758,6 +1758,10 @@ span.required {
 	width: 160px;
 }
 
+.width-col-min13 {
+	min-width: 130px !important;
+}
+
 .btn-reset {
 	color: #D6010E;
 }

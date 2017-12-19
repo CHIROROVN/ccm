@@ -35,8 +35,8 @@
               <thead>
                 <tr>
                   <th class="width-col5S">Delete</i></th>
-                  <th>Company name</th>
-                  <th>Address</th>
+                  <th class="width-col-min13">Company name</th>
+                  <th class="width-col-min13">Address</th>
                   <th class="width-col8">MST</th>
                   <th class="width-col8S">Contact list</th>
                   <th class="width-col7S">Meeting list</th>
