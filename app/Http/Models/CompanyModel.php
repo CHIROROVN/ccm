@@ -48,4 +48,14 @@ class CompanyModel {
         return DB::table($this->table)->where('company_id', $id)->first();
     }
 
+    public function get_list_contact($company_id)
+    {
+        return DB::table('m_contact')->where('company_id', $company_id)->get();
+    }
+
+    public function get_list_contract($company_id)
+    {
+        return DB::table('m_contract')->where('company_id', $company_id)->get();
+    }
+
 }

@@ -42,7 +42,7 @@
               </thead>
               <tbody>
                 @if(empty($contacts) || count($contacts) < 1)
-                <tr><td colspan="5"><h3 align="center">該当するデータがありません。</h3></td>               
+                <tr><td colspan="5"><h3 align="center">Don't have any data</h3></td>               
                 </tr>
                 @else  
                   @foreach($contacts as $contact) 

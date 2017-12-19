@@ -96,8 +96,10 @@ class CompanyController extends BackendController
 
     public function detail($id){
         $clsCompany          = new CompanyModel();
-        $company             = $clsCompany->get_by_id($id);
-        return view('backend.company.detail', compact('company'));
+        $data['company']     = $clsCompany->get_by_id($id);
+        $data['contacts']     = $clsCompany->get_list_contact($id);
+        $data['contracts']    = $clsCompany->get_list_contract($id);
+        return view('backend.company.detail', $data);
     }
 
     /**

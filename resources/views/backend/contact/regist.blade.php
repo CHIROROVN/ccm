@@ -24,13 +24,13 @@
                 <div class="control-group">
                   <label class="control-label">Contact name <span class="required">※</span></label>
                   <div class="controls">
-                    <input id="contact_name" type="text" name="contact_name" value="{{old('contact_name')}}"/>
+                    <input id="contact_name" type="text" name="contact_name" value="{{old('contact_name')}}" class="span6"/>
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label">Company name <span class="required">※</span></label>
                   <div class="controls">
-                    <select id="company_id" name="company_id">
+                    <select id="company_id" name="company_id" class="span6">
                      @foreach($companies as $key=>$company)
                      <option value="{{$company->company_id}}">{{$company->company_name}}</option>
                      @endforeach
@@ -40,19 +40,19 @@
                 <div class="control-group">
                   <label class="control-label">Contact email <span class="required">※</span></label>
                   <div class="controls">
-                    <input id="contact_email" type="text" name="contact_email" value="{{old('contact_email')}}" />
+                    <input id="contact_email" type="text" name="contact_email" value="{{old('contact_email')}}" class="span6"/>
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label">Contact tel</label>
                   <div class="controls">
-                    <input id="contact_tel" type="text" name="contact_tel" value="{{old('contact_tel')}}"/>
+                    <input id="contact_tel" type="text" name="contact_tel" value="{{old('contact_tel')}}" class="span6"/>
                   </div>
                 </div>
                <div class="control-group">
                   <label class="control-label">Contact title</label>
                   <div class="controls">
-                    <input id="contact_title" type="text" name="contact_title" value="{{old('contact_title')}}"/>
+                    <input id="contact_title" type="text" name="contact_title" value="{{old('contact_title')}}" class="span6"/>
                   </div>
                 </div>
               </div>

@@ -53,7 +53,83 @@
     </div>
 
   </div>
+  <!-- -->
+  <div class="row-fluid">
+      <div class="span6">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
+            <h5>Contact List </h5>
+          </div>
+          <div class="widget-content">
+            <table class="table table-bordered table-striped with-check">
+              <thead>
+                <tr>                  
+                  <th>Contact name</th>                  
+                  <th>Contact email</th>
+                  <th>Contact Tel</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @if(empty($contacts) || count($contacts) < 1)
+                <tr><td colspan="4"><h3 align="center">Don't have any data</h3></td>               
+                </tr>
+                @else  
+                  @foreach($contacts as $contact) 
+                <tr>                  
+                  <td>{{$contact->contact_name}}</td>                  
+                  <td>{{$contact->contact_email}}</td>
+                  <td>{{$contact->contact_tel}}</td>
+                  <td class="center">
+                      <button type="button" class="btn btn-mini btn-info" onclick="location.href='{{route('backend.contact.detail', $contact->contact_id)}}'"><i class="icon-eye-open"></i> View</button>
+                    <button type="button" class="btn btn-mini btn-warning" onclick="location.href='{{ route('backend.contact.edit', $contact->contact_id) }}'"><i class="icon-pencil"></i> Edit</button>
+                  </td>
+                </tr>
+                @endforeach  
+                @endif  
+              </tbody>
+            </table>
 
+          </div>
+        </div>
+      </div>
+      <div class="span6">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
+            <h5>Contract list</h5>
+          </div>
+          <div class="widget-content"> <table class="table table-bordered table-striped with-check">
+              <thead>
+                <tr>                  
+                  <th>Contract No</th>                  
+                  <th>Contract Price</th>
+                  <th>Contract VAT</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @if(empty($contracts) || count($contracts) < 1)
+                <tr><td colspan="4"><h3 align="center">Don't have any data</h3></td>               
+                </tr>
+                @else  
+                  @foreach($contracts as $contract) 
+                <tr>
+                  
+                  <td>{{$contract->contract_no}}</td>                  
+                  <td>{{$contract->contract_price}}</td>
+                  <td>{{$contract->contract_vat}}</td>
+                  <td class="center"> 
+                      <button type="button" class="btn btn-mini btn-info" onclick="location.href='{{route('backend.contract.detail', $contract->contract_id)}}'"><i class="icon-eye-open"></i> View</button>
+                    <button type="button" class="btn btn-mini btn-warning" onclick="location.href='{{ route('backend.contract.edit', $contract->contract_id) }}'"><i class="icon-pencil"></i> Edit</button>
+                  </td>
+                </tr>
+                 @endforeach  
+                @endif  
+              </tbody>
+            </table></div>
+        </div>
+      </div>
+    </div>
 </div>
 </div>
 @endsection

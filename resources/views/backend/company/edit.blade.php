@@ -22,26 +22,26 @@
                 <div class="control-group">
                   <label class="control-label">Company name <span class="required">※</span></label>
                   <div class="controls">
-                    <input id="company_name" type="text" name="company_name" value="{{$company->company_name}}" />
+                    <input id="company_name" type="text" name="company_name" value="{{$company->company_name}}" class="span6"/>
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label">Company Address</label>
                   <div class="controls">
-                    <input id="company_address" type="text" name="company_address" value="{{$company->company_address}}"/>
+                    <input id="company_address" type="text" name="company_address" value="{{$company->company_address}}" class="span6"/>
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label">Company MST</label>
                   <div class="controls">
-                    <input id="company_mst" type="text" name="company_mst" value="{{$company->company_mst}}"/>
+                    <input id="company_mst" type="text" name="company_mst" value="{{$company->company_mst}}" class="span6"/>
                   </div>
                 </div>
                
               </div>
-              <div class="form-actions">
-                <input id="back" class="btn btn-primary" type="reset" value="Reset" />
-                <input  class="btn btn-primary" type="button" value="Save" id="btnSubmit" />
+              <div class="form-actions">                
+                <button type="button" class="btn btn-success" id="btnSubmit"><i class="icon-save"></i> Save</button>
+                <button type="reset" class="btn btn-default"><i class="icon-refresh"></i> Reset</button>
                 <div id="status"></div>
               </div>                
               <div id="submitted"></div>

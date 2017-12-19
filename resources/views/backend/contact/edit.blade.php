@@ -24,13 +24,13 @@
                 <div class="control-group">
                   <label class="control-label">Contact name</label>
                   <div class="controls">
-                    <input id="contact_name" type="text" name="contact_name" value="{{$contact->contact_name}}" />
+                    <input id="contact_name" type="text" name="contact_name" value="{{$contact->contact_name}}" class="span6"/>
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label">Company name</label>
                   <div class="controls">
-                    <select id="company_id" name="company_id">
+                    <select id="company_id" name="company_id" class="span6">
                      @foreach($companies as $key=>$company)
                     <option value="{{$company->company_id}}" @if($company->company_id == $contact->company_id) selected @endif>{{$company->company_name}}</option>
                     @endforeach
@@ -40,19 +40,19 @@
                 <div class="control-group">
                   <label class="control-label">Contact Email</label>
                   <div class="controls">
-                    <input id="contact_address" type="text" name="contact_email" value="{{$contact->contact_email}}"/>
+                    <input id="contact_address" type="text" name="contact_email" value="{{$contact->contact_email}}" class="span6"/>
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label">Contact tel</label>
                   <div class="controls">
-                    <input id="contact_tel" type="text" name="contact_tel" value="{{$contact->contact_tel}}"/>
+                    <input id="contact_tel" type="text" name="contact_tel" value="{{$contact->contact_tel}}" class="span6"/>
                   </div>
                 </div>
                <div class="control-group">
                   <label class="control-label">Contact title</label>
                   <div class="controls">
-                    <input id="contact_title" type="text" name="contact_title" value="{{$contact->contact_title}}"/>
+                    <input id="contact_title" type="text" name="contact_title" value="{{$contact->contact_title}}" class="span6"/>
                   </div>
                 </div>
                
