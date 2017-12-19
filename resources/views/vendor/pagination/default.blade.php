@@ -1,5 +1,4 @@
 @if ($paginator->hasPages())
-<div class="widget-content">
     <div class="pagination pull-right">
         <ul class="pagination">
             {{-- Previous Page Link --}}
@@ -35,6 +34,5 @@
                 <li class="disabled"><span>Next</span></li>
             @endif
         </ul>
-    </div>
 </div>
 @endif
