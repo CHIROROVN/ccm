@@ -25,7 +25,7 @@ class CompanyModel {
 
     public function get_all()
     {
-        return DB::table($this->table)->where('last_kind', '<>', DELETE)->orderBy('company_id', 'DESC')->get();
+        return DB::table($this->table)->where('last_kind', '<>', DELETE)->orderBy('company_id', 'DESC')->paginate(LIMIT_PAGE);
     }
 
     public function get_list()

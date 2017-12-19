@@ -2,9 +2,9 @@
 @section('content')
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Companies</a> </div>
+    <div id="breadcrumb"> <a href="{{route('backend.dashboard.index')}}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <span class="current">&nbsp;&nbsp;Companies </span>  </div>
    <!-- <h1>Companies</h1>-->
-    <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.company.regist') }}'">Add New Company</button></span></h1>
+    <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.company.regist') }}'"><i class="icon-plus"></i> Add New Company</button></span></h1>
   </div>
   <div class="container-fluid">
     <div class="flash-messages">
@@ -23,22 +23,24 @@
     <div class="row-fluid">
       <div class="span12">
         <div class="widget-box">
-          <div class="widget-title"> <span class="icon">
-            <input type="checkbox" id="title-checkbox" name="title-checkbox" />
-            </span>
+          <div class="widget-title">
+             <span class="icon"> <i class="icon-th"></i> </span>
+           <!-- <span class="icon"> -->
+            <!-- <input type="checkbox" id="title-checkbox" name="title-checkbox" /> -->
+            <!-- </span> -->
             <h5>Companies list</h5>
           </div>
           <div class="widget-content nopadding">
             <table class="table table-bordered table-striped with-check">
               <thead>
                 <tr>
-                  <th><i class="icon-resize-vertical"></i></th>
+                  <th class="width-col5S">Delete</i></th>
                   <th>Company name</th>
                   <th>Address</th>
-                  <th>MST</th>
-                  <th>Contact list</th>
-                  <th>Meeting list</th>
-                  <th></th>
+                  <th class="width-col8">MST</th>
+                  <th class="width-col8S">Contact list</th>
+                  <th class="width-col7S">Meeting list</th>
+                  <th class="width-col10">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -65,7 +67,7 @@
             </table>
           </div>
         </div>
-
+        {{ $companies->links() }}
       </div>
     </div>
   </div>

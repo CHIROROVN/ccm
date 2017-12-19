@@ -40,13 +40,13 @@
             <table class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th class="width-col1">Delete</th>
+                  <th class="width-col6">Delete</th>
                   <th>Name</th>
-                  <th>Username</th>
-                  <th class="width-col4">Permission</th>
-                  <th class="width-col1">Status</th>
-                  <th class="width-col4">Date</th>
-                  <th class="width-col3">Actions</th>
+                  <th class="width-col12">Username</th>
+                  <th class="width-col12">Permission</th>
+                  <th class="width-col5">Status</th>
+                  <th class="width-col12">Date</th>
+                  <th class="width-col10">Actions</th>
                 </tr>
               </thead>
               <tbody>
