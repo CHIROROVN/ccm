@@ -27,7 +27,7 @@ Route::group(['prefix' => 'manage', 'namespace' => 'Backend'], function () {
 
 	Route::get('/users/regist', ['as' => 'backend.users.regist', 'uses' => 'UsersController@regist']);
 	Route::post('/users/regist', ['as' => 'backend.users.regist', 'uses' => 'UsersController@postRegist']);
-	Route::get('/users/edit/{id}', ['as' => 'backend.users.edit', 'uses' => 'UsersController@edit']);
+	Route::get('/users/edit/{id}', ['as' => 'backend.users.edit', 'uses' => 'UsersController@edit']);	
 	Route::post('/users/edit/{id}', ['as' => 'backend.users.edit', 'uses' => 'UsersController@postEdit']);
 	Route::get('/users/delete/{id}', ['as' => 'backend.users.delete', 'uses' => 'UsersController@delete']);
 	Route::get('/users/save_delete/{id}', ['as' => 'backend.users.save_delete', 'uses' => 'UsersController@save_delete']);
@@ -36,6 +36,7 @@ Route::group(['prefix' => 'manage', 'namespace' => 'Backend'], function () {
 	Route::get('/company', ['as' => 'backend.company.index', 'uses' => 'CompanyController@index']);
 	Route::get('/company/regist', ['as' => 'backend.company.regist', 'uses' => 'CompanyController@getRegist']);
     Route::post('/company/regist', ['as' => 'backend.company.regist', 'uses' => 'CompanyController@postRegist']);
+    Route::get('/company/detail/{id}', ['as' => 'backend.company.detail', 'uses' => 'CompanyController@detail']);
 	Route::get('/company/edit/{id}', ['as' => 'backend.company.edit', 'uses' => 'CompanyController@getEdit']);
 	Route::post('/company/edit/{id}', ['as' => 'backend.company.edit', 'uses' => 'CompanyController@postEdit']);
 	Route::get('/company/delete/{id}', ['as' => 'backend.company.delete', 'uses' => 'CompanyController@getDelete']);

@@ -4,7 +4,7 @@
   <div id="content-header">
     <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Companies</a> </div>
    <!-- <h1>Companies</h1>-->
-    <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.company.regist') }}'">新規登録</button></span></h1>
+    <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.company.regist') }}'">Add New Company</button></span></h1>
   </div>
   <div class="container-fluid">
     <div class="flash-messages">
@@ -36,6 +36,8 @@
                   <th>Company name</th>
                   <th>Address</th>
                   <th>MST</th>
+                  <th>Contact list</th>
+                  <th>Meeting list</th>
                   <th></th>
                 </tr>
               </thead>
@@ -46,11 +48,16 @@
                 @else  
                   @foreach($companies as $company) 
                 <tr>
-                  <td><input name="btnDelete" id="btnDelete" value="削除" type="button" class="btn btn-primary btn-xs" onclick="btnDelete('{{$company->company_id}}');"></td>
+                  <td><button type="button" class="btn btn-mini btn-danger" onclick="btnDelete('{{$company->company_id}}');"><i class="icon-trash"></i> Delete</button></td>
                   <td>{{$company->company_name}}</td>
                   <td>{{$company->company_address}}</td>
                   <td>{{$company->company_mst}}</td>
-                  <td class="center"> <input onclick="location.href='{{ route('backend.company.edit', $company->company_id) }}'" value="編集" type="button" class="btn btn-primary btn-xs"></td>
+                  <td> <button type="button" class="btn btn-mini btn-info" onclick="location.href='{{route('backend.company.detail', $company->company_id)}}'"><i class="icon-phone"></i> Contacts list</button></td>
+                  <td></td>
+                  <td class="center"> 
+                    <button type="button" class="btn btn-mini btn-info" onclick="location.href='{{route('backend.company.detail', $company->company_id)}}'"><i class="icon-eye-open"></i> View</button>
+                    <button type="button" class="btn btn-mini btn-warning" onclick="location.href='{{ route('backend.company.edit', $company->company_id) }}'"><i class="icon-pencil"></i> Edit</button>
+                  </td>
                 </tr>
                 @endforeach  
                 @endif  

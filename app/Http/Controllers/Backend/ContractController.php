@@ -157,6 +157,7 @@ class ContractController extends BackendController
             'last_ipadrs'           => $_SERVER['REMOTE_ADDR'],
             'last_user'             => Auth::user()->u_id 
         );
+       
 
         if ( $clsContract->update($id, $dataUpdate) ) {
           Session::flash('success', trans('common.msg_edit_success'));

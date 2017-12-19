@@ -45,13 +45,13 @@
             {!! Form::open(array('url' => route('backend.contract.edit',$contract->contract_id),'id'=>'frmEdit', 'method' => 'post','class'=>'form-horizontal','enctype'=>'multipart/form-data', 'accept-charset'=>'utf-8')) !!}            
               <div id="form-wizard-1" class="step">
                 <div class="control-group">
-                  <label class="control-label">Contract No</label>
+                  <label class="control-label">Contract No <span class="required">※</span></label>
                   <div class="controls">
                     <input id="contract_no" type="text" name="contract_no" value="{{$contract->contract_no}}" />
                   </div>
                 </div>
                 <div class="control-group">
-                  <label class="control-label">Company name</label>
+                  <label class="control-label">Company</label>
                   <div class="controls">
                     <select id="company_id" name="company_id">
                      @foreach($companies as $key=>$company)
@@ -153,7 +153,7 @@
 $("#btnSubmit").on("click",function() { 
   var flag = true;
   if (!$("#contract_no").val().replace(/ /g, "")) {
-    $("#error_mess").html('<?php echo $error['error_contact_no_required'];?>');
+    $("#error_mess").html('<?php echo $error['error_contract_no_required'];?>');
     $("#div_error").css('display','block');   
     $('#contract_no').focus();  
     flag = false;

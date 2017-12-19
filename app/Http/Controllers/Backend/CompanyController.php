@@ -94,6 +94,12 @@ class CompanyController extends BackendController
         return redirect()->route('backend.company.index');
     }
 
+    public function detail($id){
+        $clsCompany          = new CompanyModel();
+        $company             = $clsCompany->get_by_id($id);
+        return view('backend.company.detail', compact('company'));
+    }
+
     /**
      * 
      */
