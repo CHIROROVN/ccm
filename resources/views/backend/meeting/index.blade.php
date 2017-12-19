@@ -75,6 +75,7 @@
 
       </div>
     </div>
+    {{ $meetings->links() }}
   </div>
 </div>
 

@@ -42,7 +42,7 @@ class MeetingModel {
             ->leftJoin('m_contact', 'm_meeting.contact_id', '=', 'm_contact.contact_id')
             ->where('m_meeting.last_kind', '<>', DELETE)
             ->select('m_meeting.*', 'm_company.company_name', 'm_contact.contact_name')
-            ->orderBy('meeting_id', 'DESC')->get();
+            ->orderBy('meeting_id', 'DESC')->paginate(LIMIT_PAGE);
     }
 
     public function insert($data)
