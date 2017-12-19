@@ -41,7 +41,7 @@
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label">Password : <span class="required">※</span></label>
+              <label class="control-label">Password :</label>
               <div class="controls">
                 <input type="password" class="span8" placeholder="Enter Password" name="u_passwd" value="" />
                 @if ($errors->has('u_passwd'))
