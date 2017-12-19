@@ -1746,5 +1746,10 @@ a.disabled {
 	height: 19px !important;
 }
 
+.pagination li.active span {
+    background: #41BEDD !important;
+    color: #ffffff !important;
+    cursor: default !important;
+}
 
 /**************/
