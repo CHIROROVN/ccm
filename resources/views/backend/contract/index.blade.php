@@ -4,7 +4,7 @@
   <div id="content-header">
     <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Contracts</a> </div>
    <!-- <h1>Companies</h1>-->
-    <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.contract.regist') }}'">新規登録</button></span></h1>
+    <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.contract.regist') }}'">Add New Contract</button></span></h1>
   </div>
   <div class="container-fluid">
     <div class="flash-messages">
@@ -47,7 +47,7 @@
                 @else  
                   @foreach($contracts as $contract) 
                 <tr>
-                  <td><input name="btnDelete" id="btnDelete" value="削除" type="button" class="btn btn-primary btn-xs" onclick="btnDelete('{{$contract->contract_id}}');"></td>
+                  <td><button type="button" class="btn btn-mini btn-danger" onclick="btnDelete('{{$contract->contract_id}}');"><i class="icon-trash"></i> Delete</button></td>
                   <td>{{$contract->contract_no}}</td>
                   <td>{{$contract->company_name}}</td>
                   <td>{{$contract->contract_price}}</td>

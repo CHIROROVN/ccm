@@ -107,6 +107,12 @@ class ContactController extends BackendController
         return redirect()->route('backend.contact.index');
     }
 
+    public function detail($id){
+        $clsContact      = new ContactModel();
+        $contact         = $clsContact->get_by_id($id);
+        return view('backend.contact.detail', compact('contact'));
+    }
+
     /**
      * 
      */

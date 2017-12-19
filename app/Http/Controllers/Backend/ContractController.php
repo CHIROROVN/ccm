@@ -167,6 +167,12 @@ class ContractController extends BackendController
         return redirect()->route('backend.contract.index');
     }
 
+    public function detail($id){
+        $clsContract         = new ContractModel();
+        $contract             = $clsContract->get_by_id($id);
+        return view('backend.contract.detail', compact('contract'));
+    }
+
     /**
      * 
      */

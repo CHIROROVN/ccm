@@ -53,7 +53,7 @@
                   <td>{{$company->company_address}}</td>
                   <td>{{$company->company_mst}}</td>
                   <td> <button type="button" class="btn btn-mini btn-info" onclick="location.href='{{route('backend.company.detail', $company->company_id)}}'"><i class="icon-phone"></i> Contacts list</button></td>
-                  <td></td>
+                  <td> <button type="button" class="btn btn-mini btn-info" onclick="location.href='{{route('backend.company.detail', $company->company_id)}}'"><i class="icon-group"></i> Meeting list</button></td>
                   <td class="center"> 
                     <button type="button" class="btn btn-mini btn-info" onclick="location.href='{{route('backend.company.detail', $company->company_id)}}'"><i class="icon-eye-open"></i> View</button>
                     <button type="button" class="btn btn-mini btn-warning" onclick="location.href='{{ route('backend.company.edit', $company->company_id) }}'"><i class="icon-pencil"></i> Edit</button>

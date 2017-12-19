@@ -4,7 +4,7 @@
   <div id="content-header">
     <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Contacts</a> </div>
    <!-- <h1>Companies</h1>-->
-    <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.contact.regist') }}'">新規登録</button></span></h1>
+    <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.contact.regist') }}'">Add New Contact</button></span></h1>
   </div>
   <div class="container-fluid">
     <div class="flash-messages">
@@ -47,12 +47,15 @@
                 @else  
                   @foreach($contacts as $contact) 
                 <tr>
-                  <td><input name="btnDelete" id="btnDelete" value="削除" type="button" class="btn btn-primary btn-xs" onclick="btnDelete('{{$contact->contact_id}}');"></td>
+                  <td><button type="button" class="btn btn-mini btn-danger" onclick="btnDelete('{{$contact->contact_id}}');"><i class="icon-trash"></i> Delete</button></td>
                   <td>{{$contact->contact_name}}</td>
                   <td>{{$contact->company_name}}</td>
                   <td>{{$contact->contact_email}}</td>
                   <td>{{$contact->contact_tel}}</td>
-                  <td class="center"> <input onclick="location.href='{{ route('backend.contact.edit', $contact->contact_id) }}'" value="編集" type="button" class="btn btn-primary btn-xs"></td>
+                  <td class="center">
+                      <button type="button" class="btn btn-mini btn-info" onclick="location.href='{{route('backend.contact.detail', $contact->contact_id)}}'"><i class="icon-eye-open"></i> View</button>
+                    <button type="button" class="btn btn-mini btn-warning" onclick="location.href='{{ route('backend.contact.edit', $contact->contact_id) }}'"><i class="icon-pencil"></i> Edit</button>
+                  </td>
                 </tr>
                 @endforeach  
                 @endif  

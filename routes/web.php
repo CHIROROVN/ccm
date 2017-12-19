@@ -44,13 +44,15 @@ Route::group(['prefix' => 'manage', 'namespace' => 'Backend'], function () {
 	Route::get('/contact', ['as' => 'backend.contact.index', 'uses' => 'ContactController@index']);
 	Route::get('/contact/regist', ['as' => 'backend.contact.regist', 'uses' => 'ContactController@getRegist']);
     Route::post('/contact/regist', ['as' => 'backend.contact.regist', 'uses' => 'ContactController@postRegist']);
+    Route::get('/contact/detail/{id}', ['as' => 'backend.contact.detail', 'uses' => 'ContactController@detail']);
 	Route::get('/contact/edit/{id}', ['as' => 'backend.contact.edit', 'uses' => 'ContactController@getEdit']);
 	Route::post('/contact/edit/{id}', ['as' => 'backend.contact.edit', 'uses' => 'ContactController@postEdit']);
 	Route::get('/contact/delete/{id}', ['as' => 'backend.contact.delete', 'uses' => 'ContactController@getDelete']);
 
 	Route::get('/contract', ['as' => 'backend.contract.index', 'uses' => 'ContractController@index']);
-	Route::get('/contract/regist', ['as' => 'backend.contract.regist', 'uses' => 'ContractController@getRegist']);
+	Route::get('/contract/regist', ['as' => 'backend.contract.regist', 'uses' => 'ContractController@getRegist']);	
     Route::post('/contract/regist', ['as' => 'backend.contract.regist', 'uses' => 'ContractController@postRegist']);
+    Route::get('/contract/detail/{id}', ['as' => 'backend.contract.detail', 'uses' => 'ContractController@detail']);
 	Route::get('/contract/edit/{id}', ['as' => 'backend.contract.edit', 'uses' => 'ContractController@getEdit']);
 	Route::post('/contract/edit/{id}', ['as' => 'backend.contract.edit', 'uses' => 'ContractController@postEdit']);
 	Route::get('/contract/delete/{id}', ['as' => 'backend.contract.delete', 'uses' => 'ContractController@getDelete']);
