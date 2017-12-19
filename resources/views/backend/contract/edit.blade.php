@@ -1,5 +1,27 @@
 @extends('backend.layouts.app')
 @section('content')
+<script>
+  $( function() {
+    $( "#datepicker" ).datetimepicker({
+      format: 'Y-m-d'
+    });
+  } );
+  $( function() {
+    $( "#datepicker1" ).datetimepicker({
+      format: 'Y-m-d'
+    });
+  } );
+  $( function() {
+    $( "#bill_received_date" ).datetimepicker({
+      format: 'Y-m-d'
+    });
+  } );
+  $( function() {
+    $( "#bill_date" ).datetimepicker({
+      format: 'Y-m-d'
+    });
+  } );
+  </script>
 <div id="content">
 <div id="content-header">
   <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.contract.index') }}">Contracts List</a> <a href="#" class="current">Edit contact</a> </div>
@@ -13,9 +35,12 @@
             <h5>Edit contact</h5>
           </div>
            <div class="widget-content nopadding">
-              <div class="alert alert-error alert-block" @if ($errors->first('contract_no')) style="display:block" @else style="display:none" @endif id="div_error"> <a class="close" data-dismiss="alert" href="#">×</a>
+              <div class="alert alert-error alert-block" @if ($errors->first('contract_no') || $errors->first('contract_detail_real') || $errors->first('contract_detail')) style="display:block" @else style="display:none" @endif id="div_error"> <a class="close" data-dismiss="alert" href="#">×</a>
                 <h4 class="alert-heading">Error!</h4>
-                <p id="error_mess">@if ($errors->first('contract_no')) ※{!! $errors->first('contract_no') !!} @endif</p>               
+                <p id="error_mess">@if ($errors->first('contract_no')) ※{!! $errors->first('contract_no') !!} @endif
+                                   @if ($errors->first('contract_detail_real')) <br>※{!! $errors->first('contract_detail_real') !!} @endif 
+                                   @if ($errors->first('contract_detail')) <br>※{!! $errors->first('contract_detail') !!} @endif 
+                </p>               
               </div>
             {!! Form::open(array('url' => route('backend.contract.edit',$contract->contract_id),'id'=>'frmEdit', 'method' => 'post','class'=>'form-horizontal','enctype'=>'multipart/form-data', 'accept-charset'=>'utf-8')) !!}            
               <div id="form-wizard-1" class="step">
@@ -38,11 +63,11 @@
                 <div class="control-group">
                   <label class="control-label">Contract Term</label>
                   <div class="controls">
-                    <div  data-date="12-02-2012" class="input-append date datepicker">
-                    <input type="text" value="12-02-2012"  data-date-format="mm-dd-yyyy" class="span11" >
+                    <div  data-date="{{$company->company_id}}" class="input-append date datepicker">
+                    <input type="text" value="{{$company->company_id}}"  data-date-format="mm-dd-yyyy" class="span11" id="datepicker" name="contract_term_from">
                     <span class="add-on"><i class="icon-th"></i></span> </div> ~ 
-                    <div  data-date="12-02-2012" class="input-append date datepicker">
-                    <input type="text" value="12-02-2012"  data-date-format="mm-dd-yyyy" class="span11" >
+                    <div  data-date="{{$company->company_id}}" class="input-append date datepicker">
+                    <input type="text" value="{{$company->company_id}}"  data-date-format="mm-dd-yyyy" class="span11" id="datepicker1" name="contract_term_to">
                     <span class="add-on"><i class="icon-th"></i></span> </div>
                     
                   </div>
@@ -89,7 +114,7 @@
                   <label class="control-label">Bill received date</label>
                   <div class="controls">
                     <div  data-date="{{$contract->bill_received_date}}" class="input-append date datepicker">
-                    <input type="text" value="{{$contract->bill_received_date}}"  data-date-format="mm-dd-yyyy" class="span11" name="bill_received_date">
+                    <input type="text" value="{{$contract->bill_received_date}}"  data-date-format="mm-dd-yyyy" class="span11" name="bill_received_date" id="bill_received_date">
                     <span class="add-on"><i class="icon-th"></i></span> </div>                     
                     
                   </div>
@@ -98,7 +123,7 @@
                   <label class="control-label">Bill date</label>
                   <div class="controls">
                     <div  data-date="{{$contract->bill_date}}" class="input-append date datepicker">
-                    <input type="text" value="{{$contract->bill_date}}"  data-date-format="mm-dd-yyyy" class="span11"  name="bill_date">
+                    <input type="text" value="{{$contract->bill_date}}"  data-date-format="mm-dd-yyyy" class="span11"  name="bill_date" id="bill_date">
                     <span class="add-on"><i class="icon-th"></i></span> </div>                     
                     
                   </div>
@@ -128,7 +153,10 @@
 $("#btnSubmit").on("click",function() { 
   var flag = true;
   if (!$("#contract_no").val().replace(/ /g, "")) {
-      flag = false;
+    $("#error_mess").html('<?php echo $error['error_contact_no_required'];?>');
+    $("#div_error").css('display','block');   
+    $('#contract_no').focus();  
+    flag = false;
   }  
   if(flag) $( "#frmEdit" ).submit(); 
 }); 

@@ -64,7 +64,8 @@ class ContractController extends BackendController
         $dataInsert                 = array(
             'contract_no'           => Input::get('contract_no'),
             'company_id'            => Input::get('company_id'),
-            'contract_term'         => Input::get('contract_term'),           
+            'contract_term_from'    => Input::get('contract_term_from'), 
+            'contract_term_to'      => Input::get('contract_term_to'),           
             'contract_detail_real'  => (isset($contract_detail_real) && !empty($contract_detail_real))?$contract_detail_real:NULL,
             'contract_detail'       => (isset($contract_detail) && !empty($contract_detail))?$contract_detail:NULL,
             'contract_price'        => Input::get('contract_price'), 
@@ -107,8 +108,8 @@ class ContractController extends BackendController
     {
         $clsContract        = new ContractModel();
         $inputs             = Input::all();
-        $path           ='/uploads/contracts/'; 
-        $rules                  = $clsContract->Rules();
+        $path               ='/uploads/contracts/'; 
+        $rules              = $clsContract->Rules();
         
         if(!Input::hasFile('contract_detail_real')){
             unset($rules['contract_detail_real']);                        
@@ -142,7 +143,8 @@ class ContractController extends BackendController
         $dataUpdate = array(
             'contract_no'           => Input::get('contract_no'),
             'company_id'            => Input::get('company_id'),
-            'contract_term'         => Input::get('contract_term'),           
+            'contract_term_from'    => Input::get('contract_term_from'), 
+            'contract_term_to'      => Input::get('contract_term_to'),            
             'contract_detail_real'  => Input::get('contract_detail_real'),
             'contract_detail'       => Input::get('contract_detail'),
             'contract_price'        => Input::get('contract_price'), 

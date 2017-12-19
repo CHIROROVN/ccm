@@ -146,7 +146,7 @@ $("#btnSubmit").on("click",function() {
   if (!$("#contract_no").val().replace(/ /g, "")) {
     $("#error_mess").html('<?php echo $error['error_contact_no_required'];?>');
     $("#div_error").css('display','block');   
-    $('#contact_name').focus();
+    $('#contract_no').focus();
     flag = false;
   }  
   if(flag) $( "#frmRegist" ).submit(); 
