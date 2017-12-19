@@ -36,6 +36,5 @@ return [
     'error_meeting_file_1_max'            => 'The file upload must be less than 10MB.',
     'error_meeting_file_2_mimes'          => 'Please only upload file extension: csv,xls,xlsx,pdf,doc,docx.',
     'error_meeting_file_2_max'            => 'The file upload must be less than 10MB.',
-
     
 ];
