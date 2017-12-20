@@ -30,7 +30,7 @@ class ContractModel {
     public function get_all()
     {
         return DB::table($this->table)->leftJoin('m_company', 'm_company.company_id', '=', 'm_contract.company_id')
-                                     ->where('m_contract.last_kind', '<>', DELETE)->orderBy('contract_id', 'DESC')->get();
+                                     ->where('m_contract.last_kind', '<>', DELETE)->orderBy('contract_id', 'DESC')->paginate(LIMIT_PAGE);
     }
 
     public function contract_by_company($company_id=null)

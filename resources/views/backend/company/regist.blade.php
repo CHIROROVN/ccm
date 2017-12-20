@@ -2,7 +2,7 @@
 @section('content')
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.company.index') }}">Companies List</a> <a href="#" class="current">New Company</a> </div>
+  <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.company.index') }}">Companies</a> <span class="current">&nbsp;&nbsp;Add Company</span> </div>
     <!--<h1>New Company</h1>-->
 </div>
 <div class="container-fluid"><hr>

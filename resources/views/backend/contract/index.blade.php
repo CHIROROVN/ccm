@@ -32,12 +32,12 @@
             <table class="table table-bordered table-striped with-check">
               <thead>
                 <tr>
-                  <th><i class="icon-resize-vertical"></i></th>
+                  <th class="width-col5S"><i class="icon-resize-vertical"></i></th>
                   <th>Contract No</th>
                   <th>Company name</th>
                   <th>Contract Price</th>
                   <th>Contract VAT</th>
-                  <th></th>
+                  <th class="width-col10">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -63,7 +63,7 @@
             </table>
           </div>
         </div>
-
+        {{ $contracts->links() }}
       </div>
     </div>
   </div>

@@ -28,7 +28,7 @@ class ContactModel {
     public function get_all()
     {
         return DB::table($this->table)->leftJoin('m_company', 'm_company.company_id', '=', 'm_contact.company_id')
-                                     ->where('m_contact.last_kind', '<>', DELETE)->orderBy('contact_id', 'DESC')->get();
+                                     ->where('m_contact.last_kind', '<>', DELETE)->orderBy('contact_id', 'DESC')->paginate(LIMIT_PAGE);
     }
 
     public function contact_by_company($company_id=null)
