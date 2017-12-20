@@ -47,7 +47,7 @@ class ContractController extends BackendController
         if(!Input::hasFile('contract_detail')){
             unset($rules['contract_detail']);                        
         }else{
-            $upload_file = Input::file('contract_detail_real');
+            $upload_file = Input::file('contract_detail');
             $extFile  = $upload_file->getClientOriginalExtension();
             if($extFile == 'pdf' || $extFile == 'doc'){
                 unset($rules['contract_detail']);
