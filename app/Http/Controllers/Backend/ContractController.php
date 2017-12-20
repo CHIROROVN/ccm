@@ -56,6 +56,7 @@ class ContractController extends BackendController
             $upload_file->move(public_path().$path, $fn);
             $contract_detail = $path.$fn;
         } 
+
         $validator      = Validator::make($inputs, $rules, $clsContract->Messages());
         if ($validator->fails()) {
             return redirect()->route('backend.contract.regist')->withErrors($validator)->withInput();
@@ -97,6 +98,8 @@ class ContractController extends BackendController
         $clsCompany             = new CompanyModel();
         $data['companies']      = $clsCompany->get_all();
         $data['contract']       = $clsContract->get_by_id($id);
+        $data['file_radio1']    =  2;
+        $data['file_radio2']    =  2;      
         $data['error']['error_contract_no_required']    = trans('validation.error_contract_no_required');       
         return view('backend.contract.edit', $data);
     }

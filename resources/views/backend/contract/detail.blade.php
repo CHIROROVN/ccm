@@ -77,8 +77,7 @@
               <div class="controls">
                 {{$contract->bill_date}}
               </div>
-            </div>   
-               
+            </div>         
 
             <div class="control-group">
             	<div class="controls">

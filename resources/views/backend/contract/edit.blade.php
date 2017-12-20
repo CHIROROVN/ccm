@@ -24,7 +24,7 @@
   </script>
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.contract.index') }}">Contracts List</a> <a href="#" class="current">Edit contact</a> </div>
+  <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.contract.index') }}">Contracts List</a> <a href="#" class="current">Edit Contract</a> </div>
     <!--<h1>New contact</h1>-->
 </div>
 <div class="container-fluid"><hr>
@@ -32,7 +32,7 @@
     <div class="span12">
        <div class="widget-box">
           <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
-            <h5>Edit contact</h5>
+            <h5>Edit Contract</h5>
           </div>
            <div class="widget-content nopadding">
               <div class="alert alert-error alert-block" @if ($errors->first('contract_no') || $errors->first('contract_detail_real') || $errors->first('contract_detail')) style="display:block" @else style="display:none" @endif id="div_error"> <a class="close" data-dismiss="alert" href="#">×</a>
@@ -75,27 +75,27 @@
                 <div class="control-group">
                   <label class="control-label">Contract detail 1</label>
                   <div class="controls">
-                    <input type="radio" name="file_radio1"  value="1" {if $file_radio1 ==1} checked{/if} >
+                    <input type="radio" name="file_radio1"  value="1" @if($file_radio1 ==1) checked @endif >
                      <input type="file" name="contract_detail_realImageName" id="contract_detail_realImageName"/>              
-                    <input type="button" id="info1_file_del" class="btn-reset" value="X" title="リセット" onclick="deletePhoto('contract_detail_realImageName')" ><br>
-                    <input type="radio" name="file_radio1"  value="2" {if $file_radio1 ==2} checked{/if} >
-                      すでにアップロード済みのファイルを使う&nbsp; @if ($contract->contract_detail_real!='') <a href="{{$contract->contract_detail_real}}" target="_blank"> 画像を参照</a>する @else （画像なし） @endif <br>
-                    <input type="radio" name="file_radio1"  value="3" >
-                      アップロード済みファイルを削除する               
+                    <input type="button" id="info1_file_del" class="btn-reset" value="X" title="Reset" onclick="deletePhoto('contract_detail_realImageName')" ><br>
+                    <input type="radio" name="file_radio1"  value="2" @if($file_radio1 ==2) checked @endif>
+                      Use already uploaded files&nbsp; @if ($contract->contract_detail_real!='') <a href="{{$contract->contract_detail_real}}" target="_blank"> Browse images</a> @else （No file） @endif <br>
+                    <input type="radio" name="file_radio1"  value="3" @if($file_radio1 ==3) checked @endif>
+                      Delete uploaded files           
                     
                   </div>
                 </div>
                <div class="control-group">
                   <label class="control-label">Contract detail 2 </label>
                   <div class="controls">
-                    <input type="radio" name="file_radio2"  value="1" {if $file_radio2 ==1} checked{/if} >
-                     <input type="file" name="ontract_detailImageName" id="contract_detailImageName"/>              
-                    <input type="button" id="info2_file_del" class="btn-reset" value="X" title="リセット" onclick="deletePhoto('contract_detailImageName')" ><br>
-                    <input type="radio" name="file_radio2"  value="2" {if $file_radio2 ==2} checked{/if} >
-                      すでにアップロード済みのファイルを使う&nbsp; @if ($contract->contract_detail !='') <a href="{{$contract->contract_detail}}" target="_blank"> 画像を参照</a>する @else （画像なし） @endif <br>
-                    <input type="radio" name="file_radio2"  value="3" >
-                      アップロード済みファイルを削除する 
-                    <!--<input id="contract_detail" type="file" name="contract_detail" />-->
+                    <input type="radio" name="file_radio2"  value="1" @if($file_radio2 ==1) checked @endif >
+                     <input type="file" name="contract_detailImageName" id="contract_detailImageName"/>              
+                    <input type="button" id="info2_file_del" class="btn-reset" value="X" title="Reset" onclick="deletePhoto('contract_detailImageName')" ><br>
+                    <input type="radio" name="file_radio2"  value="2" @if($file_radio2 ==2) checked @endif >
+                      Use already uploaded files&nbsp; @if ($contract->contract_detail !='') <a href="{{$contract->contract_detail}}" target="_blank"> Browse images</a> @else （No file） @endif <br>
+                    <input type="radio" name="file_radio2"  value="3" @if($file_radio2 ==3) checked @endif>
+                      Delete uploaded files 
+                    
                   </div>
                 </div>
                 <div class="control-group">
@@ -124,7 +124,7 @@
                   <div class="controls">
                     <div  data-date="{{$contract->bill_date}}" class="input-append date datepicker">
                     <input type="text" value="{{$contract->bill_date}}"  data-date-format="mm-dd-yyyy" class="span11"  name="bill_date" id="bill_date">
-                    <span class="add-on"><i class="icon-th"></i></span> </div>                     
+                    <span class="add-on"><i class="icon-th"></i></span> </div>                    
                     
                   </div>
                 </div>
@@ -163,7 +163,7 @@ $("#btnSubmit").on("click",function() {
 }); 
 function deletePhoto(divId)
  {
-     document.getElementById(divId).value ='';
+    document.getElementById(divId).value ='';
  }
 </script>   
 @endsection
