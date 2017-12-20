@@ -3,8 +3,11 @@
 <div id="content">
   <div id="content-header">
     <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Contacts</a> </div>
-   <!-- <h1>Companies</h1>-->
-    <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.contact.regist') }}'">Add New Contact</button></span></h1>
+   <h1>Contacts List
+      <div class="pull-right btn-right">
+        <button type="button" class="btn btn-success" onclick="location.href='{{ route('backend.contact.regist') }}'"><i class="icon-plus"></i> Add New Contact</button>
+      </div>
+    </h1>       
   </div>
   <div class="container-fluid">
     <div class="flash-messages">
@@ -23,20 +26,18 @@
     <div class="row-fluid">
       <div class="span12">
         <div class="widget-box">
-          <div class="widget-title"> <span class="icon">
-            <input type="checkbox" id="title-checkbox" name="title-checkbox" />
-            </span>
+          <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
             <h5>Contacts list</h5>
           </div>
           <div class="widget-content nopadding">
             <table class="table table-bordered table-striped with-check">
               <thead>
                 <tr>
-                  <th class="width-col5S"><i class="icon-resize-vertical"></i></th>
-                  <th>Contact name</th>
-                  <th>Company name</th>
-                  <th>Contact email</th>
-                  <th>Contact Tel</th>
+                  <th class="width-col8">Delete</i></th>
+                  <th class="width-col-min13">Contact name</th>
+                  <th class="width-col-min13">Company name</th>
+                  <th class="width-col8S">Contact email</th>
+                  <th class="width-col8S">Contact Tel</th>
                   <th class="width-col10">Actions</th>
                 </tr>
               </thead>

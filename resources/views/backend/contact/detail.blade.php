@@ -53,7 +53,7 @@
               		<button type="button" class="btn btn-danger" onclick="location.href='{{route('backend.contact.delete', $contact->contact_id)}}'"><i class="icon-trash"></i> Delete</button>
           		</div>
               <div class="controls">
-                  <button type="button" class="btn btn-default" onclick="location.href='{{route('backend.contact.index')}}'"><i class="icon-list"></i> Back companies List</button>
+                  <button type="button" class="btn btn-default" onclick="location.href='{{route('backend.contact.index')}}'"><i class="icon-list"></i> Back Contacts List</button>
               </div>
             </div>
           {!! Form::close() !!}

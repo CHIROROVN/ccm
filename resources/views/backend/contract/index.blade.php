@@ -3,8 +3,11 @@
 <div id="content">
   <div id="content-header">
     <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Contracts</a> </div>
-   <!-- <h1>Companies</h1>-->
-    <h1><span style="float: right;padding-right:50px "><button class="btn btn-primary" onClick="location.href='{{ route('backend.contract.regist') }}'">Add New Contract</button></span></h1>
+    <h1>Contacts List
+      <div class="pull-right btn-right">
+        <button type="button" class="btn btn-success" onclick="location.href='{{ route('backend.contract.regist') }}'"><i class="icon-plus"></i> Add New Contract</button>
+      </div>
+    </h1>      
   </div>
   <div class="container-fluid">
     <div class="flash-messages">
@@ -23,20 +26,18 @@
     <div class="row-fluid">
       <div class="span12">
         <div class="widget-box">
-          <div class="widget-title"> <span class="icon">
-            <input type="checkbox" id="title-checkbox" name="title-checkbox" />
-            </span>
+          <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
             <h5>Contracts list</h5>
           </div>
           <div class="widget-content nopadding">
             <table class="table table-bordered table-striped with-check">
               <thead>
                 <tr>
-                  <th class="width-col5S"><i class="icon-resize-vertical"></i></th>
-                  <th>Contract No</th>
-                  <th>Company name</th>
-                  <th>Contract Price</th>
-                  <th>Contract VAT</th>
+                  <th class="width-col8">Delete</i></th>
+                  <th class="width-col8S">Contract No</th>
+                  <th class="width-col-min13">Company name</th>
+                  <th class="width-col8S">Contract Price</th>
+                  <th class="width-col8S">Contract VAT</th>
                   <th class="width-col10">Actions</th>
                 </tr>
               </thead>
