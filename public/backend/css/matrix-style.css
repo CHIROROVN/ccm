@@ -1785,4 +1785,8 @@ a.disabled {
     cursor: default !important;
 }
 
+.table thead th {
+	vertical-align: middle !important;
+}
+
 /**************/

@@ -4,7 +4,7 @@
   <script>
   $( function() {
     $( "#datepicker" ).datetimepicker({
-      format: 'Y-m-d h:i:s'
+      format: 'Y-m-d h:i'
     });
   } );
   </script>
@@ -20,7 +20,7 @@
   <div class="row-fluid">
     <div class="span12">
       <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+        <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
           <h5>Meeting</h5>
         </div>
 
@@ -81,7 +81,7 @@
               <label class="control-label">Metting Date: <span class="required">※</span></label>
               <div class="controls">
                 <div data-date="{{date('Y-m-d H:i')}}" class="input-append date datepicker">
-                	<input type="text" id="datepicker" name="meeting_date" value="@if(old('meeting_date')){{old('meeting_date')}}@else{{$meeting->meeting_date}}@endif">
+                	<input type="text" id="datepicker" name="meeting_date" value="@if(old('meeting_date')){{old('meeting_date')}}@else{{dt_format($meeting->meeting_date)}}@endif">
                 	<!-- <span class="add-on"><i class="icon-th"></i></span> --> </div>
         					@if ($errors->has('meeting_date'))
         					<span class="help-block">
@@ -215,7 +215,10 @@ $('#company_id').on('change', function (e) {
 });
 
 $('#meeting_file_1').change(function(){
-    $( "#radio2_meeting_file_1" ).prop( "checked", true );
+    $( "#radio2_meeting_file_1" ).prop( "checked", false );
+    $('#uniform-radio2_meeting_file_1 > span').addClass('checked');
+    $('#uniform-radio1_meeting_file_1 > span').removeClass('checked');
+    $('#uniform-radio3_meeting_file_1 > span').removeClass('checked');
     if($(this).length > 0){
       $('#meeting_file_1_del').removeClass('btn-hide');
     }   
@@ -223,6 +226,9 @@ $('#meeting_file_1').change(function(){
 
 $('#meeting_file_2').change(function(){
     $( "#radio2_meeting_file_2" ).prop( "checked", true );
+    $('#uniform-radio2_meeting_file_2 > span').addClass('checked');
+    $('#uniform-radio1_meeting_file_2 > span').removeClass('checked');
+    $('#uniform-radio3_meeting_file_2 > span').removeClass('checked');
     if($(this).length > 0){
       $('#meeting_file_2_del').removeClass('btn-hide');
     }   

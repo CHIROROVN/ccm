@@ -2,7 +2,7 @@
   <ul>
     <li class="@if(curr_page() == 'dashboard') active @endif" ><a href="{{route('backend.dashboard.index')}}"><i class="icon icon-dashboard"></i> <span>Dashboard</span></a> </li>
     @if(Auth::user()->u_power01 == 1)
-    <li class="submenu"><a href="{{route('backend.company.index')}}"><i class="icon icon-home"></i> <span>Company</span> </a>
+    <li class="submenu @if(curr_page() == 'company') active @endif"><a href="{{route('backend.company.index')}}"><i class="icon icon-home"></i> <span>Company</span> </a>
       <ul>
         <li><a href="{{route('backend.company.index')}}">Company List</a></li>
         <li><a href="{{route('backend.company.regist')}}">Company Regist</a></li>
@@ -10,7 +10,7 @@
     </li>
     @endif
     @if(Auth::user()->u_power02 == 1)
-    <li class="submenu"><a href="{{route('backend.contact.index')}}"><i class="icon icon-phone"></i> <span>Contact</span> </a>
+    <li class="submenu @if(curr_page() == 'contact') active @endif"><a href="{{route('backend.contact.index')}}"><i class="icon icon-phone"></i> <span>Contact</span> </a>
       <ul>
         <li><a href="{{route('backend.contact.index')}}">Contact List</a></li>
         <li><a href="{{route('backend.contact.regist')}}">Contact Regist</a></li>

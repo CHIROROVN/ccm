@@ -54,7 +54,7 @@ class MeetingController extends BackendController
 			$name_mf1 = $mf1->getClientOriginalName();
 			$arr_mf1 = explode('.', $name_mf1);
 			$mf1_txt_name = $arr_mf1[0];			
-			$meeting_file_1 = $mf1_txt_name . '_' . rand(time(), '9999') . '.' . $_mf1_ext;
+			$meeting_file_1 = $mf1_txt_name . '_' . date('Ymd') . rand(time(), '999') . '.' . $_mf1_ext;
 
 			move_uploaded_file($mf1_path_name, base_path() . '/public/uploads/meeting/file1/' . $meeting_file_1);
 
@@ -68,7 +68,7 @@ class MeetingController extends BackendController
 			$name_mf2 = $mf2->getClientOriginalName();
 			$arr_mf2 = explode('.', $name_mf2);
 			$mf2_txt_name = $arr_mf2[0];			
-			$meeting_file_2 = $mf2_txt_name . '_' . rand(time(), '8888') . '.' . $_mf2_ext;
+			$meeting_file_2 = $mf2_txt_name . '_' . date('Ymd') . rand(time(), '888') . '.' . $_mf2_ext;
 
 			move_uploaded_file($mf2_path_name, base_path() . '/public/uploads/meeting/file2/' . $meeting_file_2);
 

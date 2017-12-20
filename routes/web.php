@@ -66,8 +66,6 @@ Route::group(['prefix' => 'manage', 'namespace' => 'Backend'], function () {
 	Route::get('/meeting/delete/{id}', ['as' => 'backend.meeting.delete', 'uses' => 'MeetingController@delete']);
 	Route::get('/meeting/save_delete/{id}', ['as' => 'backend.meeting.save_delete', 'uses' => 'MeetingController@save_delete']);
 	Route::get('/meetings/contact_ajax', ['as' => 'backend.meeting.contact_ajax', 'uses' => 'MeetingController@contact_ajax']);
-	
-
 });
 
 Route::get('/', function(){

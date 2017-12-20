@@ -42,7 +42,7 @@
                   <th class="width-col-min13">Address</th>
                   <th class="width-col8">MST</th>
                   <th class="width-col8S">Contact list</th>
-                  <th class="width-col7S">Meeting list</th>
+                  <th class="width-col9">Meeting list</th>
                   <th class="width-col10">Actions</th>
                 </tr>
               </thead>

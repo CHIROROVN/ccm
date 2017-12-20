@@ -20,7 +20,7 @@
   <div class="row-fluid">
     <div class="span12">
       <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+        <div class="widget-title"> <span class="icon"> <i class="icon-eye-open"></i> </span>
           <h5>Meeting</h5>
         </div>
 
@@ -54,7 +54,7 @@
             <div class="control-group">
               <label class="control-label">Metting Date: <span class="required">※</span></label>
               <div class="controls">
-                {{$meeting->meeting_date}}
+                {{dt_format($meeting->meeting_date)}}
               </div>
             </div>
 

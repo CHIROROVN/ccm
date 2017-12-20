@@ -60,7 +60,7 @@
                       <td>{{ $meeting->meeting_detail }}</td>
                       <td>{{ $meeting->company_name }}</td>
                       <td>{{ $meeting->contact_name }}</td>
-                      <td class="text-center">{{$meeting->meeting_date}}</td>
+                      <td class="text-center">{{dt_format($meeting->meeting_date)}}</td>
                       <td  class="text-center text-middle">
                         <button type="button" class="btn btn-mini btn-info" onclick="location.href='{{route('backend.meeting.detail', $meeting->meeting_id)}}'"><i class="icon-eye-open"></i> View</button>
                         <button type="button" class="btn btn-mini btn-warning" onclick="location.href='{{route('backend.meeting.edit', $meeting->meeting_id)}}'"><i class="icon-pencil"></i> Edit</button>

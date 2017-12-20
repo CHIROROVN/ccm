@@ -2,23 +2,23 @@
 @section('content')
 <script>
   $( function() {
-    $( "#datepicker" ).datetimepicker({
-      format: 'Y-m-d'
+    $( "#datepicker" ).datepicker({
+      format: 'yyyy-m-d'
     });
   } );
   $( function() {
-    $( "#datepicker1" ).datetimepicker({
-      format: 'Y-m-d'
+    $( "#datepicker1" ).datepicker({
+      format: 'yyyy-m-d'
     });
   } );
   $( function() {
-    $( "#bill_received_date" ).datetimepicker({
-      format: 'Y-m-d'
+    $( "#bill_received_date" ).datepicker({
+      format: 'yyyy-m-d'
     });
   } );
   $( function() {
-    $( "#bill_date" ).datetimepicker({
-      format: 'Y-m-d'
+    $( "#bill_date" ).datepicker({
+      format: 'yyyy-m-d'
     });
   } );
   </script>
@@ -60,14 +60,16 @@
                     </select>
                   </div>
                 </div>
+
                 <div class="control-group">
                   <label class="control-label">Contract Term</label>
                   <div class="controls">
-                    <div  data-date="{{$company->company_id}}" class="input-append date datepicker">
-                    <input type="text" value="{{$company->company_id}}"  data-date-format="mm-dd-yyyy" class="span11" id="datepicker" name="contract_term_from">
-                    <span class="add-on"><i class="icon-th"></i></span> </div> ~ 
-                    <div  data-date="{{$company->company_id}}" class="input-append date datepicker">
-                    <input type="text" value="{{$company->company_id}}"  data-date-format="mm-dd-yyyy" class="span11" id="datepicker1" name="contract_term_to">
+                    <div  data-date="{{$contract->contract_term_from}}" class="input-append date datepicker">
+                    <input type="text" value="{{$contract->contract_term_from}}"  data-date-format="yyyy-m-d" class="span11" id="datepicker" name="contract_term_from">
+                    <span class="add-on"><i class="icon-th"></i></span> </div> 
+                    &nbsp;&nbsp; ~  
+                    <div  data-date="{{$contract->contract_term_from}}" class="input-append date datepicker">
+                    <input type="text" value="{{$contract->contract_term_from}}"  data-date-format="yyyy-m-d" class="span11" id="datepicker1" name="contract_term_to">
                     <span class="add-on"><i class="icon-th"></i></span> </div>
                     
                   </div>
