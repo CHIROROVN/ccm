@@ -128,8 +128,9 @@
                 </div>
               </div>
               <div class="form-actions">
-                <input id="back" class="btn btn-primary" type="reset" value="Reset" />
-                <input  class="btn btn-primary" type="button" value="Save" id="btnSubmit" />
+                
+                <button type="button" class="btn btn-success" id="btnSubmit"><i class="icon-save"  ></i> Save</button>
+                  <button type="reset" class="btn btn-default"><i class="icon-refresh"></i> Reset</button>
                 <div id="status"></div>
               </div>                
               <div id="submitted"></div>
