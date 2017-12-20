@@ -38,7 +38,7 @@
 
             <div class="control-group">
             	<div class="controls">
-              		<button type="button" class="btn btn-warning" onclick="location.href='{{route('backend.company.edit', $company->company_id)}}'"><i class="icon-pencil"></i>&nbsp;Edit&nbsp;</button>
+              		<button type="button" class="btn btn-warning" onclick="location.href='{{route('backend.company.edit', $company->company_id)}}'">&nbsp;<i class="icon-pencil"></i>&nbsp;Edit&nbsp;&nbsp;</button>
               		<button type="button" class="btn btn-danger" onclick="location.href='{{route('backend.company.delete', $company->company_id)}}'"><i class="icon-trash"></i> Delete</button>
           		</div>
               <div class="controls">
@@ -67,7 +67,7 @@
                   <th>Contact name</th>                  
                   <th>Contact email</th>
                   <th>Contact Tel</th>
-                  <th></th>
+                  <th class="width-col10">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -104,7 +104,7 @@
                   <th>Contract No</th>                  
                   <th>Contract Price</th>
                   <th>Contract VAT</th>
-                  <th></th>
+                  <th class="width-col10">Actions</th>
                 </tr>
               </thead>
               <tbody>
