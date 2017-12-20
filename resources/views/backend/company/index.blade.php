@@ -34,15 +34,6 @@
             <table class="table table-bordered table-striped with-check">
               <thead>
                 <tr>
-<<<<<<< HEAD
-                  <th><i class="icon-resize-vertical"></i></th>
-                  <th>Company name</th>
-                  <th>Address</th>
-                  <th>MST</th>
-                  <th>Contact list</th>
-                  <th>Contract list</th>
-                  <th></th>
-=======
                   <th class="width-col5S">Delete</i></th>
                   <th class="width-col-min13">Company name</th>
                   <th class="width-col-min13">Address</th>
@@ -50,12 +41,11 @@
                   <th class="width-col8S">Contact list</th>
                   <th class="width-col7S">Meeting list</th>
                   <th class="width-col10">Actions</th>
->>>>>>> d341a75a3ff75d1ba217240c80421850ec4d77c1
                 </tr>
               </thead>
               <tbody>
                 @if(empty($companies) || count($companies) < 1)
-                <tr><td colspan="5"><h3 align="center">該当するデータがありません。</h3></td>               
+                <tr><td colspan="5"><h3 align="center">Don't have any data</h3></td>               
                 </tr>
                 @else  
                   @foreach($companies as $company) 
