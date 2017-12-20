@@ -4,7 +4,7 @@
   <script>
   $( function() {
     $( "#datepicker" ).datetimepicker({
-      format: 'Y-m-d h:i:s'
+      format: 'Y-m-d h:i'
     });
   } );
   </script>
@@ -81,7 +81,7 @@
               <label class="control-label">Metting Date: <span class="required">※</span></label>
               <div class="controls">
                 <div data-date="{{date('Y-m-d H:i')}}" class="input-append date datepicker">
-                	<input type="text" id="datepicker" name="meeting_date" value="@if(old('meeting_date')){{old('meeting_date')}}@else{{$meeting->meeting_date}}@endif">
+                	<input type="text" id="datepicker" name="meeting_date" value="@if(old('meeting_date')){{old('meeting_date')}}@else{{dt_format($meeting->meeting_date)}}@endif">
                 	<!-- <span class="add-on"><i class="icon-th"></i></span> --> </div>
         					@if ($errors->has('meeting_date'))
         					<span class="help-block">

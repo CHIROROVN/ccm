@@ -54,7 +54,7 @@
             <div class="control-group">
               <label class="control-label">Metting Date: <span class="required">※</span></label>
               <div class="controls">
-                {{$meeting->meeting_date}}
+                {{dt_format($meeting->meeting_date)}}
               </div>
             </div>
 
