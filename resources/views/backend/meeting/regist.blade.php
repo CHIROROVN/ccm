@@ -94,7 +94,8 @@
             <div class="control-group">
               <label class="control-label">Meeting File 1: </label>
               <div class="controls">
-                <input type="file" name="meeting_file_1" value="{{old('meeting_file_1')}}" />
+                <input type="file" id="meeting_file_1" name="meeting_file_1" value="{{old('meeting_file_1')}}" />
+                <input type="button" id="meeting_file_1_del" class="btn-reset" value="X" title="Cancel">
                 @if ($errors->has('meeting_file_1'))
 				<span class="help-block">
 				    <strong>{{ $errors->first('meeting_file_1') }}</strong>
@@ -105,7 +106,8 @@
             <div class="control-group">
               <label class="control-label">Meeting File 2: </label>
               <div class="controls">
-                <input type="file" name="meeting_file_2" value="{{old('meeting_file_2')}}" />
+                <input type="file" id="meeting_file_2" name="meeting_file_2" value="{{old('meeting_file_2')}}" />
+                <input type="button" id="meeting_file_2_del" class="btn-reset" value="X" title="Cancel">
                 @if ($errors->has('meeting_file_2'))
 				<span class="help-block">
 				    <strong>{{ $errors->first('meeting_file_2') }}</strong>
@@ -134,6 +136,7 @@
 
 <script>
 $( document ).ready(function() {
+  $('.btn-reset').addClass('btn-hide');
 	var option_contact = '<option value="" ></option>';
 	var selected = "";
 	var company_id = $('#company_id').val(); 
@@ -185,6 +188,36 @@ $('#company_id').on('change', function (e) {
           console.log('Error:', data);
       }
   });
+});
+
+$('#meeting_file_1').change(function(){
+    if($(this).length > 0){
+      $('#meeting_file_1_del').removeClass('btn-hide');
+    }
+  });
+
+$('#meeting_file_1_del').click(function(){
+  var $el = $('#meeting_file_1');
+  $el.wrap('<form>').closest('form').get(0).reset();
+  $el.unwrap();
+  $('#meeting_file_1_del').addClass('btn-hide');
+  $('#meeting_file_1').val('');
+  $('#uniform-meeting_file_1 > span').text('Choose File');
+});
+
+$('#meeting_file_2').change(function(){
+    if($(this).length > 0){
+      $('#meeting_file_2_del').removeClass('btn-hide');
+    }   
+});
+
+$('#meeting_file_2_del').click(function(){
+    var $el = $('#meeting_file_2');
+    $el.wrap('<form>').closest('form').get(0).reset();
+    $el.unwrap();
+    $('#meeting_file_2_del').addClass('btn-hide');
+    $('#meeting_file_2').val('');
+    $('#uniform-meeting_file_2 > span').text('Choose File');
 });
 
 </script>
