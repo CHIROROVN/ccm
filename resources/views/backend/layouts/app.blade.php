@@ -19,6 +19,7 @@
 <link rel="icon" href="{{ asset('') }}public/favicon/favicon.png" type="image/gif" >
  <script src="{{ asset('') }}public/backend/js/jquery.min.js"></script> 
  <script src="{{ asset('') }}public/backend/js/jquery.datetimepicker.full.js"></script>
+
 </head>
 <body>
 
@@ -67,9 +68,10 @@
 <!--end-Footer-part-->
 
 <script src="{{ asset('') }}public/backend/js/jquery.ui.custom.js"></script> 
+<script src="{{ asset('') }}public/backend/js/jquery.sparkline.min.js"></script>
 <script src="{{ asset('') }}public/backend/js/bootstrap.min.js"></script> 
 <script src="{{ asset('') }}public/backend/js/bootstrap-colorpicker.js"></script> 
-<script src="{{ asset('') }}public/backend/js/bootstrap-datepicker.js"></script> 
+<!-- <script src="{{ asset('') }}public/backend/js/bootstrap-datepicker.js"></script> --> 
 <script src="{{ asset('') }}public/backend/js/jquery.toggle.buttons.js"></script> 
 <script src="{{ asset('') }}public/backend/js/masked.js"></script> 
 <script src="{{ asset('') }}public/backend/js/jquery.uniform.js"></script> 

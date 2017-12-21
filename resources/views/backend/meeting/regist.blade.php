@@ -4,7 +4,7 @@
   <script>
   $( function() {
     $( "#datepicker" ).datetimepicker({
-      format: 'Y-m-d h:i:s'
+      format: 'Y-m-d h:i'
     });
   } );
   </script>

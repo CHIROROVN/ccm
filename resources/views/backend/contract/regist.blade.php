@@ -2,23 +2,27 @@
 @section('content')
 <script>
   $( function() {
-    $( "#datepicker" ).datepicker({
-      format: 'yyyy-m-d'
+    $( "#datepicker" ).datetimepicker({
+      timepicker:false,
+      format: 'Y-m-d'
     });
   } );
   $( function() {
-    $( "#datepicker1" ).datepicker({
-      format: 'yyyy-m-d'
+    $( "#datepicker1" ).datetimepicker({
+      timepicker:false,
+      format: 'Y-m-d'
     });
   } );
   $( function() {
-    $( "#bill_received_date" ).datepicker({
-      format: 'yyyy-m-d'
+    $( "#bill_received_date" ).datetimepicker({
+      timepicker:false,
+      format: 'Y-m-d'
     });
   } );
   $( function() {
-    $( "#bill_date" ).datepicker({
-      format: 'yyyy-m-d'
+    $( "#bill_date" ).datetimepicker({
+      timepicker:false,
+      format: 'Y-m-d'
     });
   } );
   </script>
