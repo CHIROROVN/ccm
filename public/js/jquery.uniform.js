@@ -29,7 +29,7 @@ Enjoy!
       fileClass: 'uploader',
       filenameClass: 'filename',
       fileBtnClass: 'action',
-      fileDefaultText: 'No file selected',
+      fileDefaultText: 'Choose File',
       fileBtnText: 'Choose File',
       checkedClass: 'checked',
       focusClass: 'focus',

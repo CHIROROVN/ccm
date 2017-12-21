@@ -24,8 +24,8 @@
   </script>
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.contract.index') }}">Contracts List</a> <a href="#" class="current">New Contract</a> </div>
-    <!--<h1>New Company</h1>-->
+  <div id="breadcrumb"> <a href="{{ route('backend.dashboard.index') }}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.contract.index') }}">Contracts</a> <span class="current"> &nbsp; New Contract</span> </div>
+    <h1>New Contract</h1>
 </div>
 <div class="container-fluid"><hr>
   <div class="row-fluid">
@@ -47,13 +47,13 @@
                 <div class="control-group">
                   <label class="control-label">Contract NO <span class="required">※</span></label>
                   <div class="controls">
-                    <input id="contract_no" type="text" name="contract_no" value="{{old('contract_no')}}"/>
+                    <input id="contract_no" type="text" name="contract_no" value="{{old('contract_no')}}" class="span3"/>
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label">Company</label>
                   <div class="controls">
-                    <select id="company_id" name="company_id">
+                    <select id="company_id" name="company_id" class="span3">
                      @foreach($companies as $key=>$company)
                     <option value="{{$company->company_id}}">{{$company->company_name}}</option>
                     @endforeach
@@ -66,6 +66,7 @@
                     <div data-date="{{old('contract_term_from')}}" class="input-append date datepicker">
                   <input type="text" id="datepicker" name="contract_term_from" class="span11"><span class="add-on"><i class="icon-th"></i></span>
                   </div>
+                  &nbsp;&nbsp; ~  
                   <div data-date="{{old('contract_term_to')}}" class="input-append date datepicker">
                   <input type="text" id="datepicker1" name="contract_term_to" class="span11"><span class="add-on"><i class="icon-th"></i></span>
                   </div>
@@ -93,13 +94,13 @@
                 <div class="control-group">
                   <label class="control-label">Contract Price</label>
                   <div class="controls">
-                    <input id="contract_price" type="text" name="contract_price" value="{{old('contract_price')}}"/>
+                    <input id="contract_price" type="text" name="contract_price" value="{{old('contract_price')}}" class="span3"/> VND
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label">Contract VAT</label>
                   <div class="controls">
-                    <input id="contract_vat" type="text" name="contract_vat" value="{{old('contract_vat')}}"/>
+                    <input id="contract_vat" type="text" name="contract_vat" value="{{old('contract_vat')}}" class="span1"/> %
                   </div>
                 </div>
                 <div class="control-group">
@@ -123,7 +124,7 @@
                 <div class="control-group">
                   <label class="control-label">Bill NO</label>
                   <div class="controls">
-                    <input id="bill_no" type="text" name="bill_no" value="{{old('bill_no')}}"/>
+                    <input id="bill_no" type="text" name="bill_no" value="{{old('bill_no')}}" class="span3"/>
                   </div>
                 </div>
               </div>

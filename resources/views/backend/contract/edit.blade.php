@@ -24,7 +24,7 @@
   </script>
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.contract.index') }}">Contracts List</a> <a href="#" class="current">Edit Contract</a> </div>
+  <div id="breadcrumb"> <a href="{{ route('backend.dashboard.index') }}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ route('backend.contract.index') }}">Contracts</a> <span class="current"> &nbsp; Edit Contract</span> </div>
     <!--<h1>New contact</h1>-->
 </div>
 <div class="container-fluid"><hr>
@@ -47,13 +47,13 @@
                 <div class="control-group">
                   <label class="control-label">Contract No <span class="required">※</span></label>
                   <div class="controls">
-                    <input id="contract_no" type="text" name="contract_no" value="{{$contract->contract_no}}" />
+                    <input id="contract_no" type="text" name="contract_no" value="{{$contract->contract_no}}" class="span3" />
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label">Company</label>
                   <div class="controls">
-                    <select id="company_id" name="company_id">
+                    <select id="company_id" name="company_id" class="span3">
                      @foreach($companies as $key=>$company)
                     <option value="{{$company->company_id}}" @if($company->company_id == $contract->company_id) selected @endif>{{$company->company_name}}</option>
                     @endforeach
@@ -103,13 +103,13 @@
                 <div class="control-group">
                   <label class="control-label">Contract Price</label>
                   <div class="controls">
-                    <input id="contract_price" type="text" name="contract_price" value="{{$contract->contract_price}}"/>
+                    <input id="contract_price" type="text" name="contract_price" value="{{$contract->contract_price}}" class="span3"/> VND
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label">Contract VAT</label>
                   <div class="controls">
-                    <input id="contract_vat" type="text" name="contract_vat" value="{{$contract->contract_vat}}"/>
+                    <input id="contract_vat" type="text" name="contract_vat" value="{{$contract->contract_vat}}" class="span1"/> %
                   </div>
                 </div>
                 <div class="control-group">
@@ -133,7 +133,7 @@
                 <div class="control-group">
                   <label class="control-label">Bill NO</label>
                   <div class="controls">
-                    <input id="bill_no" type="text" name="bill_no" value="{{$contract->bill_no}}"/>
+                    <input id="bill_no" type="text" name="bill_no" value="{{$contract->bill_no}}" class="span5"/>
                   </div>
                 </div>
                

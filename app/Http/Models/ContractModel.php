@@ -12,8 +12,10 @@ class ContractModel {
     {
         return array(
             'contract_no'                      => 'required',
-            'contract_detail_real'             => 'mimes:pdf,doc', 
-            'contract_detail'                  => 'mimes:pdf,doc',
+            // 'contract_detail_real'             => 'mimes:pdf,doc', 
+            // 'contract_detail'                  => 'mimes:pdf,doc',
+            'contract_detail_real'             => 'mimes:csv,xls,xlsx,pdf,doc,docx|max:10000|nullable',
+            'contract_detail'                  => 'mimes:csv,xls,xlsx,pdf,doc,docx:max:1000|nullable',
         );
     }
 
@@ -22,7 +24,9 @@ class ContractModel {
         return array(
            'contract_no.required'             => trans('validation.error_contract_no_required'),
            'contract_detail_real.mimes'       => trans('validation.error_contract_detail_real_mimes'),
+           'contract_detail_real.max'         => trans('validation.error_contract_detail_real_max'),
            'contract_detail.mimes'            => trans('validation.error_contract_detail_mimes'),
+           'contract_detail.max'              => trans('validation.error_contract_detail_max'),
            
         );
     }
