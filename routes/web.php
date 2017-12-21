@@ -94,4 +94,3 @@ if(Auth::check()){
 	return redirect()->route('backend.users.login');
 }
 
-Auth::routes();

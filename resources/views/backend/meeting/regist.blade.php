@@ -29,7 +29,7 @@
             <div class="control-group">
               <label class="control-label">Company Name: <span class="required">※</span></label>
               <div class="controls">
-                <select class="span6" id="company_id" name="company_id">
+                <select id="company_id" name="company_id" class="span6">
 					@if(!empty($company))
 						@foreach($company as $key => $com)
 							<option value="{{$key}}" @if(old('company_id') == $key) selected @endif >{{$com}}</option>
@@ -37,7 +37,7 @@
 					@endif                  
                 </select>
                 @if ($errors->has('company_id'))
-                <span class="help-block">
+                <span class="help-block span7" style="margin-left: 0px;">
                     <strong>{{ $errors->first('company_id') }}</strong>
                 </span>
                 @endif
@@ -47,8 +47,8 @@
               <label class="control-label">Contact Name: <span class="required">※</span></label>
               <div class="controls">
                 <select class="span6" id="contact_id" name="contact_id"></select>
-                @if ($errors->has('contact_id')) 
-                <span class="help-block">
+                @if ($errors->has('contact_id'))
+                <span class="help-block span7" style="margin-left: 0px;">
                     <strong>{{ $errors->first('contact_id') }}</strong>
                 </span>
                 @endif
@@ -83,11 +83,11 @@
                 <div data-date="{{date('Y-m-d H:i')}}" class="input-append date datepicker">
                 	<input type="text" id="datepicker" name="meeting_date">
                 	<!-- <span class="add-on"><i class="icon-th"></i></span> --> </div>
-					@if ($errors->has('meeting_date'))
-					<span class="help-block">
-					    <strong>{{ $errors->first('meeting_date') }}</strong>
-					</span>
-					@endif
+      					@if ($errors->has('meeting_date'))
+      					<span class="help-block">
+      					    <strong>{{ $errors->first('meeting_date') }}</strong>
+      					</span>
+      					@endif
               </div>
             </div>
 
@@ -135,53 +135,56 @@
 <script>
 $( document ).ready(function() {
 	var option_contact = '<option value="" ></option>';
-	var selected = "{{old('contact_id')}}";
-	var company_id = $('#company_id').val();    	
+	var selected = "";
+	var company_id = $('#company_id').val(); 
+
 	$.ajax({
-        type: "GET",
-        url: "{{route('backend.meeting.contact_ajax')}}",
-        data: {company_id: company_id},
-        dataType: 'json',
-        success: function (data) {
-            $.each(data, function(key,contact) {
-              if(selected == contact.contact_id){
-                selected = "selected";
-              }
-		        option_contact += '<option value="'+contact.contact_id+'" '+selected+' >'+contact.contact_name+'</option>';
-		    });
-            console.log(option_contact);
-            $('#contact_id').html(option_contact);
-        },
-        error: function (data) {
-            console.log('Error:', data);
-        }
-    });
+      type: "GET",
+      url: "{{route('backend.meeting.contact_ajax')}}",
+      data: {company_id: company_id},
+      dataType: 'json',
+      success: function (data) {
+          $.each(data, function(key,contact) {
+            if("{{old('contact_id')}}" != '' && contact.contact_id == "{{old('contact_id')}}"){
+              selected = "selected";
+            }else{
+              selected = "";
+            }
+	        option_contact += '<option value="'+contact.contact_id+'" '+selected+' >'+contact.contact_name+'</option>';
+	    });
+        $('#contact_id').html(option_contact);
+        $("#s2id_contact_id span").text($("#contact_id :selected").text());
+      },
+      error: function (data) {
+          console.log('Error:', data);
+      }
+  });
 });
 
 $('#company_id').on('change', function (e) {
 	var option_contact = '<option value="" ></option>';
-	var selected = '';
+	var selected = $("#contact_id :selected").val();
      e.preventDefault();
 	var company_id = $(this).val();	
 	$.ajax({
-        type: "GET",
-        url: "{{route('backend.meeting.contact_ajax')}}",
-        data: {company_id: company_id},
-        dataType: 'json',
-        success: function (data) {
-            $.each(data, function(key,contact) {
-              if(selected == contact.contact_id){
-                selected = "selected";
-              }
-		        option_contact += '<option value="'+contact.contact_id+'" '+selected+' >'+contact.contact_name+'</option>';
-		    });
-            console.log(option_contact);
-		    $('#contact_id').html(option_contact);
-        },
-        error: function (data) {
-            console.log('Error:', data);
-        }
-    });
+      type: "GET",
+      url: "{{route('backend.meeting.contact_ajax')}}",
+      data: {company_id: company_id},
+      dataType: 'json',
+      success: function (data) {
+          $.each(data, function(key,contact) {
+            if(selected == contact.contact_id){
+              selected = "selected";
+            }
+	        option_contact += '<option value="'+contact.contact_id+'" '+selected+' >'+contact.contact_name+'</option>';
+	    });
+          console.log(option_contact);
+	    $('#contact_id').html(option_contact);
+      },
+      error: function (data) {
+          console.log('Error:', data);
+      }
+  });
 });
 
 </script>

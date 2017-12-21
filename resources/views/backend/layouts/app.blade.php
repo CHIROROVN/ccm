@@ -73,7 +73,7 @@
 <script src="{{ asset('') }}public/backend/js/jquery.toggle.buttons.js"></script> 
 <script src="{{ asset('') }}public/backend/js/masked.js"></script> 
 <script src="{{ asset('') }}public/backend/js/jquery.uniform.js"></script> 
-<!-- <script src="{{ asset('') }}public/backend/js/select2.min.js"></script>  -->
+<script src="{{ asset('') }}public/backend/js/select2.min.js"></script> 
 <script src="{{ asset('') }}public/backend/js/matrix.js"></script> 
 <script src="{{ asset('') }}public/backend/js/matrix.form_common.js"></script> 
 

@@ -37,7 +37,7 @@
       					@endif
                 </select>
                 @if ($errors->has('company_id'))
-                <span class="help-block">
+                <span class="help-block span7" style="margin-left: 0px;">
                     <strong>{{ $errors->first('company_id') }}</strong>
                 </span>
                 @endif
@@ -48,7 +48,7 @@
               <div class="controls">
                 <select class="span6" id="contact_id" name="contact_id"></select>
                 @if ($errors->has('contact_id')) 
-                <span class="help-block">
+                <span class="help-block span7" style="margin-left: 0px;">
                     <strong>{{ $errors->first('contact_id') }}</strong>
                 </span>
                 @endif
@@ -158,12 +158,8 @@ $( document ).ready(function() {
   var selected = '';
 	var option_contact = '<option value="" ></option>';
   var contact_id_old = "{{$meeting->contact_id}}";
+
   var contact_id_new = "{{old('contact_id')}}";
-  if(contact_id_old != null){
-    selected = contact_id_old;
-  }else{
-    selected = contact_id_new;
-  }
 
 	var company_id = $('#company_id').val();    	
 	$.ajax({
@@ -173,14 +169,19 @@ $( document ).ready(function() {
         dataType: 'json',
         success: function (data) {
             $.each(data, function(key,contact) {
-              if(selected == contact.contact_id){
-                selected = "selected";
+              if(contact.contact_id == "{{old('contact_id')}}" || contact.contact_id == contact_id_old){
+                selected = "selected";                
+              }else{
+                selected = ""; 
               }
-            console.log(selected);
+
 		        option_contact += '<option value="'+contact.contact_id+'" '+selected+' >'+contact.contact_name+'</option>';
 		    });
             console.log(option_contact);
             $('#contact_id').html(option_contact);
+            var contact_name_old = $("#contact_id :selected").text();
+            $("#s2id_contact_id span").text(contact_name_old);
+
         },
         error: function (data) {
             console.log('Error:', data);
@@ -190,7 +191,7 @@ $( document ).ready(function() {
 
 $('#company_id').on('change', function (e) {
 	var option_contact = '<option value="" ></option>';
-	var selected = '';
+	var selected = $("#contact_id :selected").val();
      e.preventDefault();
 	var company_id = $(this).val();	
 	$.ajax({
@@ -202,11 +203,17 @@ $('#company_id').on('change', function (e) {
             $.each(data, function(key,contact) {
               if(selected == contact.contact_id){
                 selected = "selected";
+              }else{
+                selected = "";
               }
+
 		        option_contact += '<option value="'+contact.contact_id+'" '+selected+' >'+contact.contact_name+'</option>';
 		    });
-            console.log(option_contact);
+            //console.log(option_contact);
 		    $('#contact_id').html(option_contact);
+          var contact_name_old = $("#contact_id :selected").text();
+          $("#s2id_contact_id span").text(contact_name_old);
+
         },
         error: function (data) {
             console.log('Error:', data);
@@ -240,6 +247,7 @@ $('#meeting_file_1_del').click(function(){
     $el.unwrap();
     $('#meeting_file_1_del').addClass('btn-hide');
     $('#meeting_file_1').val('');
+    $('#uniform-meeting_file_1 > span').text('Choose File');
   });
 
 $('#meeting_file_2_del').click(function(){
@@ -248,6 +256,7 @@ $('#meeting_file_2_del').click(function(){
     $el.unwrap();
     $('#meeting_file_2_del').addClass('btn-hide');
     $('#meeting_file_2').val('');
+    $('#uniform-meeting_file_2 > span').text('Choose File');
   });
 
 </script>
