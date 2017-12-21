@@ -68,11 +68,11 @@
                 <div class="control-group">
                   <label class="control-label">Contract Term</label>
                   <div class="controls">
-                    <div  data-date="{{$contract->contract_term_from}}" class="input-append date datepicker">
+                    <div  data-date="{{$contract->contract_term_from}}" class="input-append date ">
                     <input type="text" value="{{$contract->contract_term_from}}"  data-date-format="yyyy-m-d" class="span11" id="datepicker" name="contract_term_from">
                     <span class="add-on"><i class="icon-th"></i></span> </div> 
                     &nbsp;&nbsp; ~  
-                    <div  data-date="{{$contract->contract_term_from}}" class="input-append date datepicker">
+                    <div  data-date="{{$contract->contract_term_from}}" class="input-append date ">
                     <input type="text" value="{{$contract->contract_term_from}}"  data-date-format="yyyy-m-d" class="span11" id="datepicker1" name="contract_term_to">
                     <span class="add-on"><i class="icon-th"></i></span> </div>
                     
@@ -81,7 +81,7 @@
                 <div class="control-group">
                   <label class="control-label">Contract detail 1</label>
                   <div class="controls">
-                    <input type="radio" name="file_radio1"  value="1" @if($file_radio1 ==1) checked @endif >
+                    <input type="radio" name="file_radio1"  value="1" @if($file_radio1 ==1) checked @endif onclick="javascript:alert('thang cho');" id="upload_file_1">
                      <input type="file" name="contract_detail_realImageName" id="contract_detail_realImageName"/>              
                     <input type="button" id="info1_file_del" class="btn-reset" value="X" title="Reset" onclick="deletePhoto('contract_detail_realImageName')" ><br>
                     <input type="radio" name="file_radio1"  value="2" @if($file_radio1 ==2) checked @endif>
@@ -119,7 +119,7 @@
                 <div class="control-group">
                   <label class="control-label">Bill received date</label>
                   <div class="controls">
-                    <div  data-date="{{$contract->bill_received_date}}" class="input-append date datepicker">
+                    <div  data-date="{{$contract->bill_received_date}}" class="input-append date ">
                     <input type="text" value="{{$contract->bill_received_date}}"  data-date-format="mm-dd-yyyy" class="span11" name="bill_received_date" id="bill_received_date">
                     <span class="add-on"><i class="icon-th"></i></span> </div>                     
                     
@@ -128,7 +128,7 @@
                 <div class="control-group">
                   <label class="control-label">Bill date</label>
                   <div class="controls">
-                    <div  data-date="{{$contract->bill_date}}" class="input-append date datepicker">
+                    <div  data-date="{{$contract->bill_date}}" class="input-append date ">
                     <input type="text" value="{{$contract->bill_date}}"  data-date-format="mm-dd-yyyy" class="span11"  name="bill_date" id="bill_date">
                     <span class="add-on"><i class="icon-th"></i></span> </div>                    
                     
@@ -166,6 +166,9 @@ $("#btnSubmit").on("click",function() {
     flag = false;
   }  
   if(flag) $( "#frmEdit" ).submit(); 
+}); 
+$("#uniform-upload_file_1").click(function() {
+  alert("vao day");
 }); 
 function deletePhoto(divId)
  {
