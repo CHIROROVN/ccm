@@ -103,7 +103,10 @@ class ContractController extends BackendController
         $data['contract']       = $clsContract->get_by_id($id);
         $data['file_radio1']    =  2;
         $data['file_radio2']    =  2;      
-        $data['error']['error_contract_no_required']    = trans('validation.error_contract_no_required');       
+        $data['error']['error_contract_no_required']        = trans('validation.error_contract_no_required'); 
+        $data['error']['error_contract_detail_real_mimes']  = trans('validation.error_contract_detail_real_mimes'); 
+        $data['error']['error_contract_detail_mimes']       = trans('validation.error_contract_detail_mimes');      
+        $data['error']['error_contract_term']               = trans('validation.error_contract_term');       
         return view('backend.contract.edit', $data);
     }
 
@@ -116,31 +119,43 @@ class ContractController extends BackendController
         $inputs             = Input::all();
         $path               ='/uploads/contracts/'; 
         $rules              = $clsContract->Rules();
+        if($inputs['file_radio1']==1){
+            if(!Input::hasFile('contract_detail_realImageName')){
+                unset($rules['contract_detail_real']);                        
+            }else{
+                $upload_file = Input::file('contract_detail_realImageName');
+                $extFile  = $upload_file->getClientOriginalExtension();
+                if($extFile == 'pdf' || $extFile == 'doc'){
+                    unset($rules['contract_detail_real']);
+                }
+                $fn = 'contract_detail_real_'.date("y_m_d_his").'.'.$extFile;
+                $upload_file->move(public_path().$path, $fn);
+                $contract_detail_real = $path.$fn;                
+            } 
+        }elseif($inputs['file_radio1']==3){
+            $contract_detail_real = '';
+        }else{
+            $contract_detail_real = Input::get('contract_detail_real');
+        }
+        if($inputs['file_radio2']==1){
+            if(!Input::hasFile('contract_detailImageName')){
+                unset($rules['contract_detail']);                        
+            }else{
+                $upload_file = Input::file('contract_detailImageName');
+                $extFile  = $upload_file->getClientOriginalExtension();
+                if($extFile == 'pdf' || $extFile == 'doc' || $extFile == 'docx'){
+                    unset($rules['contract_detail']);
+                }
+                $fn = 'contract_detail_'.date("y_m_d_his").'.'.$extFile;
+                $upload_file->move(public_path().$path, $fn);
+                $contract_detail = $path.$fn;
+            }
+        }elseif($inputs['file_radio2']==3){
+            $contract_detail = '';
+        }else{
+            $contract_detail = Input::get('contract_detail');
+        }    
         
-        if(!Input::hasFile('contract_detail_real')){
-            unset($rules['contract_detail_real']);                        
-        }else{
-            $upload_file = Input::file('contract_detail_real');
-            $extFile  = $upload_file->getClientOriginalExtension();
-            if($extFile == 'pdf' || $extFile == 'doc'){
-                unset($rules['contract_detail_real']);
-            }
-            $fn = 'contract_detail_real_'.date("y_m_d_his").'.'.$extFile;
-            $upload_file->move(public_path().$path, $fn);
-            $contract_detail_real = $path.$fn;
-        } 
-        if(!Input::hasFile('contract_detail')){
-            unset($rules['contract_detail']);                        
-        }else{
-            $upload_file = Input::file('contract_detail_real');
-            $extFile  = $upload_file->getClientOriginalExtension();
-            if($extFile == 'pdf' || $extFile == 'doc'){
-                unset($rules['contract_detail']);
-            }
-            $fn = 'contract_detail_'.date("y_m_d_his").'.'.$extFile;
-            $upload_file->move(public_path().$path, $fn);
-            $contract_detail = $path.$fn;
-        } 
         $validator      = Validator::make($inputs, $rules, $clsContract->Messages());      
         if ($validator->fails()) {
             return redirect()->route('backend.contract.edit', [$id])->withErrors($validator)->withInput();
@@ -151,8 +166,8 @@ class ContractController extends BackendController
             'company_id'            => Input::get('company_id'),
             'contract_term_from'    => Input::get('contract_term_from'), 
             'contract_term_to'      => Input::get('contract_term_to'),            
-            'contract_detail_real'  => Input::get('contract_detail_real'),
-            'contract_detail'       => Input::get('contract_detail'),
+            'contract_detail_real'  => $contract_detail_real,
+            'contract_detail'       => $contract_detail,
             'contract_price'        => Input::get('contract_price'), 
             'contract_vat'          => Input::get('contract_vat'), 
             'bill_received_date'    => Input::get('bill_received_date'), 
@@ -164,7 +179,7 @@ class ContractController extends BackendController
             'last_user'             => Auth::user()->u_id 
         );
        
-
+        
         if ( $clsContract->update($id, $dataUpdate) ) {
           Session::flash('success', trans('common.msg_edit_success'));
         } else {

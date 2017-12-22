@@ -2,13 +2,13 @@
 @section('content')
 <script>
   $( function() {
-    $( "#datepicker" ).datetimepicker({
+    $( "#contract_term_from" ).datetimepicker({
       timepicker:false,
       format: 'Y-m-d'
     });
   } );
   $( function() {
-    $( "#datepicker1" ).datetimepicker({
+    $( "#contract_term_to" ).datetimepicker({
       timepicker:false,
       format: 'Y-m-d'
     });
@@ -68,12 +68,12 @@
                 <div class="control-group">
                   <label class="control-label">Contract Term</label>
                   <div class="controls">
-                    <div  data-date="{{$contract->contract_term_from}}" class="input-append date ">
-                    <input type="text" value="{{$contract->contract_term_from}}"  data-date-format="yyyy-m-d" class="span11" id="datepicker" name="contract_term_from">
+                    <div  data-date="{{$contract->contract_term_from}}" class="input-append date">
+                    <input type="text" value="{{$contract->contract_term_from}}"  data-date-format="yyyy-m-d" class="span11" id="contract_term_from" name="contract_term_from">
                     <span class="add-on"><i class="icon-th"></i></span> </div> 
                     &nbsp;&nbsp; ~  
-                    <div  data-date="{{$contract->contract_term_from}}" class="input-append date ">
-                    <input type="text" value="{{$contract->contract_term_from}}"  data-date-format="yyyy-m-d" class="span11" id="datepicker1" name="contract_term_to">
+                    <div  data-date="{{$contract->contract_term_to}}" class="input-append date ">
+                    <input type="text" value="{{$contract->contract_term_to}}"  data-date-format="yyyy-m-d" class="span11" id="contract_term_to" name="contract_term_to">
                     <span class="add-on"><i class="icon-th"></i></span> </div>
                     
                   </div>
@@ -81,27 +81,26 @@
                 <div class="control-group">
                   <label class="control-label">Contract detail 1</label>
                   <div class="controls">
-                    <input type="radio" name="file_radio1"  value="1" @if($file_radio1 ==1) checked @endif onclick="javascript:alert('thang cho');" id="upload_file_1">
-                     <input type="file" name="contract_detail_realImageName" id="contract_detail_realImageName"/>              
-                    <input type="button" id="info1_file_del" class="btn-reset" value="X" title="Reset" onclick="deletePhoto('contract_detail_realImageName')" ><br>
-                    <input type="radio" name="file_radio1"  value="2" @if($file_radio1 ==2) checked @endif>
+                    <input type="radio" name="file_radio1"  value="1" @if($file_radio1 ==1) checked @endif  id="upload_file_1" >
+                    <input type="file" name="contract_detail_realImageName" id="contract_detail_realImageName"/>              
+                    <input type="button" id="info1_file_del" class="btn-reset" value="X" title="Reset" ><br>
+                    <input type="radio" name="file_radio1"  value="2" @if($file_radio1 ==2) checked @endif id="upload_file_1">
                       Use already uploaded files&nbsp; @if ($contract->contract_detail_real!='') <a href="{{ asset('') }}public/{{$contract->contract_detail_real}}" target="_blank"> Browse file</a> @else （No file） @endif <br>
-                    <input type="radio" name="file_radio1"  value="3" @if($file_radio1 ==3) checked @endif>
+                    <input type="radio" name="file_radio1"  value="3" @if($file_radio1 ==3) checked @endif id="upload_file_1">
                       Delete uploaded files           
-                    
+                    <input type="hidden" name="contract_detail_real" value="{{$contract->contract_detail_real}}">
                   </div>
                 </div>
                <div class="control-group">
                   <label class="control-label">Contract detail 2 </label>
                   <div class="controls">
-                    <input type="radio" name="file_radio2"  value="1" @if($file_radio2 ==1) checked @endif >
-                     <input type="file" name="contract_detailImageName" id="contract_detailImageName"/>              
-                    <input type="button" id="info2_file_del" class="btn-reset" value="X" title="Reset" onclick="deletePhoto('contract_detailImageName')" ><br>
-                    <input type="radio" name="file_radio2"  value="2" @if($file_radio2 ==2) checked @endif >
+                    <input type="radio" name="file_radio2"  value="1" @if($file_radio2 ==1) checked @endif id="upload_file_2"><input type="file" name="contract_detailImageName" id="contract_detailImageName"/>             
+                    <input type="button" id="info2_file_del" class="btn-reset" value="X" title="Reset"><br>
+                    <input type="radio" name="file_radio2"  value="2" @if($file_radio2 ==2) checked @endif id="upload_file_2">
                       Use already uploaded files&nbsp; @if ($contract->contract_detail !='') <a href="{{ asset('') }}public/{{$contract->contract_detail}}" target="_blank"> Browse file</a> @else （No file） @endif <br>
-                    <input type="radio" name="file_radio2"  value="3" @if($file_radio2 ==3) checked @endif>
+                    <input type="radio" name="file_radio2"  value="3" @if($file_radio2 ==3) checked @endif id="upload_file_2">
                       Delete uploaded files 
-                    
+                     <input type="hidden" name="contract_detail" value="{{$contract->contract_detail}}">
                   </div>
                 </div>
                 <div class="control-group">
@@ -142,8 +141,7 @@
                 </div>
                
               </div>
-              <div class="form-actions">
-                
+              <div class="form-actions">                
                 <button type="button" class="btn btn-success" id="btnSubmit"><i class="icon-save"  ></i> Save</button>
                   <button type="reset" class="btn btn-default"><i class="icon-refresh"></i> Reset</button>
                 <div id="status"></div>
@@ -164,13 +162,29 @@ $("#btnSubmit").on("click",function() {
     $("#div_error").css('display','block');   
     $('#contract_no').focus();  
     flag = false;
+  }
+  if($("#contract_term_from").val().replace(/ /g, "") && $("#contract_term_to").val().replace(/ /g, "")){
+      var start_date  = $("#contract_term_from").val(); 
+      var end_date    = $("#contract_term_to").val();
+      if(new Date(start_date) >= new Date(end_date))
+      {
+         $("#error_mess").html('<?php echo $error['error_contract_term'];?>');
+         $("#div_error").css('display','block');
+         flag = false;            
+      }
   }  
   if(flag) $( "#frmEdit" ).submit(); 
 }); 
+$("#info1_file_del").on("click",function() {    
+    $("#contract_detailImageName").val('');
+});
+$("#info2_file_del").on("click",function() {  
 
-function deletePhoto(divId)
- {
-    document.getElementById(divId).value ='';
- }
+}); 
+function validate(fileupload){  
+  var reg = /(.*?)\.(doc|pdf|docx|csv|xls|xlsx)$/;
+  if(!fileupload.match(reg))       return false;
+  else return true;
+}
 </script>   
 @endsection
