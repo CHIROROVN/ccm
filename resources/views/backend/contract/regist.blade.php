@@ -186,7 +186,7 @@ $("#btnSubmit").on("click",function() {
 }); 
  
 function validate(fileupload){  
-  var reg = /(.*?)\.(doc|pdf|docx)$/;
+  var reg = /(.*?)\.(doc|pdf|docx|csv|xls|xlsx)$/;
   if(!fileupload.match(reg))       return false;
   else return true;
 }

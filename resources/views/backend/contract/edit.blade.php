@@ -85,7 +85,7 @@
                      <input type="file" name="contract_detail_realImageName" id="contract_detail_realImageName"/>              
                     <input type="button" id="info1_file_del" class="btn-reset" value="X" title="Reset" onclick="deletePhoto('contract_detail_realImageName')" ><br>
                     <input type="radio" name="file_radio1"  value="2" @if($file_radio1 ==2) checked @endif>
-                      Use already uploaded files&nbsp; @if ($contract->contract_detail_real!='') <a href="{{$contract->contract_detail_real}}" target="_blank"> Browse file</a> @else （No file） @endif <br>
+                      Use already uploaded files&nbsp; @if ($contract->contract_detail_real!='') <a href="{{ asset('') }}public/{{$contract->contract_detail_real}}" target="_blank"> Browse file</a> @else （No file） @endif <br>
                     <input type="radio" name="file_radio1"  value="3" @if($file_radio1 ==3) checked @endif>
                       Delete uploaded files           
                     
@@ -98,7 +98,7 @@
                      <input type="file" name="contract_detailImageName" id="contract_detailImageName"/>              
                     <input type="button" id="info2_file_del" class="btn-reset" value="X" title="Reset" onclick="deletePhoto('contract_detailImageName')" ><br>
                     <input type="radio" name="file_radio2"  value="2" @if($file_radio2 ==2) checked @endif >
-                      Use already uploaded files&nbsp; @if ($contract->contract_detail !='') <a href="{{$contract->contract_detail}}" target="_blank"> Browse file</a> @else （No file） @endif <br>
+                      Use already uploaded files&nbsp; @if ($contract->contract_detail !='') <a href="{{ asset('') }}public/{{$contract->contract_detail}}" target="_blank"> Browse file</a> @else （No file） @endif <br>
                     <input type="radio" name="file_radio2"  value="3" @if($file_radio2 ==3) checked @endif>
                       Delete uploaded files 
                     
