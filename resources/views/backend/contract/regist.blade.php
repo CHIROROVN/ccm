@@ -2,13 +2,13 @@
 @section('content')
 <script>
   $( function() {
-    $( "#datepicker" ).datetimepicker({
+    $( "#contract_term_from" ).datetimepicker({
       timepicker:false,
       format: 'Y-m-d'
     });
   } );
   $( function() {
-    $( "#datepicker1" ).datetimepicker({
+    $( "#contract_term_to" ).datetimepicker({
       timepicker:false,
       format: 'Y-m-d'
     });
@@ -68,11 +68,11 @@
                   <label class="control-label">Contract Term</label>
                   <div class="controls">
                     <div data-date="{{old('contract_term_from')}}" class="input-append date datepicker">
-                  <input type="text" id="datepicker" name="contract_term_from" class="span11"><span class="add-on"><i class="icon-th"></i></span>
+                  <input type="text" id="contract_term_from" name="contract_term_from" class="span11"><span class="add-on"><i class="icon-th"></i></span>
                   </div>
                   &nbsp;&nbsp; ~  
                   <div data-date="{{old('contract_term_to')}}" class="input-append date datepicker">
-                  <input type="text" id="datepicker1" name="contract_term_to" class="span11"><span class="add-on"><i class="icon-th"></i></span>
+                  <input type="text" id="contract_term_to" name="contract_term_to" class="span11"><span class="add-on"><i class="icon-th"></i></span>
                   </div>
                   @if ($errors->has('meeting_date'))
                   <span class="help-block">
@@ -87,12 +87,14 @@
                   <label class="control-label">Contract detail 1</label>
                   <div class="controls">
                     <input id="contract_detail_real" type="file" name="contract_detail_real" />
+                    <span class="help-block" id="error_contract_detail_real"></span>
                   </div>
                 </div>
                <div class="control-group">
                   <label class="control-label">Contract detail 2 </label>
                   <div class="controls">
                     <input id="contract_detail" type="file" name="contract_detail" />
+                    <span class="help-block" id="error_contract_detail"></span>
                   </div>
                 </div>
                 <div class="control-group">
@@ -155,7 +157,38 @@ $("#btnSubmit").on("click",function() {
     $('#contract_no').focus();
     flag = false;
   }  
+  if($("#contract_term_from").val().replace(/ /g, "") && $("#contract_term_to").val().replace(/ /g, "")){
+      var start_date  = $("#contract_term_from").val(); 
+      var end_date    = $("#contract_term_to").val();
+      if(new Date(start_date) >= new Date(end_date))
+      {
+         $("#error_mess").html('<?php echo $error['error_contract_term'];?>');
+         $("#div_error").css('display','block');
+         flag = false;            
+      }
+  }
+  if ($("#contract_detail_real").val().replace(/ /g, "")) {
+     if(!validate($("#contract_detail_real").val())){          
+        $("#error_mess").html('<?php echo $error['error_contract_detail_real_mimes'];?>');
+        $("#div_error").css('display','block');
+        flag = false; 
+     } 
+  } 
+  if ($("#contract_detail").val().replace(/ /g, "")) {
+     if(!validate($("#contract_detail").val())){          
+        $("#error_mess").html('<?php echo $error['error_contract_detail_mimes'];?>');
+        $("#div_error").css('display','block');
+        flag = false; 
+     } 
+  } 
+
   if(flag) $( "#frmRegist" ).submit(); 
 }); 
+ 
+function validate(fileupload){  
+  var reg = /(.*?)\.(doc|pdf|docx)$/;
+  if(!fileupload.match(reg))       return false;
+  else return true;
+}
 </script>   
 @endsection

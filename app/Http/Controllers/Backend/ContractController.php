@@ -20,7 +20,10 @@ class ContractController extends BackendController
 
 	public function getRegist(){
         $data =array();        
-        $data['error']['error_contract_no_required']    = trans('validation.error_contract_no_required');        
+        $data['error']['error_contract_no_required']        = trans('validation.error_contract_no_required'); 
+        $data['error']['error_contract_detail_real_mimes']  = trans('validation.error_contract_detail_real_mimes'); 
+        $data['error']['error_contract_detail_mimes']       = trans('validation.error_contract_detail_mimes');      
+        $data['error']['error_contract_term']               = trans('validation.error_contract_term');
         $clsCompany      = new CompanyModel();
         $data['companies'] = $clsCompany->get_all();
 		return view('backend.contract.regist',$data);

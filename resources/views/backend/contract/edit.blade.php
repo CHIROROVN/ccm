@@ -167,9 +167,7 @@ $("#btnSubmit").on("click",function() {
   }  
   if(flag) $( "#frmEdit" ).submit(); 
 }); 
-$("#uniform-upload_file_1").click(function() {
-  alert("vao day");
-}); 
+
 function deletePhoto(divId)
  {
     document.getElementById(divId).value ='';

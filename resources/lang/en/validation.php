@@ -41,5 +41,6 @@ return [
     'error_contract_no_required'          => 'Please enter Contract No.',
     'error_contract_detail_real_mimes'    => 'Please only upload file extension: csv,xls,xlsx,pdf,doc,docx.',
     'error_contract_detail_mimes'         => 'Please only upload file extension: csv,xls,xlsx,pdf,doc,docx.',
+    'error_contract_term'                 => 'End date in contract term should be greater than Start date.',  
     
 ];
