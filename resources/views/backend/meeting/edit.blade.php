@@ -222,7 +222,7 @@ $('#company_id').on('change', function (e) {
 });
 
 $('#meeting_file_1').change(function(){
-    $( "#radio2_meeting_file_1" ).prop( "checked", false );
+    $( "#radio2_meeting_file_1" ).prop( "checked", true );
     $('#uniform-radio2_meeting_file_1 > span').addClass('checked');
     $('#uniform-radio1_meeting_file_1 > span').removeClass('checked');
     $('#uniform-radio3_meeting_file_1 > span').removeClass('checked');
